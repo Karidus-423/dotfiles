@@ -2,6 +2,7 @@ lastupdatecheck: 0
 recentrepos:
 - /home/karidus/.config
 startuppopupversion: 5
-customcommandshistory: []
+customcommandshistory:
+- git config
 hidecommandlog: false
 ignorewhitespaceindiffview: false
