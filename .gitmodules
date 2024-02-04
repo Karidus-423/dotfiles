@@ -1,0 +1,3 @@
+[submodule "Nvim_config"]
+	path = Nvim_config
+	url = https://github.com/Karidus-423/Nvim_config
