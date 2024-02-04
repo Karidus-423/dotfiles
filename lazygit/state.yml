@@ -4,7 +4,10 @@ recentrepos:
 - /home/karidus/.config/nvim
 startuppopupversion: 5
 customcommandshistory:
+- git add .
+- git add
 - git config
 - q
+- git add ./tmux/
 hidecommandlog: false
 ignorewhitespaceindiffview: false
