@@ -1,8 +1,10 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/karidus/.config
+- /home/karidus/.config/nvim
 startuppopupversion: 5
 customcommandshistory:
 - git config
+- q
 hidecommandlog: false
 ignorewhitespaceindiffview: false
