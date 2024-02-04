@@ -3,10 +3,10 @@ recentrepos:
 - /home/karidus/.config
 startuppopupversion: 5
 customcommandshistory:
-- git add ./tmux/
-- q
-- git config
-- git add
 - git add .
+- git add
+- git config
+- q
+- git add ./tmux/
 hidecommandlog: false
 ignorewhitespaceindiffview: false
