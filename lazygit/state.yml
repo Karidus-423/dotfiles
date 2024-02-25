@@ -1,12 +1,17 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/kennett/.config
+- /home/kennett/.config/nvim
 startuppopupversion: 5
 customcommandshistory:
-- git add .
-- git add
-- git config
-- q
+- git config global
 - git add ./tmux/
+- q
+- git config
+- git add
+- git add .
+- git config --global user.email "kapuerto23@gmail.com"
+- git config --global credential.helper 'cache --timeout=3600'
+- git config --global user.name "Karidus-423"
 hidecommandlog: false
 ignorewhitespaceindiffview: false
