@@ -15,10 +15,10 @@ set $up k
 set $right l
 # Your preferred terminal emulator
 set $term alacritty
-# Your preferred application launcher
+# Preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu rofi -show run | xargs swaymsg exec --
+set $menu wofi --show drun --allow-images | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -28,7 +28,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 # Example configuration:
 #
 #   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
+
+output HDMI-A-1 resolution 3440x1440@99.982Hz position 0,0 adaptive_sync on scale 1.3 scale_filter smart
+
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
@@ -196,14 +198,23 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
 # Status Bar:
-#
 # Read `man 5 sway-bar` for more information about this section.
-exec_always waybar
+bar {
+    swaybar_command waybar
+    }
+}
+
+# Start exec
+exec_always swww init
+exec_always swww img images/wallpapers/Regatta.jpg
+
 #Gaps
 default_border pixel 3
-gaps outer 10px
-gaps inner 10px
+smart_gaps inverse_outer
+gaps inner 10
+gaps horizontal 40
+gaps vertical 100
+
 
 include /etc/sway/config.d/*

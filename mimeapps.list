@@ -1,0 +1,5 @@
+[Default Applications]
+application/vnd.microsoft.portable-executable=Alacritty.desktop
+
+[Added Associations]
+application/vnd.microsoft.portable-executable=Alacritty.desktop;
