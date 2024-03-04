@@ -1,7 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
 - /home/kennett/dotfiles
-- /home/kennett/.config
 - /home/kennett/.config/nvim
 startuppopupversion: 5
 customcommandshistory:
