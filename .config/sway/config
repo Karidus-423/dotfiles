@@ -20,6 +20,9 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu wofi --show drun --allow-images | xargs swaymsg exec --
 
+#Preffered apps
+set $browser firefox
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -72,6 +75,9 @@ output HDMI-A-1 resolution 3440x1440@99.982Hz position 0,0 adaptive_sync on scal
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Start keybinds for apps
+    bindsym $mod+f exec $browser
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -151,7 +157,7 @@ output HDMI-A-1 resolution 3440x1440@99.982Hz position 0,0 adaptive_sync on scal
     bindsym $mod+e layout toggle split
 
     # Make the current focus fullscreen
-    bindsym $mod+f fullscreen
+    #bindsym $mod+f fullscreen
 
     # Toggle the current focus between tiling and floating mode
     bindsym $mod+Shift+space floating toggle
@@ -166,13 +172,16 @@ output HDMI-A-1 resolution 3440x1440@99.982Hz position 0,0 adaptive_sync on scal
 #
     # Sway has a "scratchpad", which is a bag of holding for windows.
     # You can send windows there and get them back later.
-
     # Move the currently focused window to the scratchpad
     bindsym $mod+Shift+minus move scratchpad
 
     # Show the next scratchpad window or hide the focused scratchpad window.
     # If there are multiple scratchpad windows, this command cycles through them.
     bindsym $mod+minus scratchpad show
+
+    #Window Rules and Assignments
+    #for_window [workspace="1"] layout floating enable
+    for_window [app_id="Alacritty"] floating enable, resize set height 90ppt, resize set width 67ppt, move position 16ppt 4ppt
 #
 # Resizing containers:
 #
@@ -205,16 +214,21 @@ bar {
     }
 }
 
-# Start exec
-exec_always swww init
-exec_always swww img images/wallpapers/Regatta.jpg
+# Styling
 
-#Gaps
+
+# Start exec
+exec swww init
+exec swww img images/wallpapers/Regatta.jpg
+
+# Decorations
 default_border pixel 3
 smart_gaps inverse_outer
 gaps inner 10
-gaps horizontal 40
-gaps vertical 100
+# class                 border  backgr. text    indicator child_border
+client.focused          #cabf44 #262626 #f0f0f0 #9ec3c4  #cabf44
+client.focused_inactive #cabf44 #262626 #f0f0f0 #9ec3c4  #799363
+client.unfocused        #cabf44 #0f0f0f #f0f0f0 #9ec3c4  #799363
 
 
 include /etc/sway/config.d/*

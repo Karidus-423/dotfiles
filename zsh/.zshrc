@@ -4,28 +4,27 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kennett/.zshrc'
+zstyle :compinstall filename '/home/kennett/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
-# Start OH-MY-POSH
+
+
+# Oh-my-posh
 eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/karidus.omp.json)"
+eval "$(zoxide init zsh)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-#Aliases Git
+#Aliases
 alias g="lazygit"
-
-#Aliases Window Manager
 alias toggle="swaymsg output eDP-1 toggle"
-
-#Aliases Productivity
 alias tx="tmux attach"
 
 #Vim Settings
 bindkey -v
+
 
 function zle-keymap-select {
     if [[ ${KEYMAP} == vicmd ]] || [[ $1 == 'block' ]]; then
@@ -38,6 +37,5 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
+source '/home/kennett/zsh/.zsh_profile'
 echo -ne '\e[5 q'  # Default to line cursor, adjust if desired
-
-

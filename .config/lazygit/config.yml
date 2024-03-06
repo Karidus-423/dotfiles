@@ -1,0 +1,19 @@
+notARepository: 'quit'
+gui:
+  showBottomLine: true
+  theme:
+    activeBorderColor:
+      - '#b3dcdd'
+      - bold
+    inactiveBorderColor:
+      - '#e8eda2'
+    searchingActiveBorderColor:
+      - cyan
+      - bold
+    selectedLineBgColor:
+      - default
+      - underline
+    unstagedChangesColor:
+      - '#b65c40'
+    defaultFgColor:
+      - default
