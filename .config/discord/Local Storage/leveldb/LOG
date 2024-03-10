@@ -1,0 +1,9 @@
+2024/03/10-19:34:39.720 ee5 Reusing MANIFEST /home/kapud/.config/discord/Local Storage/leveldb/MANIFEST-000001
+2024/03/10-19:34:39.720 ee5 Recovering log #21
+2024/03/10-19:34:39.721 ee5 Reusing old log /home/kapud/.config/discord/Local Storage/leveldb/000021.log 
+2024/03/10-19:37:12.601 f51 Level-0 table #25: started
+2024/03/10-19:37:12.637 f51 Level-0 table #25: 737389 bytes OK
+2024/03/10-19:37:12.642 f51 Delete type=0 #21
+2024/03/10-21:12:11.417 f51 Level-0 table #27: started
+2024/03/10-21:12:11.427 f51 Level-0 table #27: 13324 bytes OK
+2024/03/10-21:12:11.431 f51 Delete type=0 #24

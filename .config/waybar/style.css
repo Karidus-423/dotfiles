@@ -27,7 +27,7 @@ tooltip {
     color: #CCCCCC;
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     color: #4B4B4B;
     background-color: #527FB5;
 }
@@ -51,7 +51,8 @@ tooltip {
 #workspaces {
     background-color: #4B4B4B;
     border-radius: 0px 0px 0px 0px;
-    font-family: mononoki Nerd Font;
+    font-family: "Mononoki Nerd Font Mono";
+    font-size: 20px
 }
 
 #custom-date {

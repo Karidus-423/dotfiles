@@ -3,7 +3,7 @@ normal.family = "GohuFont 11 Nerd Font"
 bold.family = "GohuFont 14 Nerd Font"
 italic.family = "GohuFont 11 Nerd Font"
 bold_italic.family = "GohuFont 14 Nerd Font"
-size = 14
+size = 15
 builtin_box_drawing = true
 
 [shell]

@@ -4,12 +4,13 @@ HISTSIZE=1000
 SAVEHIST=1000
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/kennett/zsh/.zshrc'
+zstyle :compinstall filename '/home/kapud/zsh/.zshrc'
 
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 # Oh-my-posh
@@ -19,7 +20,7 @@ eval "$(zoxide init zsh)"
 
 #Aliases
 alias g="lazygit"
-alias toggle="swaymsg output eDP-1 toggle"
+#alias toggle="swaymsg output eDP-1 toggle" #Sway
 alias tx="tmux attach"
 
 #Vim Settings
@@ -37,5 +38,5 @@ function zle-keymap-select {
 }
 zle -N zle-keymap-select
 
-source '/home/kennett/zsh/.zsh_profile'
+source '/home/kapud/zsh/.zsh_profile'
 echo -ne '\e[5 q'  # Default to line cursor, adjust if desired

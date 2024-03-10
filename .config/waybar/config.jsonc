@@ -1,9 +1,9 @@
 {
     "position": "top", 
     "height": 30,
-    "modules-center": [ "network", "pulseaudio","sway/workspaces","battery", "clock"],
+    "modules-center": [ "network", "pulseaudio","hyprland/workspaces","battery", "clock"],
     // Modules configuration
-	"sway/workspaces": {
+	"hyprland/workspaces": {
 		"disable-scroll": true,
 		"all-outputs": true,
 		"format": "{icon}",

@@ -4,12 +4,8 @@ window {
     border-style: double;
     border-radius: 8px;
     background-color: #4B4B4B;
-    font-family: "GohuFont 14 Nerd Font";
-    font-size: 14px;
-}
-
-image {
-    margin-left: 10px;
+    font-family: "GohuFont 11 Nerd Font Mono";
+    font-size: 18px;
 }
 
 #input {
@@ -20,9 +16,6 @@ image {
     background-color: #BCBFBA;
 }
 
-#input image {
-    color: #C2EFF0;
-}
 
 #inner-box {
     margin: 5px;

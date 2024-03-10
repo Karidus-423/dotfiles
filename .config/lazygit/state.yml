@@ -1,8 +1,6 @@
 lastupdatecheck: 0
 recentrepos:
-- /home/kennett/dotfiles
-- /home/kennett/personal/data_tutor
-- /home/kennett/.config/nvim
+- /home/kapud/dotfiles
 startuppopupversion: 5
 customcommandshistory:
 - Status bar done
