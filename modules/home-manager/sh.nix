@@ -4,9 +4,10 @@ let
    myAliases = {
      ll = "ls -l";
      ".." = "cd ..";
-     "g" = "lazygit";
-     "cat" = "bat";
-     "rebuild" = "nixos-rebuild";
+     g = "lazygit";
+     cat = "bat";
+     tx = "tmux attach";
+     mh = "man home-configuration.nix";
    };
 in
 {
@@ -34,19 +35,9 @@ in
 
     #Shell scripts
     home.packages = with pkgs;[
-        (writeShellScriptBin "nixos-rebuild" ''
+        (writeShellScriptBin "rebuild" ''
         #!/bin/bash
-         set -e
-         pushd ~/dots
-         git add .
-         sudo nixos-rebuild switch --flake ~/dots/#icarus
-         current=$(nixos-rebuild list-generations | grep current)
-        # Commit all changes witih the generation metadata
-         git commit -am "$current"
-        # Back to where you were
-         popd
-        # Notify all OK!
-         notify-send -e "NixOS Rebuilt OK!" --icon=software-update-available
+        sudo nixos-rebuild switch --flake ~/dots/#icarus
         '')
     ];
 }

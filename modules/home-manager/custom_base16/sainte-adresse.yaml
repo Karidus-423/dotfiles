@@ -1,0 +1,18 @@
+scheme: "sainte-adresse"
+author: "Kennett Puerto (kennettdev1@gmail.com), Karidus-423 (https://github.com/Karidus-423)"
+base00: "110f0f" # ----
+base01: "252550" # ---
+base02: "3B4048" # --
+base03: "7e8180" # -
+base04: "989a99" # +
+base05: "acafad" # ++
+base06: "F6F6F5" # +++
+base07: "f2f2f2" # ++++
+base08: "8d4f4f" # red
+base09: "cabf44" # orange
+base0A: "cecF00" # yellow
+base0B: "a5c38d" # green
+base0C: "b3dcdd" # aqua/cyan
+base0D: "1f518e" # blue
+base0E: "a780b3" # purple
+base0F: "b37937" # brown

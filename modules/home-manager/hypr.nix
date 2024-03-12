@@ -134,6 +134,7 @@
 		bind = $mainMod, V, togglefloating, 
 		bind = $mainMod, P, pseudo, # dwindle
 		bind = $mainMod, T, togglesplit, # dwindle
+        bind=,Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
 
 		binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 		binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-

@@ -1,8 +1,10 @@
-{ config, pkgs, ... }:
+{ inputs, nix-colors, pkgs, ... }:
 
 {
   imports = [
-    ./modules-home.nix
+    inputs.nix-colors.homeManagerModules.default
+    ./packages/packs-conf.nix
+    ./packages/packs.nix
   ];
   home.username = "kapud";
   home.homeDirectory = "/home/kapud";
@@ -13,56 +15,23 @@
   home.stateVersion = "23.11";
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = with pkgs; [
-    # Package override for fine tuning
-    # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
-
-    # Shell script name 
-    # (pkgs.writeShellScriptBin "my-hello" ''
-    #   echo "Hello, ${config.home.username}!"
-    # '')
-    fzf
-    bat
-    htop
-    gotop
-    waybar
-    swww
-    ranger
-    wofi
-    oh-my-zsh
-    oh-my-posh
-    tmux
-    spotify
-    neofetch
-    godot_4
-    discord
-    cava
-    zathura
-    rustc
-    libgcc
-    python3
-    lua
-    go
-    cargo
-    ripgrep
-    nodejs_21
-  ];
-
+  colorScheme = nix-colors.lib.schemeFromYAML "sainte-adresse" 
+  (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
+# # Building this configuration will create a copy of 'dotfiles/screenrc' in
+# # the Nix store. Activating the configuration will then make '~/.screenrc' a
+# # symlink to the Nix store copy.
+# ".screenrc".source = dotfiles/screenrc;
+
+# # You can also set the file content immediately.
+# ".gradle/gradle.properties".text = ''
+#   org.gradle.console=verbose
+#   org.gradle.daemon.idletimeout=3600000
+# '';
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
-
-      };
+       ".config/swappy/config".source = ../../modules/home-manager/swappy/config;
+   };
 
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. If you don't want to manage your shell through Home
