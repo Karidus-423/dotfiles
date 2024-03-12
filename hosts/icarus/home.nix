@@ -2,57 +2,50 @@
 
 {
   imports = [
-  	../../modules/home-manager/sh.nix
-  	../../modules/home-manager/alacritty.nix
-	../../modules/home-manager/wofi/wofi.nix
-	../../modules/home-manager/hypr.nix
-	../../modules/home-manager/tmux.nix
-	../../modules/home-manager/waybar/waybar.nix
+    ./modules-home.nix
   ];
   home.username = "kapud";
   home.homeDirectory = "/home/kapud";
   nixpkgs.config.allowUnfreePredicate = _: true;
-
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11";
-
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  home.packages = [
-    # # Adds the 'hello' command to your environment. It prints a friendly
-    # # "Hello, world!" when run.
-    # pkgs.hello
-
-    # # It is sometimes useful to fine-tune packages, for example, by applying
-    # # overrides. You can do that directly here, just don't forget the
-    # # parentheses. Maybe you want to install Nerd Fonts with a limited number of
-    # # fonts?
+  home.packages = with pkgs; [
+    # Package override for fine tuning
     # (pkgs.nerdfonts.override { fonts = [ "FantasqueSansMono" ]; })
 
-    # # You can also create simple shell scripts directly inside your
-    # # configuration. For example, this adds a command 'my-hello' to your
-    # # environment:
+    # Shell script name 
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    pkgs.fzf
-    pkgs.bat
-    pkgs.htop
-    pkgs.waybar
-    pkgs.swww
-    pkgs.ranger
-    pkgs.wofi
-    pkgs.oh-my-zsh
-    pkgs.oh-my-posh
-    pkgs.tmux
-    pkgs.spotify
-    pkgs.neofetch
-    pkgs.godot_4
-    pkgs.discord
-    pkgs.cava
-    pkgs.zathura
+    fzf
+    bat
+    htop
+    gotop
+    waybar
+    swww
+    ranger
+    wofi
+    oh-my-zsh
+    oh-my-posh
+    tmux
+    spotify
+    neofetch
+    godot_4
+    discord
+    cava
+    zathura
+    rustc
+    libgcc
+    python3
+    lua
+    go
+    cargo
+    ripgrep
+    nodejs_21
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

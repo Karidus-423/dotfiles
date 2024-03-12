@@ -8,6 +8,12 @@
 		shell = "${pkgs.zsh}/bin/zsh";
 		terminal = "screen-256color";
 		extraConfig = "bind c new-window -c \"#{pane_current_path}\"";
-		newSession = false;
+		newSession = true;
+        plugins = with pkgs; [
+          tmuxPlugins.better-mouse-mode
+          tmuxPlugins.nord
+          tmuxPlugins.sensible
+          tmuxPlugins.vim-tmux-navigator
+        ];
 	};
 }

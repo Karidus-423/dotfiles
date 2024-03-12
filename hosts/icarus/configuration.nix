@@ -11,7 +11,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "icarus"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -22,9 +22,34 @@
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth = {
+      enable = true;
+      settings = {
+          General = {
+              Name = "Hello";
+              ControllerMode = "dual";
+              FastConnectable = "true";
+              Experimental = "true";
+          };
+          Policy = {
+              AutoEnable = "true";
+          };
+      };
+  };
   services.blueman.enable = true;
+
+# Enable sound
+  security.rtkit.enable = true;
+  services.pipewire = {
+      enable = true;
+      alsa.enable = true;
+      alsa.support32Bit = true;
+      pulse.enable = true;
+    # If you want to use JACK applications, uncomment this
+    #jack.enable = true;
+  };
+
   # Set your time zone.
   time.timeZone = "America/New_York";
 
@@ -43,6 +68,15 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  #Enable Display Manger
+    services.xserver.enable = true;
+    services.xserver.displayManager.lightdm ={
+        enable = true;
+        greeter = {
+            enable = true;
+        };
+    };
+
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -57,12 +91,13 @@
   users.users.kapud = {
     isNormalUser = true;
     description = "Kennett Puerto";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "sound"];
     shell = pkgs.zsh;
     packages = with pkgs; [
 	neovim
-	firefox
-        alacritty
+    firefox
+    alacritty
+    pavucontrol
     ];
   };
 
@@ -77,7 +112,6 @@
     git
     lazygit
   ];
-
   #Home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
