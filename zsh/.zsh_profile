@@ -1,8 +1,0 @@
-export XDG_CONFIG_HOME=$HOME/.config
-
-# $PATH Variables
-export PATH="$HOME/.local/scripts:$PATH"
-bindkey -s '^f' "tmux-sessionizer\n"
-
-#autoload -U compinit; compinit
-#source ~/.config/fzf/autocomplete/fzf-tab.plugin.zsh
