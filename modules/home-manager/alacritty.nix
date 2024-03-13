@@ -26,21 +26,21 @@
   };
   colors = {
 	  primary = {
-		  background = "#4b4b4b";
+		  background = "0x${config.colorScheme.colors.base03}";
 	  };
 	  normal = {
-		  black = "#0F0D0D";
-		  red = "#945050";
-		  green = "#819E69";
-		  yellow = "#B4A71D";
-		  blue = "#527FB5";
-		  magenta = "#B489C2";
-		  cyan = "#75BCBD";
-		  white = "#CCCCCC";
+          black = "0x${config.colorScheme.colors.base01}";
+          red =   "0x${config.colorScheme.colors.base08}";
+          green = "0x${config.colorScheme.colors.base0B}";
+          yellow ="0x${config.colorScheme.colors.base0A}";
+          blue =  "0x${config.colorScheme.colors.base0D}";
+          magenta="0x${config.colorScheme.colors.base0E}";
+          cyan =  "0x${config.colorScheme.colors.base0C}";
+          white = "0x${config.colorScheme.colors.base00}";
 	  };
 	  bright = {
 		  black = "#333333";
-		  red = "#BA6D6D";
+		  red =   "#BA6D6D";
 		  green = "#B2D498";
 		  yellow = "#DBCF47";
 		  blue = "#70AFFC";

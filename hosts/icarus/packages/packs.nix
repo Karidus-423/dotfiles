@@ -29,6 +29,7 @@
     libgcc
     python3
     lua
+    hyprpicker
     go
     cargo
     ripgrep

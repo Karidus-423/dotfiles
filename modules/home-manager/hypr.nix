@@ -77,7 +77,7 @@
 		    bezier= linear, .17,.67,.83,.67
 		    bezier= binbong,.49,.99,.47,.26
 
-		    animation = windows, 1, 8, overshot
+		    animation = windows, 1, 8, waitup, popin 50%
 		    animation = windowsOut, 1, 5, overshot, popin 80%
 		    animation = border, 1, 3, waitup
 		    animation = borderangle, 1, 150, linear, loop

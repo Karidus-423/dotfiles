@@ -1,4 +1,4 @@
-{ inputs, nix-colors, pkgs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -15,7 +15,7 @@
   home.stateVersion = "23.11";
   # The home.packages option allows you to install Nix packages into your
   # environment.
-  colorScheme = nix-colors.lib.schemeFromYAML "sainte-adresse" 
+  colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
   (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
