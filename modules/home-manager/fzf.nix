@@ -11,12 +11,11 @@
     # '')
     home.packages = with pkgs;[
         (writeShellScriptBin "tmux-sessionizer" ''
-         #!/usr/bin/env bash
 
          if [[ $# -eq 1 ]]; then
          selected=$1
          else
-         selected=$(find ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf)
+         selected=$(find ~/ ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf)
          fi
 
          if [[ -z $selected ]]; then

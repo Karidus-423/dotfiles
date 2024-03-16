@@ -14,7 +14,7 @@
     };
   window = {
 	  decorations = "None";
-	  opacity = 0.64;
+	  opacity = 0.90;
 	  padding = {
 		  x = 20;
 		  y = 30;
@@ -26,17 +26,17 @@
   };
   colors = {
 	  primary = {
-		  background = "0x${config.colorScheme.colors.base03}";
+		  background = "0x${config.colorScheme.palette.base01}";
 	  };
 	  normal = {
-          black = "0x${config.colorScheme.colors.base01}";
-          red =   "0x${config.colorScheme.colors.base08}";
-          green = "0x${config.colorScheme.colors.base0B}";
-          yellow ="0x${config.colorScheme.colors.base0A}";
-          blue =  "0x${config.colorScheme.colors.base0D}";
-          magenta="0x${config.colorScheme.colors.base0E}";
-          cyan =  "0x${config.colorScheme.colors.base0C}";
-          white = "0x${config.colorScheme.colors.base00}";
+          black = "0x${config.colorScheme.palette.base00}";
+          red =   "0x${config.colorScheme.palette.base08}";
+          green = "0x${config.colorScheme.palette.base0B}";
+          yellow ="0x${config.colorScheme.palette.base0A}";
+          blue =  "0x${config.colorScheme.palette.base0D}";
+          magenta="0x${config.colorScheme.palette.base0E}";
+          cyan =  "0x${config.colorScheme.palette.base0C}";
+          white = "0x${config.colorScheme.palette.base07}";
 	  };
 	  bright = {
 		  black = "#333333";

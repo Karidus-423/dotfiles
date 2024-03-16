@@ -38,6 +38,36 @@
       };
   };
   services.blueman.enable = true;
+  services.gvfs.enable = true;
+
+    # Enable Syncthing
+ # services = {
+ #     syncthing = {
+ #         enable = true;
+ #         user = "myusername";
+ #         dataDir = "/home/myusername/Documents";
+ #         configDir = "/home/myusername/Documents/.config/syncthing";
+ #         overrideDevices = true;     # overrides any devices added or deleted through the WebUI
+ #             overrideFolders = true;     # overrides any folders added or deleted through the WebUI
+ #             settings = {
+ #                 devices = {
+ #                     "device1" = { id = "DEVICE-ID-GOES-HERE"; };
+ #                     "device2" = { id = "DEVICE-ID-GOES-HERE"; };
+ #                 };
+ #                 folders = {
+ #                     "Documents" = {         # Name of folder in Syncthing, also the folder ID
+ #                         path = "/home/myusername/Documents";    # Which folder to add to Syncthing
+ #                             devices = [ "device1" "device2" ];      # Which devices to share the folder with
+ #                     };
+ #                     "Example" = {
+ #                         path = "/home/myusername/Example";
+ #                         devices = [ "device1" ];
+ #                         ignorePerms = false;  # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
+ #                     };
+ #                 };
+ #             };
+ #     };
+ # };
 
 # Enable sound
   security.rtkit.enable = true;
@@ -91,13 +121,14 @@
   users.users.kapud = {
     isNormalUser = true;
     description = "Kennett Puerto";
-    extraGroups = [ "networkmanager" "wheel" "sound"];
+    extraGroups = [ "networkmanager" "wheel" "sound" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
 	neovim
     firefox
     alacritty
     pavucontrol
+    brightnessctl
     ];
   };
 
@@ -111,6 +142,7 @@
     vim 
     git
     lazygit
+    syncthing
   ];
   #Home-manager
   home-manager = {

@@ -19,6 +19,7 @@ programs.wofi = {
 		layer = "overlay";
 		insensitive = true;
 		allow_images = false;
+        prompt = " ";
 	};
 };
 }

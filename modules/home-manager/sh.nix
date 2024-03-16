@@ -8,6 +8,7 @@ let
      cat = "bat";
      tx = "tmux attach";
      mh = "man home-configuration.nix";
+     dev = "nix develop";
    };
 in
 {
@@ -25,7 +26,10 @@ in
             enable = true;
         };
         initExtra = ''  
+            eval "$(zoxide init zsh)"
+
             bindkey -s '^f' "tmux-sessionizer\n"
+            bindkey -s '^c' "bye"
         '';
 	};
     programs.bash = {
@@ -36,7 +40,6 @@ in
     #Shell scripts
     home.packages = with pkgs;[
         (writeShellScriptBin "rebuild" ''
-        #!/bin/bash
         sudo nixos-rebuild switch --flake ~/dots/#icarus
         '')
     ];

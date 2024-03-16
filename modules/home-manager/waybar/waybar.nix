@@ -37,6 +37,7 @@ programs.waybar = {
 			format = ''{: %I:%M %p}'';
 			tooltip = true;
 			tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
+			on-click = "alacritty -e calcure";
 		};
 		"battery" = {
 			states = {

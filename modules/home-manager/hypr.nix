@@ -1,4 +1,4 @@
-{config , pkgs, ... }:
+{...}:
 	{
 		home.file.".config/hypr/hyprland.conf".text = ''
 		# Execute your favorite apps at launch
@@ -11,7 +11,7 @@
 		# Set programs that you use
 		$terminal = alacritty
 		$fileManager = ranger
-		$menu = wofi --show drun
+		$menu = wofi --show drun --term alacritty -n
 		$browser = firefox
 
 		# Some default env vars.
@@ -41,7 +41,7 @@
 		    gaps_in = 4
 		    gaps_out = 20
 		    border_size = 5
-		    col.active_border = rgba(b3dcddee) rgba(1f518ea8) 0deg
+		    col.active_border = rgba(b2d498ee) rgba(b3dcdda8) 0deg
 		    col.inactive_border = rgba(acafadee) rgba(110f0fa5) 90deg
 
 		    layout = dwindle
@@ -70,25 +70,25 @@
 
 		    # Some default animations, see https://wiki.hyprland.org/Configuring/Animations/ for more
 
-		    bezier = myBezier, 0.05, 0.9, 0.1, 1.05
 		    bezier = waitup, 0.92, 1.66, 0.94, 0.22 
-		    bezier = wave, 0,.71,.21,.19
-		    bezier= overshot,0.05,0.9,0.1,1.1
 		    bezier= linear, .17,.67,.83,.67
-		    bezier= binbong,.49,.99,.47,.26
+		    bezier= foosh,.17,.7,.1,.85
+            bezier= breath,0.0,1.0,1.0,0.0
 
-		    animation = windows, 1, 8, waitup, popin 50%
-		    animation = windowsOut, 1, 5, overshot, popin 80%
+		    animation = windowsIn, 1, 4, foosh, slide
+		    animation = windowsOut, 1, 3, foosh, slide
+            animation = windowsMove, 1, 3, foosh
 		    animation = border, 1, 3, waitup
-		    animation = borderangle, 1, 150, linear, loop
-		    animation = fade, 1, 3, default
-		    animation = workspaces, 1, 3, wave
+		    animation = borderangle, 1, 150, breath, loop
+            animation = fade, 1, 3, default
+		    animation = workspaces, 1, 3, foosh, slide
 		}
 
 		dwindle {
 		    # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
-		    pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
-		    preserve_split = yes # you probably want this
+		    pseudotile = true # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
+		    preserve_split = true # you probably want this
+            force_split = 2
 		}
 
 		master {
@@ -98,7 +98,7 @@
 
 		gestures {
 		    # See https://wiki.hyprland.org/Configuring/Variables/ for more
-		    workspace_swipe = off
+		    workspace_swipe = on
 		}
 
 		misc {
@@ -119,6 +119,7 @@
 		# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 		# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 		#windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
+        windowrule = pseudo, ^(alacritty)$
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -129,13 +130,17 @@
 		bind = $mainMod, Q, killactive, 
 		bind = $mainMod_SHIFT, Q, exit, 
 		bind = $mainMod, D, exec, $menu
-		bind = $mainMod, E, exec, alacritty -e ranger
+		bind = $mainMod, E, exec, alacritty -e $filemanager
 		bind = $mainMod, F, exec, $browser
 		bind = $mainMod, V, togglefloating, 
 		bind = $mainMod, P, pseudo, # dwindle
 		bind = $mainMod, T, togglesplit, # dwindle
-        bind=,Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
+        bind = , Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
 
+
+
+        binde = , XF86MonBrightnessDown,exec,brightnessctl set 5%-
+        binde = , XF86MonBrightnessUp,exec,brightnessctl set 5%+
 		binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 		binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 		bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -151,7 +156,7 @@
 		# trigger when the switch is turning on
 		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 		# trigger when the switch is turning off
-		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 2560x1600@60, 0x0, 1"
+		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, enable"
 
 
 		# Move focus with mainMod + arrow keys
@@ -196,13 +201,23 @@
 		bindm = $mainMod, mouse:272, movewindow
 		bindm = $mainMod, mouse:273, resizewindow
 
-		#Custom Workspaces
+		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
-		#Worspace 2 - Web Browser
+        workspace = 1, on-created-empty:[pseudo] $terminal
+
+		#Workspace 2 - Web Browser
+        workspace = 2, on-created-empty:[pseudo] $browser
+
 		#Workspace 3 - Directory/Manuals
+        workspace = 3, on-created-empty:[pseudo] $filemanager
+
 		#Workspace 4 - Notes/Calendar/Email
+        workspace = 4, on-created-empty:[pseudo] alacritty -e calcure
+
 		#Workspace 5 - Drawing Tool
+
 		#Workspace 6 - Media
+        workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
 		monitor=DP-1,3440x1440@144,0x0,1

@@ -1,8 +1,11 @@
-{ inputs, pkgs, ... }:
-
+{ inputs, pkgs, home,... }:
+#let
+#    nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
+#in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
+    inputs.ags.homeManagerModules.default
     ./packages/packs-conf.nix
     ./packages/packs.nix
   ];
@@ -13,10 +16,32 @@
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11";
-  # The home.packages option allows you to install Nix packages into your
-  # environment.
   colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
   (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
+  #colorScheme = nix-colors-lib.colorSchemeFromPicture {
+  #  path = ./wallpapers/forest.png;
+  #  variant = "light";
+  #};
+  gtk = {
+      enable = true;
+      iconTheme = {
+          package = pkgs.gruvbox-dark-icons-gtk;
+          name = "GruvboxDarkIcons";
+      };
+
+  };
+
+  programs.ags = {
+      enable = true;
+      extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+      gvfs
+      ];
+  };
+
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
 # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -51,6 +76,8 @@
   home.sessionVariables = {
     EDITOR = "nvim";
   };
+
+
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;

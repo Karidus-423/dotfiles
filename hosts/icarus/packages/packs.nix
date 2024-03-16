@@ -8,36 +8,54 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    fzf
     bat
-    htop
-    gotop
-    waybar
-    swww
-    ranger
-    wofi
-    oh-my-zsh
-    oh-my-posh
-    tmux
-    spotify
-    neofetch
-    godot_4
-    discord
-    cava
-    zathura
-    rustc
-    libgcc
-    python3
-    lua
-    hyprpicker
-    go
+    calcure
     cargo
-    ripgrep
-    wev
-    nodejs_21
+    cava
+    clang-tools #C/C++
+    discord
+    fzf
+    go
+    godot_4
+    #--Language Servers------#
+    #------------------------#
+    gotop
     grim
+    gtk3
+    htop
+    hyprpicker
+    imagemagick
+    just
+    libgcc
+    lua
+    lua-language-server
+    neofetch
+    nil #Nix
+    nodejs_21
+    obs-studio
+    oh-my-posh
+    oh-my-zsh
+    python3
+    ranger
+    ripgrep
+    rocmPackages.llvm.clang
+    neomutt
+    rustc
     slurp
+    spotify
+    notify
+    steam-run
     swappy
+    swww
+    tailwindcss-language-server
+    tmux
+    unzip
+    watchexec
+    waybar
+    wev
     wf-recorder
+    wofi
+    zathura
+    zoxide
   ];
 }
