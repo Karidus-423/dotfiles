@@ -139,8 +139,11 @@
 
 
 
+        #Brightness
         binde = , XF86MonBrightnessDown,exec,brightnessctl set 5%-
         binde = , XF86MonBrightnessUp,exec,brightnessctl set 5%+
+
+        #Audio
 		binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 		binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 		bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
@@ -156,7 +159,7 @@
 		# trigger when the switch is turning on
 		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 		# trigger when the switch is turning off
-		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, enable"
+		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1200@60,0x0"
 
 
 		# Move focus with mainMod + arrow keys
@@ -200,6 +203,10 @@
 		# Move/resize windows with mainMod + LMB/RMB and dragging
 		bindm = $mainMod, mouse:272, movewindow
 		bindm = $mainMod, mouse:273, resizewindow
+        binde = $mainMod SHIFT, l, resizeactive, 10 0
+        binde = $mainMod SHIFT, h, resizeactive, -10 0
+        binde = $mainMod SHIFT, j, resizeactive, 0 -10
+        binde = $mainMod SHIFT, k, resizeactive, 0 10
 
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work

@@ -1,22 +1,26 @@
-{ config, pkgs, ...}:
+{...}:
 {
 programs.waybar = {
 	enable = true;
 	settings =[{
 		position = "top";
-		height = 30;
+		height = 20;
 		modules-center =[
-			"network"
-			"pulseaudio"
 			"hyprland/workspaces"
-			"battery"
-			"clock"
 		];
+        modules-left = [
+            "network"
+            "pulseaudio"
+        ];
+        modules-right = [
+            "clock"
+            "battery"
+        ];
 		"hyprland/workspaces" = {
 			disable-scroll = true;
 			all-outputs = true;
 			format = "{icon}";
-			persistent_workspaces = {
+			persistent-workspaces = {
 				"1" = [];
 				"2" = [];
 				"3" = [];
@@ -35,8 +39,6 @@ programs.waybar = {
 		};
 		"clock" = {
 			format = ''{: %I:%M %p}'';
-			tooltip = true;
-			tooltip-format = "<big>{:%A, %d.%B %Y }</big><tt><small>{calendar}</small></tt>";
 			on-click = "alacritty -e calcure";
 		};
 		"battery" = {
@@ -52,19 +54,17 @@ programs.waybar = {
 			tooltip = false;
 		};
 		"network" = {
-			format-wifi = "  {essid}";
-			format-ethernet = "󰤮 Disconnected";
+			format-wifi = " ";
+			format-ethernet = "󰈀 ";
 			format-linked = "{ifname} (No IP) ";
-			format-disconnected = "󰤮 Disconnected";
+			format-disconnected = "󰤮 ";
 			tooltip-format-wifi = "Signal Strenght: {signalStrength}% | Down Speed: {bandwidthDownBits}, Up Speed: {bandwidthUpBits}";
 		};
 		"pulseaudio" = {
-			format = "{icon} {volume}% {format_source}";
+			format = "{icon} {volume}%";
 			format-bluetooth = "{volume}% {icon} {format_source}";
 			format-bluetooth-muted = " {icon} {format_source}";
 			format-muted = " {format_source}";
-			format-source = " {volume}%";
-			format-source-muted = "";
 			format-icons = {
 				headphone = "";
 				hands-free = "";
@@ -76,6 +76,11 @@ programs.waybar = {
 			};
 			on-click = "sleep 0.1 && pavucontrol";
 		};
+        "cava" = {
+            framerate = 60;
+            bars = 12;
+            sensitivity = 80;
+        };
 
 
 
@@ -89,7 +94,7 @@ programs.waybar = {
 		border: none;
 		border-radius: 0;
 		font-family: "GohuFont uni11 Nerd Font";
-		font-size: 14px;
+		font-size: 12px;
 		min-height: 0;
 	}
 
@@ -125,6 +130,7 @@ programs.waybar = {
 	#battery,
 	#pulseaudio,
 	#network,
+    #window,
 	#workspaces {
 		background-color: #4B4B4B;
 	padding: 5px 10px;
@@ -133,7 +139,7 @@ programs.waybar = {
 
 	#workspaces {
 		background-color: #4B4B4B;
-		border-radius: 0px 0px 0px 0px;
+        border-radius: 5px;
 		font-family: "Mononoki Nerd Font Mono";
 		font-size: 20px
 	}
@@ -145,11 +151,11 @@ programs.waybar = {
 	#clock {
 	color: #B489C2;
 	       border-radius: 0px 3px 3px 0px;
-	       margin-right: 10px;
 	}
 
 	#battery {
-	color: #819E69;
+       color: #819E69;
+       margin-right: 5px;
 	}
 
 	#battery.charging {
@@ -163,7 +169,8 @@ programs.waybar = {
 
 	#network {
 	color: #B4A71D;
-	       border-radius: 3px 0px 0px 3px;
+	border-radius: 3px 0px 0px 3px;
+    margin-left: 5px;
 	}
 
 	#pulseaudio {

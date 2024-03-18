@@ -24,6 +24,7 @@
     gtk3
     htop
     hyprpicker
+    libreoffice
     imagemagick
     just
     libgcc
@@ -39,15 +40,16 @@
     ranger
     ripgrep
     rocmPackages.llvm.clang
+    figma-linux
     neomutt
     rustc
+    nodePackages_latest.typescript-language-server
     slurp
     spotify
     notify
     steam-run
     swappy
     swww
-    tailwindcss-language-server
     tmux
     unzip
     watchexec
