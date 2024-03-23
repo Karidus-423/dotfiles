@@ -128,6 +128,7 @@
     firefox
     alacritty
     pavucontrol
+    wireplumber
     brightnessctl
     ];
   };

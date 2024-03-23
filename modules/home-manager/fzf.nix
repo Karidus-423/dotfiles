@@ -1,9 +1,25 @@
-{ config, pkgs,...}:
+{ pkgs,...}:
 {
     programs.fzf = {
         enable = true;
         enableZshIntegration = true;
+        enableBashIntegration = true;
         tmux.enableShellIntegration = true;
+        colors = {
+            prompt = "#cabf44";
+            hl = "#b2d498";
+            "fg+" = "#686868";
+        };
+        defaultOptions = [
+            "--height 50%"
+            "--min-height 20%"
+            "--reverse"
+            "--border=sharp"
+            "--boder-label=Sessionizer"
+            "--margin 5%"
+            "--pointer=󰞘"
+            "--color=label:#cccccc"
+        ];
     };
     # Shell script name 
     # (pkgs.writeShellScriptBin "my-hello" ''
@@ -15,7 +31,7 @@
          if [[ $# -eq 1 ]]; then
          selected=$1
          else
-         selected=$(find ~/ ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf)
+         selected=$(find ~/ ~/work ~/personal -mindepth 1 -maxdepth 1 -type d | fzf --border-label=Sessionizer)
          fi
 
          if [[ -z $selected ]]; then
@@ -32,7 +48,8 @@
 
          if ! tmux has-session -t=$selected_name 2> /dev/null; then
              tmux new-session -ds $selected_name -c $selected
-                 fi
+             tmux a
+         fi
 
                  tmux switch-client -t $selected_name
         '')

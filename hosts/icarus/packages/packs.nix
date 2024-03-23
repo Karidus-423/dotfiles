@@ -8,6 +8,8 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
+    #------------------------#
+    #--Language Servers------#
     bat
     calcure
     cargo
@@ -17,37 +19,32 @@
     fzf
     go
     godot_4
-    #--Language Servers------#
-    #------------------------#
-    gotop
     grim
     gtk3
     htop
     hyprpicker
-    libreoffice
-    imagemagick
     just
+    calibre
+    mailspring
     libgcc
+    libreoffice
     lua
     lua-language-server
     neofetch
     nil #Nix
+    nodePackages.bash-language-server
+    nodePackages_latest.typescript-language-server
     nodejs_21
-    obs-studio
+    notify
     oh-my-posh
-    oh-my-zsh
     python3
     ranger
     ripgrep
     rocmPackages.llvm.clang
-    figma-linux
-    neomutt
     rustc
-    nodePackages_latest.typescript-language-server
+    shellcheck
     slurp
     spotify
-    notify
-    steam-run
     swappy
     swww
     tmux
@@ -55,7 +52,6 @@
     watchexec
     waybar
     wev
-    wf-recorder
     wofi
     zathura
     zoxide

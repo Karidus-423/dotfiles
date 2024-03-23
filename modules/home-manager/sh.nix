@@ -8,7 +8,8 @@ let
      cat = "bat";
      tx = "tmux attach";
      mh = "man home-configuration.nix";
-     dev = "nix develop";
+     dev = "nix develop --command zsh";
+     nvgd = "nvim --listen 127.0.0.1:55432";
    };
 in
 {
@@ -30,11 +31,24 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
+            
+
+            if [ -n "$\{commands[fzf-share]\}" ]; then
+              source "$(fzf-share)/key-bindings.zsh"
+              source "$(fzf-share)/completion.zsh"
+            fi
+
         '';
 	};
     programs.bash = {
         enable = true;
         shellAliases = myAliases;
+        initExtra = ''  
+            eval "$(zoxide init zsh)"
+
+            bindkey -s '^f' "tmux-sessionizer\n"
+            bindkey -s '^c' "bye"
+        '';
     };
 
     #Shell scripts

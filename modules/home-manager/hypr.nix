@@ -203,14 +203,14 @@
 		# Move/resize windows with mainMod + LMB/RMB and dragging
 		bindm = $mainMod, mouse:272, movewindow
 		bindm = $mainMod, mouse:273, resizewindow
-        binde = $mainMod SHIFT, l, resizeactive, 10 0
-        binde = $mainMod SHIFT, h, resizeactive, -10 0
-        binde = $mainMod SHIFT, j, resizeactive, 0 -10
-        binde = $mainMod SHIFT, k, resizeactive, 0 10
+        binde = $mainMod SHIFT, l, resizeactive, 20 0
+        binde = $mainMod SHIFT, h, resizeactive, -20 0
+        binde = $mainMod SHIFT, j, resizeactive, 0 -20
+        binde = $mainMod SHIFT, k, resizeactive, 0 20
 
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
-        workspace = 1, on-created-empty:[pseudo] $terminal
+        workspace = 1, on-created-empty:[pseudo] $terminal, gapsin:2
 
 		#Workspace 2 - Web Browser
         workspace = 2, on-created-empty:[pseudo] $browser
