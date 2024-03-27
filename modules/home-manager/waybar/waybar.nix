@@ -4,7 +4,7 @@ programs.waybar = {
 	enable = true;
 	settings =[{
 		position = "top";
-		height = 20;
+		height = 10;
 		modules-center =[
 			"hyprland/workspaces"
 		];
@@ -63,12 +63,12 @@ programs.waybar = {
 		"pulseaudio" = {
 			format = "{icon} {volume}%";
 			format-bluetooth = "{volume}% {icon} {format_source}";
-			format-bluetooth-muted = " {icon} {format_source}";
-			format-muted = " {format_source}";
+			format-bluetooth-muted = "󰂳 {icon} {format_source}";
+			format-muted = "󰝟 {format_source}";
 			format-icons = {
 				headphone = "";
-				hands-free = "";
-				headset = "";
+				hands-free = "󰏳";
+				headset = "󰋏";
 				phone = "";
 				portable = "";
 				car = "";
@@ -76,12 +76,6 @@ programs.waybar = {
 			};
 			on-click = "sleep 0.1 && pavucontrol";
 		};
-        "cava" = {
-            framerate = 60;
-            bars = 12;
-            sensitivity = 80;
-        };
-
 
 
 	}];

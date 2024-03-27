@@ -24,6 +24,7 @@
     htop
     hyprpicker
     just
+    aseprite
     calibre
     mailspring
     libgcc
@@ -46,9 +47,14 @@
     slurp
     spotify
     swappy
+    vscode-langservers-extracted #CSS/HTML/LESS
     swww
     tmux
     unzip
+    xwaylandvideobridge
+    gimp
+    krita
+    pcmanfm
     watchexec
     waybar
     wev

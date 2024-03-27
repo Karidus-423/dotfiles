@@ -2,7 +2,7 @@
 	{
 		home.file.".config/hypr/hyprland.conf".text = ''
 		# Execute your favorite apps at launch
-		exec-once = waybar
+		exec-once = ags
 		exec-once = swww init | swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
 
 		# Source a file (multi-file configs)
@@ -159,7 +159,7 @@
 		# trigger when the switch is turning on
 		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 		# trigger when the switch is turning off
-		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, 1920x1200@60,0x0"
+		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, highrr,0x0"
 
 
 		# Move focus with mainMod + arrow keys

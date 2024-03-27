@@ -8,14 +8,12 @@
         colors = {
             prompt = "#cabf44";
             hl = "#b2d498";
-            "fg+" = "#686868";
+            "fg+" = "#cccccc";
         };
         defaultOptions = [
             "--height 50%"
-            "--min-height 20%"
             "--reverse"
             "--border=sharp"
-            "--boder-label=Sessionizer"
             "--margin 5%"
             "--pointer=󰞘"
             "--color=label:#cccccc"

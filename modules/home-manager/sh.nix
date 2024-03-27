@@ -2,20 +2,21 @@
 
 let
    myAliases = {
-     ll = "ls -l";
-     ".." = "cd ..";
-     g = "lazygit";
-     cat = "bat";
-     tx = "tmux attach";
-     mh = "man home-configuration.nix";
-     dev = "nix develop --command zsh";
-     nvgd = "nvim --listen 127.0.0.1:55432";
+       cl = "clear";
+       ll = "ls -l";
+       ".." = "cd ..";
+       g = "lazygit";
+       cat = "bat";
+       tx = "tmux attach";
+       mh = "man home-configuration.nix";
+       dev = "nix develop --command zsh";
+       nvgd = "nvim --listen 127.0.0.1:55432";
    };
 in
 {
-	programs.zsh = {
-		enable = true;
-		shellAliases = myAliases;
+    programs.zsh = {
+        enable = true;
+        shellAliases = myAliases;
         enableCompletion = true;
         oh-my-zsh = {
             enable = true;
@@ -31,15 +32,15 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
-            
+
 
             if [ -n "$\{commands[fzf-share]\}" ]; then
-              source "$(fzf-share)/key-bindings.zsh"
-              source "$(fzf-share)/completion.zsh"
-            fi
+                source "$(fzf-share)/key-bindings.zsh"
+                    source "$(fzf-share)/completion.zsh"
+                    fi
 
-        '';
-	};
+                    '';
+    };
     programs.bash = {
         enable = true;
         shellAliases = myAliases;
@@ -48,13 +49,13 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
-        '';
+            '';
     };
 
-    #Shell scripts
+#Shell scripts
     home.packages = with pkgs;[
         (writeShellScriptBin "rebuild" ''
-        sudo nixos-rebuild switch --flake ~/dots/#icarus
-        '')
+         sudo nixos-rebuild switch --flake ~/dots/#icarus
+         '')
     ];
 }

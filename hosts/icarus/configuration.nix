@@ -37,9 +37,11 @@
           };
       };
   };
+
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
   services.blueman.enable = true;
   services.gvfs.enable = true;
-
     # Enable Syncthing
  # services = {
  #     syncthing = {
@@ -145,6 +147,10 @@
     lazygit
     syncthing
   ];
+  environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+  };
   #Home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -160,12 +166,16 @@
      enable = true;
      enableSSHSupport = true;
    };
-  programs.hyprland.enable = true;
+  programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+  };
   programs.zsh.enable = true;
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
+  hardware = {
+      opengl.enable = true;
+  };
   # List services that you want to enable:
-
   # Enable the OpenSSH daemon.
    services.openssh.enable = true;
 

@@ -24,11 +24,12 @@
   #};
   gtk = {
       enable = true;
-      iconTheme = {
-          package = pkgs.gruvbox-dark-icons-gtk;
-          name = "GruvboxDarkIcons";
+      font = {
+          name = "GohuFont 14 Nerd Font Regular";
       };
-
+      theme = {
+          name = "Adwadita Dark";
+      };
   };
 
   programs.ags = {
