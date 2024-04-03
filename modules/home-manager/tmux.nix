@@ -6,7 +6,7 @@
         newSession = false;
 		mouse = true;
 		prefix = "C-Space";
-        terminal = "screen-256color";
+        terminal = "tmux-256color";
 		shell = "${pkgs.zsh}/bin/zsh";
         keyMode = "vi";
         plugins = with pkgs; [

@@ -38,10 +38,12 @@
       };
   };
 
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [pkgs.xdg-desktop-portal-gtk];
+  xdg.portal= {
+      enable = true;
+  };
   services.blueman.enable = true;
   services.gvfs.enable = true;
+  services.upower.enable = true;
     # Enable Syncthing
  # services = {
  #     syncthing = {
@@ -72,12 +74,12 @@
  # };
 
 # Enable sound
+hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
       enable = true;
       alsa.enable = true;
       alsa.support32Bit = true;
-      pulse.enable = true;
     # If you want to use JACK applications, uncomment this
     #jack.enable = true;
   };
@@ -101,13 +103,26 @@
   };
 
   #Enable Display Manger
-    services.xserver.enable = true;
-    services.xserver.displayManager.lightdm ={
-        enable = true;
-        greeter = {
-            enable = true;
-        };
+    services.xserver = {
+    displayManager.gdm.enable = true;
+    desktopManager.gnome = {
+      enable = true;
+      extraGSettingsOverridePackages = [
+          pkgs.nautilus-open-any-terminal
+      ];
     };
+  };
+
+  services.greetd = {
+      enable = true;
+      settings = rec {
+          initial_session = {
+           command = "${pkgs.hyprland}/bin/Hyprland";
+          user = "kapud";
+      };
+          default_session = initial_session;
+      };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -150,6 +165,8 @@
   environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
       NIXOS_OZONE_WL = "1";
+      GTK_THEME = "Chicago95";
+
   };
   #Home-manager
   home-manager = {

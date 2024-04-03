@@ -1,7 +1,7 @@
 { inputs, pkgs, home,... }:
-#let
-#    nix-colors-lib = inputs.nix-colors.lib.contrib { inherit pkgs; };
-#in
+let
+    chicago95 = import ../../modules/home-manager/gtk_themes/chicago95.nix {inherit pkgs;};
+in
 {
   imports = [
     inputs.nix-colors.homeManagerModules.default
@@ -22,13 +22,25 @@
   #  path = ./wallpapers/forest.png;
   #  variant = "light";
   #};
+  home.pointerCursor = {
+  gtk.enable = true;
+  # x11.enable = true;
+  package = pkgs.bibata-cursors;
+  name = "Bibata-Modern-Ice";
+  size = 24;
+};
   gtk = {
       enable = true;
       font = {
           name = "GohuFont 14 Nerd Font Regular";
       };
       theme = {
-          name = "Adwadita Dark";
+          package = chicago95;
+          name = "Chicago95";
+      };
+      iconTheme = {
+          package = chicago95;
+          name = "Chicago95";
       };
   };
 
@@ -86,6 +98,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    GDK_BACKEND="wayland";
   };
 
 

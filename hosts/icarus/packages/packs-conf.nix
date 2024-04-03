@@ -2,7 +2,6 @@
     imports = [
 	../../../modules/home-manager/hypr.nix
 	../../../modules/home-manager/tmux.nix
-    ../../../modules/home-manager/gtk-themes.nix
     ../../../modules/home-manager/sh.nix
     ../../../modules/home-manager/alacritty.nix
     ../../../modules/home-manager/fzf.nix

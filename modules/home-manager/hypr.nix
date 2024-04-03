@@ -15,9 +15,12 @@
 		$browser = firefox
 
 		# Some default env vars.
+        env = GDK_SCALE,2
 		env = XCURSOR_SIZE,24
 		env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
-
+        xwayland {
+            force_zero_scaling = true
+        }
 		# For all categories, see https://wiki.hyprland.org/Configuring/Variables/
 		input {
 		    kb_layout = us
@@ -138,6 +141,8 @@
         bind = , Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
 
 
+        #Status Bar Refresh
+        bind = , XF86Display,exec, ags -q && ags
 
         #Brightness
         binde = , XF86MonBrightnessDown,exec,brightnessctl set 5%-
@@ -159,7 +164,7 @@
 		# trigger when the switch is turning on
 		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
 		# trigger when the switch is turning off
-		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, highrr,0x0"
+		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, highres,auto,1.5"
 
 
 		# Move focus with mainMod + arrow keys
@@ -222,11 +227,12 @@
         workspace = 4, on-created-empty:[pseudo] alacritty -e calcure
 
 		#Workspace 5 - Drawing Tool
+        workspace= 5, on-created-empty:[pseudo] gimp
 
 		#Workspace 6 - Media
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-		monitor=DP-1,3440x1440@144,0x0,1
+        monitor=DP-1,highres,auto,1
 		'';
 }

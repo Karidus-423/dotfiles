@@ -16,6 +16,7 @@
     cava
     clang-tools #C/C++
     discord
+    cbonsai
     fzf
     go
     godot_4
@@ -49,6 +50,9 @@
     swappy
     vscode-langservers-extracted #CSS/HTML/LESS
     swww
+    dart-sass
+    bun
+    fd
     tmux
     unzip
     xwaylandvideobridge
