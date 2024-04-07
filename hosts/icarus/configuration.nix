@@ -131,7 +131,8 @@ hardware.pulseaudio.enable = false;
   };
 
   fonts.packages = with pkgs; [
-  	(nerdfonts.override{fonts = ["Gohu" "Mononoki"];})
+  	(nerdfonts.override{fonts = ["Gohu"];})
+	libre-baskerville
   ];
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -155,7 +156,9 @@ hardware.pulseaudio.enable = false;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+  environment.pathsToLink = ["/share/zsh"];
   environment.systemPackages = with pkgs; [
+	alacritty
     kitty
     vim 
     git

@@ -27,7 +27,7 @@
     just
     aseprite
     calibre
-    mailspring
+	xdg-utils
     libgcc
     libreoffice
     lua
@@ -42,8 +42,10 @@
     python3
     ranger
     ripgrep
+	spicetify-cli
     rocmPackages.llvm.clang
     rustc
+	obsidian
     shellcheck
     slurp
     spotify

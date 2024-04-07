@@ -6,16 +6,16 @@
         newSession = false;
 		mouse = true;
 		prefix = "C-Space";
-        terminal = "tmux-256color";
 		shell = "${pkgs.zsh}/bin/zsh";
         keyMode = "vi";
         plugins = with pkgs; [
           tmuxPlugins.better-mouse-mode
-          tmuxPlugins.sensible
           tmuxPlugins.vim-tmux-navigator
+          tmuxPlugins.sensible
           tmuxPlugins.yank
         ];
         extraConfig = "
+		set -as terminal-overrides \",alacritty*:Tc\" \n
         set -g status-style 'bg=#cccccc fg=#80652b' \n
         set -g status-justify left \n
         bind c new-window -c \"#{pane_current_path}\" \n

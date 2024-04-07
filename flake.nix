@@ -10,6 +10,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:Aylur/ags";
     matugen.url = "github:InioX/matugen";
+	spicetify-nix.url = "github:the-argus/spicetify-nix";
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 

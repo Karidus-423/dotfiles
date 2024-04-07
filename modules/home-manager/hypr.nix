@@ -13,6 +13,7 @@
 		$fileManager = ranger
 		$menu = wofi --show drun --term alacritty -n
 		$browser = firefox
+		$note = obsidian
 
 		# Some default env vars.
         env = GDK_SCALE,2
@@ -221,9 +222,9 @@
         workspace = 2, on-created-empty:[pseudo] $browser
 
 		#Workspace 3 - Directory/Manuals
-        workspace = 3, on-created-empty:[pseudo] $filemanager
+        workspace = 3, on-created-empty:[pseudo] $note
 
-		#Workspace 4 - Notes/Calendar/Email
+		#Workspace 4 - Calendar/Email
         workspace = 4, on-created-empty:[pseudo] alacritty -e calcure
 
 		#Workspace 5 - Drawing Tool
@@ -233,6 +234,6 @@
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-        monitor=DP-1,highres,auto,1
+        monitor=DP-1,2560x1440@100,auto,1
 		'';
 }
