@@ -29,6 +29,7 @@
     calibre
 	xdg-utils
     libgcc
+	playerctl
     libreoffice
     lua
     lua-language-server
@@ -38,8 +39,6 @@
     nodePackages_latest.typescript-language-server
     nodejs_21
     notify
-    oh-my-posh
-    python3
     ranger
     ripgrep
 	spicetify-cli
@@ -62,7 +61,6 @@
     krita
     pcmanfm
     watchexec
-    waybar
     wev
     wofi
     zathura

@@ -64,6 +64,11 @@ in
       };
   };
 
+  programs.direnv = {
+	  enable = true;
+	  nix-direnv.enable = true;
+  };
+
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -110,6 +115,13 @@ in
    enable = true;
    defaultCacheTtl = 1800;
    enableSshSupport = true;
+  };
+  services.gammastep = {
+	  enable = true;
+	  duskTime = "7:00-9:00";
+	  dawnTime = "14:00-17:00";
+	  temperature.day = 4000;
+	  temperature.night = 2000;
   };
 
 }

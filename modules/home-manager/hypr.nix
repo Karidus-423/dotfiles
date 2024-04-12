@@ -2,8 +2,10 @@
 	{
 		home.file.".config/hypr/hyprland.conf".text = ''
 		# Execute your favorite apps at launch
-		exec-once = ags
-		exec-once = swww init | swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
+		exec-once = pipewire-pulse
+		exec-once = ags 
+		exec-once = swww-daemon swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
+		exec-once = swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
 
 		# Source a file (multi-file configs)
 		# source = ~/.config/hypr/myColors.conf
@@ -97,7 +99,7 @@
 
 		master {
 		    # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
-		    new_is_master = true
+		    new_is_master = false
 		}
 
 		gestures {
@@ -153,9 +155,8 @@
 		binde = , XF86AudioRaiseVolume, exec, wpctl set-volume -l 1.5 @DEFAULT_AUDIO_SINK@ 5%+
 		binde = , XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 		bindl = , XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-		bindl = , XF86AudioMicMute, exec, pamixer --default-source -t
-		bind = , XF86AudioPrev, exec, playerctl previous
 		bind = , XF86AudioPlay, exec, playerctl play-pause
+		bind = , XF86AudioPrev, exec, playerctl previous
 		bind = , XF86AudioPause, exec, playerctl pause
 		bind = , XF86AudioNext, exec, playerctl next
 
@@ -163,9 +164,9 @@
 		#bindl=,switch:[switch name],exec,swaylock
 		#
 		# trigger when the switch is turning on
-		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable"
+		bindl=,switch:on:Lid Switch,exec,hyprctl keyword monitor "eDP-1, disable" && ags -q && ags
 		# trigger when the switch is turning off
-		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, highres,auto,1.5"
+		bindl=,switch:off:Lid Switch,exec,hyprctl keyword monitor "eDP-1, highres,auto,1.5" && ags -q && ags
 
 
 		# Move focus with mainMod + arrow keys
@@ -209,14 +210,14 @@
 		# Move/resize windows with mainMod + LMB/RMB and dragging
 		bindm = $mainMod, mouse:272, movewindow
 		bindm = $mainMod, mouse:273, resizewindow
-        binde = $mainMod SHIFT, l, resizeactive, 20 0
-        binde = $mainMod SHIFT, h, resizeactive, -20 0
-        binde = $mainMod SHIFT, j, resizeactive, 0 -20
-        binde = $mainMod SHIFT, k, resizeactive, 0 20
+        binde = $mainMod SHIFT, h, resizeactive, 20 0
+        binde = $mainMod SHIFT, l, resizeactive, -20 0
+        binde = $mainMod SHIFT, k, resizeactive, 0 -20
+        binde = $mainMod SHIFT, j, resizeactive, 0 20
 
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
-        workspace = 1, on-created-empty:[pseudo] $terminal, gapsin:2
+        workspace = 1, on-created-empty:[pseudo] $terminal
 
 		#Workspace 2 - Web Browser
         workspace = 2, on-created-empty:[pseudo] $browser
@@ -225,10 +226,12 @@
         workspace = 3, on-created-empty:[pseudo] $note
 
 		#Workspace 4 - Calendar/Email
-        workspace = 4, on-created-empty:[pseudo] alacritty -e calcure
+
+        workspace = 2, on-created-empty:[pseudo]
 
 		#Workspace 5 - Drawing Tool
-        workspace= 5, on-created-empty:[pseudo] gimp
+
+        workspace = 2, on-created-empty:[pseudo]
 
 		#Workspace 6 - Media
         workspace = 6, on-created-empty:[pseudo] spotify

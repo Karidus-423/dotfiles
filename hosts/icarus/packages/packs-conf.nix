@@ -7,7 +7,6 @@
     ../../../modules/home-manager/fzf.nix
     ../../../modules/home-manager/activated-scripts.nix
     ../../../modules/home-manager/wofi/wofi.nix
-	../../../modules/home-manager/oh-my-posh.nix
-	../../../modules/home-manager/waybar/waybar.nix
+	../../../modules/home-manager/starship.nix
      ];
 }

@@ -9,7 +9,9 @@ let
        cat = "bat";
        tx = "tmux attach";
        mh = "man home-configuration.nix";
+	   pyvenv = "python -m venv .venv";
        dev = "nix develop --command zsh";
+	   venv = "source .venv/bin/activate";
        nvgd = "nvim --listen 127.0.0.1:55432";
    };
 in
@@ -45,7 +47,7 @@ in
         enable = true;
         shellAliases = myAliases;
         initExtra = ''  
-            eval "$(zoxide init zsh)"
+            eval "$(zoxide init bash)"
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
