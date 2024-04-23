@@ -3,9 +3,10 @@
 		home.file.".config/hypr/hyprland.conf".text = ''
 		# Execute your favorite apps at launch
 		exec-once = pipewire-pulse
-		exec-once = ags 
-		exec-once = swww-daemon swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
-		exec-once = swww img ~/dots/hosts/icarus/wallpapers/Regatta.jpg
+		exec-once = ags
+		exec-once = swww-daemon
+		exec-once = swww img ~/dots/hosts/icarus/wallpapers/neighbor_street.webp --transition-type=grow
+		exec-once = gammastep
 
 		# Source a file (multi-file configs)
 		# source = ~/.config/hypr/myColors.conf
@@ -129,18 +130,18 @@
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		$mainMod = SUPER
+		$mainMod = ALT
 
 		# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 		bind = $mainMod, RETURN, exec, $terminal
 		bind = $mainMod, Q, killactive, 
 		bind = $mainMod_SHIFT, Q, exit, 
-		bind = $mainMod, D, exec, $menu
+		bind = $mainMod, S, exec, $menu
 		bind = $mainMod, E, exec, alacritty -e $filemanager
 		bind = $mainMod, F, exec, $browser
 		bind = $mainMod, V, togglefloating, 
 		bind = $mainMod, P, pseudo, # dwindle
-		bind = $mainMod, T, togglesplit, # dwindle
+		bind = $mainMod, D, togglesplit, # dwindle
         bind = , Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
 
 
@@ -200,7 +201,7 @@
 		bind = $mainMod SHIFT, 0, movetoworkspace, 10
 
 		# Example special workspace (scratchpad)
-		bind = $mainMod, S, togglespecialworkspace, magic
+		bind = $mainMod, T, togglespecialworkspace, magic
 		bind = $mainMod SHIFT, S, movetoworkspace, special:magic
 
 		# Scroll through existing workspaces with mainMod + scroll
@@ -237,6 +238,6 @@
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-        monitor=DP-1,2560x1440@100,auto,1
+        monitor=DP-1,highres,auto,1
 		'';
 }

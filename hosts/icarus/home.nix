@@ -32,7 +32,7 @@ in
   gtk = {
       enable = true;
       font = {
-          name = "GohuFont 14 Nerd Font Regular";
+          name = "TeX Gyre Adventor";
       };
       theme = {
           package = chicago95;
@@ -118,10 +118,11 @@ in
   };
   services.gammastep = {
 	  enable = true;
-	  duskTime = "7:00-9:00";
-	  dawnTime = "14:00-17:00";
-	  temperature.day = 4000;
-	  temperature.night = 2000;
+	  provider = "manual";
+	  temperature.day = 5000;
+	  temperature.night = 3200;
+	  latitude = 38.2;
+	  longitude = -84.87;
   };
 
 }

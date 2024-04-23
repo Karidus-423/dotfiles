@@ -10,14 +10,27 @@
     # '')
     #------------------------#
     #--Language Servers------#
+	aseprite
+	audacious
+	kicad
+	obsidian
+	playerctl
+	spicetify-cli
+	xdg-utils
     bat
+    bun
     calcure
+    calibre
     cargo
     cava
-    clang-tools #C/C++
-    discord
     cbonsai
+    clang-tools #C/C++
+    dart-sass
+    discord
+	figma-linux
+    fd
     fzf
+    gimp
     go
     godot_4
     grim
@@ -25,11 +38,8 @@
     htop
     hyprpicker
     just
-    aseprite
-    calibre
-	xdg-utils
+    krita
     libgcc
-	playerctl
     libreoffice
     lua
     lua-language-server
@@ -39,31 +49,23 @@
     nodePackages_latest.typescript-language-server
     nodejs_21
     notify
-    ranger
+    pcmanfm
     ripgrep
-	spicetify-cli
+	thunderbird
     rocmPackages.llvm.clang
     rustc
-	obsidian
     shellcheck
     slurp
     spotify
     swappy
-    vscode-langservers-extracted #CSS/HTML/LESS
     swww
-    dart-sass
-    bun
-    fd
     tmux
     unzip
-    xwaylandvideobridge
-    gimp
-    krita
-    pcmanfm
+    vscode-langservers-extracted #CSS/HTML/LESS
     watchexec
     wev
     wofi
-    zathura
+    xwaylandvideobridge
     zoxide
   ];
 }

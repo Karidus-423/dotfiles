@@ -2,15 +2,13 @@
   description = "Nix dot files";
 
   inputs = {
-      home-manager ={
-          url = "github:nix-community/home-manager";
-          inputs.nixpkgs.follows = "nixpkgs";
-      };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:Aylur/ags";
-    matugen.url = "github:InioX/matugen";
-	spicetify-nix.url = "github:the-argus/spicetify-nix";
+	home-manager ={
+		url = "github:nix-community/home-manager";
+		inputs.nixpkgs.follows = "nixpkgs";
+	};
   };
 
   outputs = { self, nixpkgs, ... }@inputs: 

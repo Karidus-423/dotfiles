@@ -24,6 +24,7 @@ in
             enable = true;
             plugins = [
                 "ripgrep"
+				"fzf"
             ];
         };
         syntaxHighlighting = {
@@ -34,12 +35,6 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
-
-
-            if [ -n "$\{commands[fzf-share]\}" ]; then
-                source "$(fzf-share)/key-bindings.zsh"
-                    source "$(fzf-share)/completion.zsh"
-                    fi
 
                     '';
     };
@@ -58,6 +53,9 @@ in
     home.packages = with pkgs;[
         (writeShellScriptBin "rebuild" ''
          sudo nixos-rebuild switch --flake ~/dots/#icarus
+         '')
+        (writeShellScriptBin "testbuild" ''
+         sudo nixos-rebuild test --flake ~/dots/#icarus
          '')
     ];
 }
