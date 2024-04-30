@@ -52,10 +52,10 @@ in
 #Shell scripts
     home.packages = with pkgs;[
         (writeShellScriptBin "rebuild" ''
-         sudo nixos-rebuild switch --flake ~/dots/#icarus
+         sudo nixos-rebuild switch --flake ~/dots/#ontos
          '')
         (writeShellScriptBin "testbuild" ''
-         sudo nixos-rebuild test --flake ~/dots/#icarus
+         sudo nixos-rebuild test --flake ~/dots/#ontos
          '')
     ];
 }

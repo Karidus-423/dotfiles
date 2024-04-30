@@ -5,7 +5,7 @@
 		exec-once = pipewire-pulse
 		exec-once = ags
 		exec-once = swww-daemon
-		exec-once = swww img ~/dots/hosts/icarus/wallpapers/neighbor_street.webp --transition-type=grow
+		exec-once = swww img ~/dots/hosts/ontos/wallpapers/neighbor_street.webp --transition-type=grow
 		exec-once = gammastep
 
 		# Source a file (multi-file configs)
@@ -238,6 +238,6 @@
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-        monitor=DP-1,highres,auto,1
+        monitor=DP-1,2560x1440@99.95,0x0,1
 		'';
 }

@@ -18,12 +18,24 @@
   in
   {
   nixosConfigurations = {
-  	icarus = nixpkgs.lib.nixosSystem {
-		specialArgs = { inherit inputs; };
-		modules = [
-			./hosts/icarus/configuration.nix
-		];
-	  };
-       };
-     };
+		ontos = nixpkgs.lib.nixosSystem {
+			specialArgs = { inherit inputs; };
+			modules = [
+				./hosts/ontos/configuration.nix
+			];
+		  };
+		logos = nixpkgs.lib.nixosSystem {
+			specialArgs = { inherit inputs; };
+			modules = [
+				./hosts/logos/configuration.nix
+			];
+		  };
+		pneuma = nixpkgs.lib.nixosSystem {
+			specialArgs = { inherit inputs; };
+			modules = [
+				./hosts/pneuma/configuration.nix
+			];
+		  };
+    };
+  };
 }

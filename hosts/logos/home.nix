@@ -9,6 +9,7 @@ in
     ./packages/packs-conf.nix
     ./packages/packs.nix
   ];
+
   home.username = "kapud";
   home.homeDirectory = "/home/kapud";
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -16,6 +17,9 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11";
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
   colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
   (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
   #colorScheme = nix-colors-lib.colorSchemeFromPicture {
@@ -108,8 +112,6 @@ in
 
 
 
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
 
   services.gpg-agent = {
    enable = true;
