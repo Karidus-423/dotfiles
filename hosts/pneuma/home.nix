@@ -1,4 +1,4 @@
-{ inputs, pkgs, home,... }:
+{ inputs, pkgs, home,...}:
 let
     chicago95 = import ../../modules/home-manager/gtk_themes/chicago95.nix {inherit pkgs;};
 in
@@ -10,8 +10,8 @@ in
     ./packages/packs.nix
   ];
 
-  home.username = "kapud";
-  home.homeDirectory = "/home/kapud";
+  home.username = "kennettp";
+  home.homeDirectory = "/home/kennettp";
   nixpkgs.config.allowUnfreePredicate = _: true;
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager

@@ -87,9 +87,9 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
-  users.users.karidus= {
+  users.users.kennettp= {
     isNormalUser = true;
-    description = "Karidus";
+    description = "kennettp";
     extraGroups = [ "networkmanager" "wheel" "sound" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
@@ -98,16 +98,16 @@
     alacritty
     pavucontrol
     wireplumber
-    brightnessctl
     ];
   };
+  programs.zsh.enable=true;
 
   services.greetd = {
       enable = true;
       settings = rec {
           initial_session = {
            command = "${pkgs.hyprland}/bin/Hyprland";
-          user = "karidus";
+          user = "kennettp";
       };
           default_session = initial_session;
       };
@@ -125,7 +125,7 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     users = {
-      "karidus" = import ./home.nix;
+      "kennettp" = import ./home.nix;
     };
   };
 
@@ -142,6 +142,7 @@
   };
   hardware = {
       opengl.enable = true;
+	  nvidia.modesetting.enable=true;
   };
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
@@ -150,7 +151,7 @@
    services = {
 	   syncthing = {
 		   enable = true;
-		   user = "kennett";
+		   user = "kennettp";
 		   dataDir = "home/kapud/syncthing";    # Default folder for new synced folders
 		   configDir = "/home/kapud/.config/syncthing";   # Folder for Syncthing's settings and keys
 	   };
