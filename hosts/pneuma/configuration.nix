@@ -91,6 +91,7 @@
     alacritty
     pavucontrol
     wireplumber
+	lazygit
     ];
   };
   programs.zsh.enable=true;
