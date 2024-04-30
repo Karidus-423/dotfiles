@@ -50,6 +50,7 @@ in
 
   programs.ags = {
       enable = true;
+	  configDir = ../../modules/home-manager/ags;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk

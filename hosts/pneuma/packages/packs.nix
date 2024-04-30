@@ -13,17 +13,15 @@
 	aseprite
 	audacious
 	kicad
+	blender
+	cura
 	obsidian
 	playerctl
-	spicetify-cli
 	xdg-utils
     bat
-    bun
-    calcure
     calibre
     cargo
     cava
-    cbonsai
     clang-tools #C/C++
     dart-sass
     discord
@@ -44,7 +42,7 @@
     lua
     lua-language-server
     neofetch
-    nil #Nix
+    nil #Nix Language Server
     nodePackages.bash-language-server
     nodePackages_latest.typescript-language-server
     nodejs_21

@@ -40,8 +40,6 @@
 
 	#Required Services for Aylur's GTK Shell
 	services.gvfs.enable = true;
-	services.upower.enable = true;
-
 	# Enable sound
 	hardware.pulseaudio.enable = false;
 	security.rtkit.enable = true;
@@ -52,12 +50,6 @@
 		# If you want to use JACK applications, uncomment this
 		#jack.enable = true;
 	};
-
-	
-
-
-
-
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -82,6 +74,7 @@
 	  desktopManager.gnome = {
 		enable = true;
 	  };
+	  videoDrivers = ["nvidia"];
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -101,6 +94,20 @@
     ];
   };
   programs.zsh.enable=true;
+  fonts.packages = with pkgs; [
+  	(nerdfonts.override{fonts = ["Gohu"];})
+	libre-baskerville
+  ];
+#GAMING
+	programs.steam = {
+	  enable = true;
+	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+	};
+	services.flatpak.enable = true;
+	services.hardware.openrgb = {
+		enable = true;
+	};
 
   services.greetd = {
       enable = true;
@@ -116,10 +123,11 @@
 
 	#Environment
   environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-      GTK_THEME = "Chicago95";
-
+	  WLR_NO_HARDWARE_CURSORS = "1";
+	  NIXOS_OZONE_WL = "1";
+	  "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland
+	  "MOZ_WEBRENDER" = "1";
+	  GTK_THEME = "Chicago95";
   };
   #Home-manager
   home-manager = {
@@ -141,8 +149,34 @@
       xwayland.enable = true;
   };
   hardware = {
-      opengl.enable = true;
-	  nvidia.modesetting.enable=true;
+      opengl = {
+		  enable = true;
+		  driSupport = true;
+		  driSupport32Bit = true;
+	  };
+	  nvidia = {
+		  modesetting.enable=true;
+		  # Use the NVidia open source kernel module (not to be confused with the
+		  # independent third-party "nouveau" open source driver).
+		  # Support is limited to the Turing and later architectures. Full list of 
+		  # supported GPUs is at: 
+		  # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+		  # Only available from driver 515.43.04+
+		  # Currently alpha-quality/buggy, so false is currently the recommended setting.
+		  open = false;
+		  nvidiaSettings = true;
+
+		  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+		  package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+		  prime = {
+			  sync.enable = true;
+
+# Make sure to use the correct Bus ID values for your system!
+			  nvidiaBusId = "PCI:14:0:0";
+			  intelBusId = "PCI:0:2:0";
+		  };
+	  };
   };
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
@@ -152,8 +186,7 @@
 	   syncthing = {
 		   enable = true;
 		   user = "kennettp";
-		   dataDir = "home/kapud/syncthing";    # Default folder for new synced folders
-		   configDir = "/home/kapud/.config/syncthing";   # Folder for Syncthing's settings and keys
+		   configDir = "/home/kennettp/.config/syncthing";   # Folder for Syncthing's settings and keys
 	   };
    };
   system.stateVersion = "23.11";
