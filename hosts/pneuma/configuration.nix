@@ -6,9 +6,22 @@
 	];
 
 #Bootloader
-	boot.loader.systemd-boot.enable = true;
+	boot.loader.systemd-boot.enable = false;
+	boot.loader.grub.enable = true;
+	boot.loader.grub.device = "nodev";
+	boot.loader.grub.useOSProber = true;
+	boot.loader.grub.efiSupport = true;
 	boot.loader.efi.canTouchEfiVariables = true;
-
+	boot.loader.efi.efiSysMountPoint = "/boot";
+	boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
+          pname = "distro-grub-themes";
+          version = "3.2";
+          src = pkgs.fetchurl {
+            url = "https://github.com/AdisonCavani/distro-grub-themes/releases/download/v3.2/nixos.tar";
+            hash = "sha256-oW5DxujStieO0JsFI0BBl+4Xk9xe+8eNclkq6IGlIBY";
+          };
+          unpackPhase = ''mkdir $out && tar -xvf $src -C $out'';
+        };
 	networking.hostName = "pneuma";
 
 # Enable networking
@@ -31,7 +44,7 @@
 		};
 	};
 	services.blueman.enable = true;
-	
+
 	#Standard Interface for Applications to interact with
 	xdg.portal= {
 		enable = true;
@@ -99,16 +112,6 @@
   	(nerdfonts.override{fonts = ["Gohu"];})
 	libre-baskerville
   ];
-#GAMING
-	programs.steam = {
-	  enable = true;
-	  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-	  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-	};
-	services.flatpak.enable = true;
-	services.hardware.openrgb = {
-		enable = true;
-	};
 
   services.greetd = {
       enable = true;
@@ -188,6 +191,9 @@
 		   enable = true;
 		   user = "kennettp";
 		   configDir = "/home/kennettp/.config/syncthing";   # Folder for Syncthing's settings and keys
+	   };
+	   hardware = {
+		openrgb.enable = true;
 	   };
    };
   system.stateVersion = "23.11";

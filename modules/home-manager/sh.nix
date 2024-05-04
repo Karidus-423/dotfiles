@@ -51,11 +51,17 @@ in
 
 #Shell scripts
     home.packages = with pkgs;[
-        (writeShellScriptBin "rebuild" ''
+        (writeShellScriptBin "rebuild-ontos" ''
          sudo nixos-rebuild switch --flake ~/dots/#ontos
          '')
-        (writeShellScriptBin "testbuild" ''
-         sudo nixos-rebuild test --flake ~/dots/#ontos
+		(writeShellScriptBin "testbuild-ontos" ''
+		 sudo nixos-rebuild test --flake ~/dots/#ontos
+		 '')
+        (writeShellScriptBin "rebuild-pneuma" ''
+         sudo nixos-rebuild switch --flake ~/dots/#pneuma
          '')
+		(writeShellScriptBin "testbuild-pneuma" ''
+		 sudo nixos-rebuild test --flake ~/dots/#pneuma
+		 '')
     ];
 }

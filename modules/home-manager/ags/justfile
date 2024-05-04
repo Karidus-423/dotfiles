@@ -1,0 +1,9 @@
+test:
+	ags -b test
+
+refresh:
+	ags -q test
+	ags -b test
+
+kill:
+	ags -q test
