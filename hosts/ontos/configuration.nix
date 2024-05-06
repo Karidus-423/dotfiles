@@ -8,20 +8,13 @@
     ];
 
   # Bootloader.
-	boot.loader = {
-		systmed-boot = {
-			enable = true;
-		};
-		efi = {
-			canTouchEfiVariables = true;
-		};
-		grub = {
-			enable = true;
-			device = "nodev";
-			efiSupport = true;
-			useOSProber = true;
-		};
-	};
+	boot.loader.systemd-boot.enable = false;
+	boot.loader.grub.enable = true;
+	boot.loader.grub.device = "nodev";
+	boot.loader.grub.useOSProber = true;
+	boot.loader.grub.efiSupport = true;
+	boot.loader.efi.canTouchEfiVariables = true;
+	boot.loader.efi.efiSysMountPoint = "/boot";
 
   networking.hostName = "ontos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

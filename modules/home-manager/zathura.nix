@@ -6,7 +6,7 @@
         default-bg = "#${base00}";
         default-fg = "#${base04}";
 
-        statusbar-fg = "#${base02}";
+		statusbar-fg = "#${base02}";
         statusbar-bg = "#${base01}";
 
         inputbar-bg = "#${base00}";

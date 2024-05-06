@@ -13,7 +13,7 @@
 
 		# Set programs that you use
 		$terminal = alacritty
-		$fileManager = ranger
+		$fileManager = alacritty -e ranger
 		$menu = wofi --show drun --term alacritty -n
 		$browser = firefox
 		$note = obsidian
@@ -130,18 +130,19 @@
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		$mainMod = SUPER
+		$mainMod = ALT #SUPER
 
 		# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 		bind = $mainMod, RETURN, exec, $terminal
 		bind = $mainMod, Q, killactive, 
 		bind = $mainMod_SHIFT, Q, exit, 
 		bind = $mainMod, S, exec, $menu
-		bind = $mainMod, E, exec, alacritty -e $filemanager
+		bind = $mainMod, E, exec, $filemanager
 		bind = $mainMod, F, exec, $browser
 		bind = $mainMod, V, togglefloating, 
 		bind = $mainMod, P, pseudo, # dwindle
 		bind = $mainMod, D, togglesplit, # dwindle
+		bind = , Menu, exec, pavucontrol
         bind = , Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
 
 
@@ -202,7 +203,7 @@
 
 		# Example special workspace (scratchpad)
 		bind = $mainMod, T, togglespecialworkspace, magic
-		bind = $mainMod SHIFT, S, movetoworkspace, special:magic
+		bind = $mainMod SHIFT, T, movetoworkspace, special:magic
 
 		# Scroll through existing workspaces with mainMod + scroll
 		bind = $mainMod, mouse_down, workspace, e+1
@@ -224,7 +225,7 @@
         workspace = 2, on-created-empty:[pseudo] $browser
 
 		#Workspace 3 - Directory/Manuals
-        workspace = 3, on-created-empty:[pseudo] $note
+        workspace = 3, on-created-empty:[pseudo]
 
 		#Workspace 4 - Calendar/Email
 

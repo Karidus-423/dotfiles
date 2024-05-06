@@ -18,6 +18,16 @@ in
   # release notes.
   home.stateVersion = "23.11";
 
+  programs.ags = {
+      enable = true;
+	  configDir = ../../modules/home-manager/ags;
+      extraPackages = with pkgs; [
+      gtksourceview
+      webkitgtk
+      accountsservice
+      gvfs
+      ];
+  };
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
   colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
@@ -48,15 +58,6 @@ in
       };
   };
 
-  programs.ags = {
-      enable = true;
-      extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-      gvfs
-      ];
-  };
 
   programs.git = {
       enable = true;
