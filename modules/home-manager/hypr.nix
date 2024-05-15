@@ -5,7 +5,7 @@
 		exec-once = pipewire-pulse
 		exec-once = ags
 		exec-once = swww-daemon
-		exec-once = swww img ~/dots/hosts/ontos/wallpapers/neighbor_street.webp --transition-type=grow
+		exec-once = alacritty -e swww img ~/dots/hosts/ontos/wallpapers/neighbor_street.png --transition-type=grow
 		exec-once = gammastep
 
 		# Source a file (multi-file configs)
@@ -19,9 +19,15 @@
 		$note = obsidian
 
 		# Some default env vars.
-        env = GDK_SCALE,2
+        env = GDK_SCALE,1
 		env = XCURSOR_SIZE,24
 		env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
+		env = QT_AUTO_SCREEN_SCALE_FACTOR,1
+		env = LIBVA_DRIVER_NAME,nvidia
+		env = XDG_SESSION_TYPE,wayland
+		env = GBM_BACKEND,nvidia-drm
+		env = __GLX_VENDOR_LIBRARY_NAME,nvidia
+
         xwayland {
             force_zero_scaling = true
         }
@@ -130,7 +136,7 @@
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
-		$mainMod = ALT #SUPER
+		$mainMod = SUPER
 
 		# Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
 		bind = $mainMod, RETURN, exec, $terminal

@@ -14,6 +14,7 @@
 	audacious
 	kicad
 	obsidian
+	pandoc
 	playerctl
 	spicetify-cli
 	xdg-utils

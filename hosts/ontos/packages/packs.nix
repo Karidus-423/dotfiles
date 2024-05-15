@@ -16,6 +16,7 @@
 	blender
 	cura
 	obsidian
+	pandoc
 	playerctl
 	xdg-utils
     bat

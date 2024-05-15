@@ -12,10 +12,8 @@
     #--Language Servers------#
 	aseprite
 	audacious
-	kicad
 	blender
 	cura
-	obsidian
 	playerctl
 	xdg-utils
     bat

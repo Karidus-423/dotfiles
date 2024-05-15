@@ -7,3 +7,6 @@ refresh:
 
 kill:
 	ags -q test
+
+inspect:
+	ags -i

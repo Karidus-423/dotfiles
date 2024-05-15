@@ -1,5 +1,5 @@
 const hyprland = await Service.import("hyprland")
-const notifications = await Service.import("notifications")
+const network = await Service.import('network')
 const mpris = await Service.import("mpris")
 const audio = await Service.import("audio")
 const battery = await Service.import("battery")
@@ -28,41 +28,12 @@ function Workspaces() {
 	})
 }
 
-
-function ClientTitle() {
-	return Widget.Label({
-		class_name: "client-title",
-		label: hyprland.active.client.bind("title"),
-	})
-}
-
-
 function Clock() {
 	return Widget.Label({
 		class_name: "clock",
 		label: date.bind(),
 	})
 }
-
-
-// we don't need dunst or any other notification daemon
-// because the Notifications module is a notification daemon itself
-function Notification() {
-	const popups = notifications.bind("popups")
-	return Widget.Box({
-		class_name: "notification",
-		visible: popups.as(p => p.length > 0),
-		children: [
-			Widget.Icon({
-				icon: "preferences-system-notifications-symbolic",
-			}),
-			Widget.Label({
-				label: popups.as(p => p[0]?.summary || ""),
-			}),
-		],
-	})
-}
-
 
 function Media() {
 	const label = Utils.watch("", mpris, "player-changed", () => {
@@ -82,6 +53,31 @@ function Media() {
 		child: Widget.Label({ label }),
 	})
 }
+
+
+const WifiIndicator = () => Widget.Box({
+	children: [
+		Widget.Icon({
+			icon: network.wifi.bind('icon_name'),
+		}),
+		Widget.Label({
+			label: network.wifi.bind('ssid')
+				.as(ssid => ssid || 'Unknown'),
+		}),
+	],
+})
+
+const WiredIndicator = () => Widget.Icon({
+	icon: network.wired.bind('icon_name'),
+})
+
+const NetworkIndicator = () => Widget.Stack({
+	children: {
+		wifi: WifiIndicator(),
+		wired: WiredIndicator(),
+	},
+	shown: network.bind('primary').as(p => p || 'wifi'),
+})
 
 
 function Volume() {
@@ -161,8 +157,8 @@ function Left() {
 	return Widget.Box({
 		spacing: 8,
 		children: [
-			Workspaces(),
-			ClientTitle(),
+			NetworkIndicator(),
+			Media(),
 		],
 	})
 }
@@ -171,8 +167,7 @@ function Center() {
 	return Widget.Box({
 		spacing: 8,
 		children: [
-			Media(),
-			Notification(),
+			Workspaces(),
 		],
 	})
 }
@@ -205,15 +200,5 @@ function Bar(monitor = 0) {
 	})
 }
 
-App.config({
-	style: "./style.css",
-	windows: [
-		Bar(),
 
-		// you can call it, for each monitor
-		// Bar(0),
-		// Bar(1)
-	],
-})
-
-export { }
+export { Bar }

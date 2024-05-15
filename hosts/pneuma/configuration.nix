@@ -129,8 +129,8 @@
   environment.sessionVariables = {
 	  WLR_NO_HARDWARE_CURSORS = "1";
 	  NIXOS_OZONE_WL = "1";
-	  "MOZ_ENABLE_WAYLAND" = "1"; # for firefox to run on wayland
-	  "MOZ_WEBRENDER" = "1";
+	  MOZ_ENABLE_WAYLAND = "1"; # for firefox to run on wayland
+	  MOZ_WEBRENDER = "1";
 	  GTK_THEME = "Chicago95";
   };
   #Home-manager
@@ -177,13 +177,14 @@
 			  sync.enable = true;
 
 # Make sure to use the correct Bus ID values for your system!
-			  nvidiaBusId = "PCI:14:0:0";
+			  nvidiaBusId = "PCI:1:0:1";
 			  intelBusId = "PCI:0:2:0";
 		  };
 	  };
   };
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
+   services.flatpak.enable = true;
    services.openssh.enable = true;
    #Syncthing
    services = {
