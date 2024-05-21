@@ -72,6 +72,7 @@ in
 	programs.direnv = {
 		enable = true;
 		enableZshIntegration = true; # see note on other shells below
+		enableBashIntegration = true;
 		nix-direnv.enable = true;
 	};
 
