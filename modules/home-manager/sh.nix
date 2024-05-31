@@ -36,7 +36,8 @@ in
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
 
-                    '';
+
+			'';
     };
     programs.bash = {
         enable = true;

@@ -94,7 +94,7 @@
 		    animation = border, 1, 3, waitup
 		    animation = borderangle, 1, 150, breath, loop
             animation = fade, 1, 3, default
-		    animation = workspaces, 1, 3, foosh, slide
+		    animation = workspaces, 0, 3, foosh, slide
 		}
 
 		dwindle {
