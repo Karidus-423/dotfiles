@@ -12,9 +12,6 @@
     #--Language Servers------#
 	aseprite
 	audacious
-	kicad
-	blender
-	cura
 	obsidian
 	pandoc
 	playerctl
@@ -23,11 +20,13 @@
     calibre
     cargo
     cava
+	httrack
     clang-tools #C/C++
     dart-sass
     discord
 	figma-linux
     fd
+	whatsapp-for-linux
     fzf
     gimp
     go
@@ -55,7 +54,7 @@
     rustc
     shellcheck
     slurp
-    spotify
+    spotify-player
     swappy
     swww
     tmux

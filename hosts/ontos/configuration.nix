@@ -49,6 +49,16 @@
   services.blueman.enable = true;
   services.gvfs.enable = true;
   services.upower.enable = true;
+  services.printing = {
+	  enable = true;
+	  drivers = with pkgs;[
+	  epson-escpr
+	  epsonscan2
+	  epson-escpr2
+	  epson_201207w
+	  ];
+
+  };
 
 # Enable sound
   security.rtkit.enable = true;
@@ -56,6 +66,7 @@
 	  enable = true;
 	  alsa.enable = true;
 	  alsa.support32Bit = true;
+	  pulse.enable = true;
 	  # If you want to use JACK applications, uncomment this
 	  #jack.enable = true;
   };
@@ -112,6 +123,12 @@
 	libre-baskerville
   ];
   programs.zsh.enable=true;
+	programs.steam = {
+  enable = true;
+  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+	};
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.kapud = {

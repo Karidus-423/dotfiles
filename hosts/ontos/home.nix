@@ -7,7 +7,7 @@ in
     inputs.nix-colors.homeManagerModules.default
     inputs.ags.homeManagerModules.default
     ./packages/packs-conf.nix
-    ./packages/packs.nix
+    ./packages/packs-ontos.nix
   ];
 
   home.username = "kapud";
@@ -17,7 +17,6 @@ in
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
   home.stateVersion = "23.11";
-
   programs.ags = {
       enable = true;
 	  configDir = ../../modules/home-manager/ags;

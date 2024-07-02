@@ -1,12 +1,9 @@
 test:
 	ags -b test
 
-refresh:
-	ags -q test
-	ags -b test
-
 kill:
-	ags -q test
+	ags -b test -q
 
-inspect:
-	ags -i
+refresh:
+	ags -b test -q
+	ags -b test
