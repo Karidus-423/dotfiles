@@ -19,16 +19,12 @@ in
   home.stateVersion = "23.11";
   programs.ags = {
       enable = true;
-	  #configDir = ../../modules/home-manager/ags;
+	  configDir = ../../modules/home-manager/ags;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk
       accountsservice
       gvfs
-	  sassc
-	  inotifywait
-	  papirus-icon-theme
-	  matugen
       ];
   };
   # Let Home Manager install and manage itself.

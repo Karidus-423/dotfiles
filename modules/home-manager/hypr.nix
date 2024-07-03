@@ -5,7 +5,7 @@
 		exec-once = pipewire-pulse
 		exec-once = ags
 		exec-once = swww-daemon
-		exec-once = alacritty -e swww img ~/dots/hosts/ontos/wallpapers/neighbor_street.png --transition-type=grow
+		exec-once = alacritty -e swww img ~/dots/hosts/ontos/wallpapers/rivermarket.gif --transition-type=grow
 		exec-once = gammastep
 
 		# Source a file (multi-file configs)
@@ -52,7 +52,7 @@
 		    # See https://wiki.hyprland.org/Configuring/Variables/ for more
 
 		    gaps_in = 4
-		    gaps_out = 20
+		    gaps_out = 10
 		    border_size = 5
 		    col.active_border = rgba(b2d498ee) rgba(b3dcdda8) 0deg
 		    col.inactive_border = rgba(acafadee) rgba(110f0fa5) 90deg

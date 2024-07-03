@@ -1,0 +1,10 @@
+.desktop {
+  padding: 1.5rem;
+  font-family: "Product Sans";
+  text-shadow: 2px 2px 3px rgba($background, 0.95);
+
+  &-icon {
+    min-width: 70px;
+    -gtk-icon-shadow: 2px 2px 3px rgba($background, 0.6);
+  }
+}
