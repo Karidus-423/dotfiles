@@ -15,6 +15,7 @@
 	obsidian
 	pandoc
 	playerctl
+	dart-sass
 	xdg-utils
     bat
     calibre
@@ -54,7 +55,7 @@
     rustc
     shellcheck
     slurp
-    spotify-player
+    spotify
     swappy
     swww
     tmux
