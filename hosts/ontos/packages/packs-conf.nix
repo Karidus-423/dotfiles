@@ -9,5 +9,6 @@
 	../../../modules/home-manager/starship.nix
 	../../../modules/home-manager/ranger.nix
 	../../../modules/home-manager/zathura.nix
+	../../../modules/home-manager/spicetify.nix
      ];
 }

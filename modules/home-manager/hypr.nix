@@ -5,7 +5,7 @@
 		exec-once = pipewire-pulse
 		exec-once = ags
 		exec-once = swww-daemon
-		exec-once = alacritty -e swww img ~/dots/hosts/ontos/wallpapers/rivermarket.gif --transition-type=grow
+		exec-once = alacritty -e swww img ~/dots/modules/wallpapers/rivermarket.gif --transition-type=grow
 		exec-once = gammastep
 
 		# Source a file (multi-file configs)

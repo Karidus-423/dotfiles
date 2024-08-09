@@ -39,8 +39,8 @@ in
           name = "TeX Gyre Adventor";
       };
       theme = {
-          package = chicago95;
-          name = "Chicago95";
+          package = pkgs.kanagawa-gtk-theme;
+          name = "Kanagawa-BL";
       };
       iconTheme = {
           package = chicago95;

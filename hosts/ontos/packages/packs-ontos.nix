@@ -12,6 +12,7 @@
     #--Language Servers------#
 	aseprite
 	audacious
+	audacity
 	obsidian
 	pandoc
 	playerctl
@@ -26,6 +27,8 @@
     dart-sass
     discord
 	figma-linux
+	hplip
+	rar
     fd
 	whatsapp-for-linux
     fzf

@@ -1,6 +1,7 @@
 { inputs, pkgs, home,... }:
 let
-    chicago95 = import ../../modules/home-manager/gtk_themes/chicago95.nix {inherit pkgs;};
+    chicago95 = import ../../modules/gtk_themes/chicago95.nix {inherit pkgs;};
+	kanagawa = import ../../modules/gtk_themes/kanagawa.nix {inherit pkgs;};
 in
 {
   imports = [
@@ -9,7 +10,6 @@ in
     ./packages/packs-conf.nix
     ./packages/packs-ontos.nix
   ];
-
   home.username = "kapud";
   home.homeDirectory = "/home/kapud";
   nixpkgs.config.allowUnfreePredicate = _: true;
@@ -72,6 +72,8 @@ in
 	  enable = true;
 	  nix-direnv.enable = true;
   };
+
+
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
