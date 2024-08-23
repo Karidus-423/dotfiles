@@ -1,6 +1,6 @@
 { inputs, pkgs, home,...}:
 let
-    chicago95 = import ../../modules/home-manager/gtk_themes/chicago95.nix {inherit pkgs;};
+    chicago95 = import ../../modules/gtk_themes/chicago95.nix {inherit pkgs;};
 in
 {
   imports = [
@@ -111,9 +111,6 @@ in
     EDITOR = "nvim";
     GDK_BACKEND="wayland";
   };
-
-
-
 
   services.gpg-agent = {
    enable = true;

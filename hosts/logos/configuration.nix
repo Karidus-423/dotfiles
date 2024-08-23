@@ -9,15 +9,15 @@
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
 
-	networking.hostName = "pneuma";
+	networking.hostName = "logos";
 
 # Enable networking
 	networking.networkmanager.enable = true;
 
-# Enable bluetooth
-	hardware.bluetooth.powerOnBoot = true;
+# Enable bluetooth /currently disabled/
+	hardware.bluetooth.powerOnBoot = false;
 	hardware.bluetooth = {
-		enable = true;
+		enable = false;
 		settings = {
 			General = {
 				Name = "Hello";
@@ -30,7 +30,7 @@
 			};
 		};
 	};
-	services.blueman.enable = true;
+	services.blueman.enable = false;
 	
 	#Standard Interface for Applications to interact with
 	xdg.portal= {
@@ -106,14 +106,6 @@
       };
   };
 
-
-	#Environment
-  environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-      GTK_THEME = "Chicago95";
-
-  };
   #Home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -129,7 +121,7 @@
      enable = true;
      enableSSHSupport = true;
    };
-  programs.hyprland = {
+  programs.river = {
       enable = true;
       xwayland.enable = true;
   };

@@ -64,5 +64,11 @@ in
 		(writeShellScriptBin "testbuild-pneuma" ''
 		 sudo nixos-rebuild test --flake ~/dots/#pneuma
 		 '')
+        (writeShellScriptBin "rebuild-logos" ''
+         sudo nixos-rebuild switch --flake ~/dots/#logos
+         '')
+		(writeShellScriptBin "testbuild-logos" ''
+		 sudo nixos-rebuild test --flake ~/dots/#logos
+		 '')
     ];
 }

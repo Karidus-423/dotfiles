@@ -245,9 +245,8 @@
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-        monitor=DP-3,highres,0x0,1
-        monitor=DP-2,highres,0x0,1
-        monitor=DP-4,highres,0x0,1
-        monitor=DP-1,highres,0x0,1
+        monitor=DP-2,addreserved,0,0,450,500,2560x1440@165,0x0,1
+        #monitor=DP-1,2560x1440@165,0x0,1
+
 		'';
 }
