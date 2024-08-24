@@ -121,7 +121,7 @@
      enable = true;
      enableSSHSupport = true;
    };
-  programs.river = {
+  programs.hyprland = {
       enable = true;
       xwayland.enable = true;
   };
