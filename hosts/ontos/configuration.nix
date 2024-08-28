@@ -1,4 +1,4 @@
-{ config, pkgs, inputs,  ... }:
+{ pkgs, inputs,  ... }:
 
 {
   imports =
@@ -8,13 +8,21 @@
     ];
 
   # Bootloader.
-	boot.loader.systemd-boot.enable = false;
-	boot.loader.grub.enable = true;
-	boot.loader.grub.device = "nodev";
-	boot.loader.grub.useOSProber = true;
-	boot.loader.grub.efiSupport = true;
-	boot.loader.efi.canTouchEfiVariables = true;
-	boot.loader.efi.efiSysMountPoint = "/boot";
+  #______________________________________#
+	boot.loader = {
+		systemd-boot.enable = false;
+		grub = {
+			enable = true;
+			device = "nodev";
+			useOSProber = true;
+			efiSupport = true;
+		};
+		efi ={
+			canTouchEfiVariables = true;
+			efiSysMountPoint = "/boot";
+		};
+	};
+  #______________________________________#
 
   networking.hostName = "ontos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -27,9 +35,10 @@
   networking.networkmanager.enable = true;
 
   # Enable bluetooth
-  hardware.bluetooth.powerOnBoot = true;
+  #______________________________________#
   hardware.bluetooth = {
       enable = true;
+	  powerOnBoot = true;
       settings = {
           General = {
               Name = "Hello";
@@ -42,56 +51,123 @@
           };
       };
   };
+  #______________________________________#
 
-  xdg.portal= {
+  xdg.portal.enable = true;
+
+  fonts.packages = with pkgs; [
+  	(nerdfonts.override{fonts = ["Gohu"];})
+	libre-baskerville
+  ];
+
+  # Define a user account. Don't forget to set a password with ‘passwd’.
+  users.users.kapud = {
+    isNormalUser = true;
+    description = "Kennett Puerto";
+    extraGroups = [ "networkmanager" "wheel" "sound" "video"];
+    shell = pkgs.zsh;
+    packages = with pkgs; [
+    firefox
+    alacritty
+    pavucontrol
+    wireplumber
+    brightnessctl
+    ];
+  };
+
+
+
+  # Allow unfree packages
+  nixpkgs.config.allowUnfree = true;
+
+  #Programs
+  #______________________________________#
+  programs.zsh = {
+	  enable = true;
+  };
+  programs.neovim = {
+	  enable = true;
+	  defaultEditor = true;
+  };
+  #______________________________________#
+  #Environment
+  #______________________________________#
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.pathsToLink = ["/share/zsh"];
+  environment.systemPackages = with pkgs; [
+	  alacritty
+		  kitty
+		  vim 
+		  git
+		  lazygit
+  ];
+
+  environment.sessionVariables = {
+      WLR_NO_HARDWARE_CURSORS = "1";
+      NIXOS_OZONE_WL = "1";
+      GTK_THEME = "Chicago95";
+  };
+  #______________________________________#
+
+  #Home-manager
+  #______________________________________#
+  home-manager = {
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "kapud" = import ./home.nix;
+    };
+  };
+  #______________________________________#
+
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+   programs.mtr.enable = true;
+   programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
+  programs.hyprland = {
       enable = true;
+      xwayland.enable = true;
   };
-  services.blueman.enable = true;
-  services.gvfs.enable = true;
-  services.upower.enable = true;
-  services.printing = {
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  #Graphics
+  hardware = {
+      opengl.enable = true;
+  };
+
+  # List services that you want to enable:
+  #______________________________________#
+  #Syncthing
+   services.syncthing = {
+	   enable = true;
+	   user = "kapud";
+	   dataDir = "home/kapud/syncthing";    # Default folder for new synced folders
+	   configDir = "/home/kapud/.config/syncthing";   # Folder for Syncthing's settings and keys
+   };
+
+   #SSHD
+   services.sshd = {
+		enable = true;
+   };
+
+   services.blueman.enable = true;
+   services.gvfs.enable = true;
+   services.upower.enable = true;
+   services.printing = {
 	  enable = true;
-	  drivers = with pkgs;[
-	  epson-escpr
-	  epsonscan2
-	  epson-escpr2
-	  epson_201207w
-	  ];
+   };
 
-  };
+  # X11 Keymap Configuration
+   services.xserver.xkb = {
+     layout = "us";
+     variant = "";
+   };
 
-# Enable sound
-  security.rtkit.enable = true;
-  services.pipewire = {
-	  enable = true;
-	  alsa.enable = true;
-	  alsa.support32Bit = true;
-	  pulse.enable = true;
-	  # If you want to use JACK applications, uncomment this
-	  #jack.enable = true;
-  };
-  hardware.pulseaudio.enable = false;
-
-  # Set your time zone.
-  time.timeZone = "America/New_York";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
-  };
-
-  #Enable Display Manger
-    services.xserver = {
+  #Display Manager
+   services.xserver = {
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
       enable = true;
@@ -111,96 +187,20 @@
           default_session = initial_session;
       };
   };
-
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  #______________________________________#
+  # Sound Configuration
+  #______________________________________#
+  services.pipewire = {
+	  enable = true;
+	  alsa.enable = true;
+	  alsa.support32Bit = true;
+	  pulse.enable = true;
+	# If you want to use JACK applications, uncomment this
+	#jack.enable = true;
   };
-
-  fonts.packages = with pkgs; [
-  	(nerdfonts.override{fonts = ["Gohu"];})
-	libre-baskerville
-  ];
-  programs.zsh.enable=true;
-	programs.steam = {
-  enable = true;
-  remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-  dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
-	};
-
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.kapud = {
-    isNormalUser = true;
-    description = "Kennett Puerto";
-    extraGroups = [ "networkmanager" "wheel" "sound" "video"];
-    shell = pkgs.zsh;
-    packages = with pkgs; [
-	neovim
-    firefox
-    alacritty
-    pavucontrol
-    wireplumber
-    brightnessctl
-    ];
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.pathsToLink = ["/share/zsh"];
-  environment.systemPackages = with pkgs; [
-	alacritty
-    kitty
-    vim 
-    git
-    lazygit
-  ];
-  environment.sessionVariables = {
-      WLR_NO_HARDWARE_CURSORS = "1";
-      NIXOS_OZONE_WL = "1";
-      GTK_THEME = "Chicago95";
-
-  };
-  #Home-manager
-  home-manager = {
-    extraSpecialArgs = { inherit inputs; };
-    users = {
-      "kapud" = import ./home.nix;
-    };
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-   programs.mtr.enable = true;
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
-  programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-  };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-  hardware = {
-      opengl.enable = true;
-  };
-  # List services that you want to enable:
-  # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
-
-   #Syncthing
-   services = {
-	   syncthing = {
-		   enable = true;
-		   user = "kapud";
-		   dataDir = "home/kapud/syncthing";    # Default folder for new synced folders
-		   configDir = "/home/kapud/.config/syncthing";   # Folder for Syncthing's settings and keys
-	   };
-   };
+  security.rtkit.enable = true;
+  hardware.pulseaudio.enable = false;
+  #______________________________________#
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -208,7 +208,7 @@
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
-  system.stateVersion = "23.11";
+  system.stateVersion = "24.11";
 
 # Auto-Upgrade
 system.autoUpgrade = {
@@ -223,4 +223,21 @@ system.autoUpgrade = {
     randomizedDelaySec = "45min";
 };
 
+  # Set your time zone.
+  time.timeZone = "America/New_York";
+
+  # Select internationalisation properties.
+  i18n.defaultLocale = "en_US.UTF-8";
+
+  i18n.extraLocaleSettings = {
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+  };
 }
