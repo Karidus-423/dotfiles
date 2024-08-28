@@ -9,71 +9,18 @@ in
     ./packages/packs-conf.nix
     ./packages/packs-ontos.nix
   ];
+
+#_____________________________________#
+# Home Manager #
   home.username = "kapud";
   home.homeDirectory = "/home/kapud";
-  nixpkgs.config.allowUnfreePredicate = _: true;
-  # You should not change this value, even if you update Home Manager. If you do
-  # want to update the value, then make sure to first check the Home Manager
-  # release notes.
-  home.stateVersion = "23.11";
-  programs.ags = {
-      enable = true;
-	  configDir = ../../modules/home-manager/ags;
-      extraPackages = with pkgs; [
-      gtksourceview
-      webkitgtk
-      accountsservice
-      gvfs
-      ];
-  };
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-  colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
-  (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
-  #colorScheme = nix-colors-lib.colorSchemeFromPicture {
-  #  path = ./wallpapers/forest.png;
-  #  variant = "light";
-  #};
   home.pointerCursor = {
-  gtk.enable = true;
-  # x11.enable = true;
-  package = pkgs.bibata-cursors;
-  name = "Bibata-Modern-Ice";
-  size = 24;
-};
-  gtk = {
-      enable = true;
-      font = {
-          name = "TeX Gyre Adventor";
-      };
-      theme = {
-          package = chicago95;
-          name = "Chicago95";
-      };
-      iconTheme = {
-          package = chicago95;
-          name = "Chicago95";
-      };
-  };
-
-
-  programs.git = {
-      enable = true;
-      userName = "Karidus-423";
-      userEmail = "kapuerto23@gmail.com";
-      extraConfig = {
-          init.defaultBranch = "main";
-          safe.directory = "/etc/nixos";
-      };
-  };
-
-  programs.direnv = {
-	  enable = true;
-	  nix-direnv.enable = true;
-  };
-
-
-
+	  home.sessionVariables = {
+		  EDITOR = "nvim";
+		  GDK_BACKEND="wayland";
+	  };
+# Let Home Manager install and manage itself.
+	  programs.home-manager.enable = true;
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
@@ -106,19 +53,46 @@ in
   #
   #  /etc/profiles/per-user/kapud/etc/profile.d/hm-session-vars.sh
   #
-  home.sessionVariables = {
-    EDITOR = "nvim";
-    GDK_BACKEND="wayland";
+# You should not change this value, even if you update Home Manager. If you do
+# want to update the value, then make sure to first check the Home Manager
+# release notes.
+	  home.stateVersion = "23.11";
+#_____________________________________#
+
+#_____________________________________#
+# Simple Home Manager Options
+  programs.ags = {
+	  enable = true;
+	  configDir = ../../modules/home-manager/ags;
+	  extraPackages = with pkgs; [
+		  gtksourceview
+		  webkitgtk
+		  accountsservice
+		  gvfs
+	  ];
   };
 
+  programs.git = {
+	  enable = true;
+	  userName = "Karidus-423";
+	  userEmail = "kapuerto23@gmail.com";
+	  extraConfig = {
+		  init.defaultBranch = "main";
+		  safe.directory = "/etc/nixos";
+	  };
+  };
 
-
+  programs.direnv = {
+	  enable = true;
+	  nix-direnv.enable = true;
+  };
 
   services.gpg-agent = {
    enable = true;
    defaultCacheTtl = 1800;
    enableSshSupport = true;
   };
+
   services.gammastep = {
 	  enable = true;
 	  provider = "manual";
@@ -127,5 +101,36 @@ in
 	  latitude = 38.2;
 	  longitude = -84.87;
   };
+#_____________________________________#
+
+#_____________________________________#
+# Theming #
+  colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
+	  (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
+#colorScheme = nix-colors-lib.colorSchemeFromPicture {
+#  path = ./wallpapers/forest.png;
+#  variant = "light";
+#};
+  gtk.enable = true;
+# x11.enable = true;
+  package = pkgs.bibata-cursors;
+  name = "Bibata-Modern-Ice";
+  size = 24;
+  };
+  gtk = {
+	  enable = true;
+	  font = {
+		  name = "TeX Gyre Adventor";
+	  };
+	  theme = {
+		  package = chicago95;
+		  name = "Chicago95";
+	  };
+	  iconTheme = {
+		  package = chicago95;
+		  name = "Chicago95";
+	  };
+  };
+#_____________________________________#
 
 }

@@ -4,7 +4,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-       inputs.home-manager.nixosModules.default
+       inputs.home-manager.nixosModules.home-manager
     ];
 
   # Bootloader.
@@ -24,7 +24,9 @@
 	};
   #______________________________________#
 
-  networking.hostName = "ontos"; # Define your hostname.
+  #______________________________________#
+  # Network #
+	networking.hostName = "ontos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -32,10 +34,17 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.networkmanager.enable = true;
+	networking.networkmanager.enable = true;
 
-  # Enable bluetooth
+  # Open ports in the firewall.
+  # networking.firewall.allowedTCPPorts = [ ... ];
+  # networking.firewall.allowedUDPPorts = [ ... ];
+  # Or disable the firewall altogether.
+  # networking.firewall.enable = false;
   #______________________________________#
+
+  #______________________________________#
+  # Enable bluetooth
   hardware.bluetooth = {
       enable = true;
 	  powerOnBoot = true;
@@ -53,14 +62,10 @@
   };
   #______________________________________#
 
-  xdg.portal.enable = true;
 
-  fonts.packages = with pkgs; [
-  	(nerdfonts.override{fonts = ["Gohu"];})
-	libre-baskerville
-  ];
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
+  #______________________________________#
+  # User Account. Don't forget to set a password with ‘passwd’.
   users.users.kapud = {
     isNormalUser = true;
     description = "Kennett Puerto";
@@ -74,14 +79,10 @@
     brightnessctl
     ];
   };
-
-
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  #Programs
   #______________________________________#
+
+  #______________________________________#
+  #Programs
   programs.zsh = {
 	  enable = true;
   };
@@ -89,18 +90,26 @@
 	  enable = true;
 	  defaultEditor = true;
   };
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+   programs.mtr.enable = true;
+   programs.gnupg.agent = {
+     enable = true;
+     enableSSHSupport = true;
+   };
+  #______________________________________#
+
   #______________________________________#
   #Environment
-  #______________________________________#
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.pathsToLink = ["/share/zsh"];
   environment.systemPackages = with pkgs; [
 	  alacritty
-		  kitty
-		  vim 
-		  git
-		  lazygit
+	  kitty
+	  vim 
+	  git
+	  lazygit
   ];
 
   environment.sessionVariables = {
@@ -110,36 +119,27 @@
   };
   #______________________________________#
 
-  #Home-manager
   #______________________________________#
+  #Home-manager
   home-manager = {
-    extraSpecialArgs = { inherit inputs; };
     users = {
       "kapud" = import ./home.nix;
     };
+	extraSpecialArgs = { inherit inputs; };
   };
   #______________________________________#
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-   programs.mtr.enable = true;
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
-  programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
-  };
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  #______________________________________#
   #Graphics
   hardware = {
       opengl.enable = true;
   };
-
-  # List services that you want to enable:
   #______________________________________#
+
+  #______________________________________#
+  #Services 
+
   #Syncthing
    services.syncthing = {
 	   enable = true;
@@ -188,8 +188,9 @@
       };
   };
   #______________________________________#
-  # Sound Configuration
+
   #______________________________________#
+  # Sound Configuration
   services.pipewire = {
 	  enable = true;
 	  alsa.enable = true;
@@ -202,42 +203,49 @@
   hardware.pulseaudio.enable = false;
   #______________________________________#
 
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+
+  #______________________________________#
+  # Miscellaneous
+  xdg.portal.enable = true;
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
+  fonts.packages = with pkgs; [
+	  (nerdfonts.override{fonts = ["Gohu"];})
+		  libre-baskerville
+  ];
 
   system.stateVersion = "24.11";
 
 # Auto-Upgrade
-system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-        "--update-input"
-        "nixpkgs"
-        "-L"
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-};
+  system.autoUpgrade = {
+	  enable = true;
+	  flake = inputs.self.outPath;
+	  flags = [
+		  "--update-input"
+			  "nixpkgs"
+			  "-L"
+	  ];
+	  dates = "09:00";
+	  randomizedDelaySec = "45min";
+  };
 
-  # Set your time zone.
+# Set your time zone.
   time.timeZone = "America/New_York";
 
-  # Select internationalisation properties.
+# Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+	  LC_ADDRESS = "en_US.UTF-8";
+	  LC_IDENTIFICATION = "en_US.UTF-8";
+	  LC_MEASUREMENT = "en_US.UTF-8";
+	  LC_MONETARY = "en_US.UTF-8";
+	  LC_NAME = "en_US.UTF-8";
+	  LC_NUMERIC = "en_US.UTF-8";
+	  LC_PAPER = "en_US.UTF-8";
+	  LC_TELEPHONE = "en_US.UTF-8";
+	  LC_TIME = "en_US.UTF-8";
   };
+  #______________________________________#
 }

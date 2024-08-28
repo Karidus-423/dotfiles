@@ -14,24 +14,29 @@
   outputs = { self, nixpkgs, ... }@inputs: 
   let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    pkgs = import nixpkgs{
+		inherit system;
+		config = {
+			allowUnfree = true;
+		};
+	};
   in
   {
   nixosConfigurations = {
 		pneuma = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
+			specialArgs = { inherit inputs system; };
 			modules = [
 				./hosts/pneuma/configuration.nix
 			];
 		  };
 		ontos = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
+			specialArgs = { inherit inputs system; };
 			modules = [
 				./hosts/ontos/configuration.nix
 			];
 		  };
 		logos = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
+			specialArgs = { inherit inputs system; };
 			modules = [
 				./hosts/logos/configuration.nix
 			];
