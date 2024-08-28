@@ -1,7 +1,6 @@
-{ inputs, pkgs, home,... }:
+{ inputs, pkgs, ... }:
 let
     chicago95 = import ../../modules/gtk_themes/chicago95.nix {inherit pkgs;};
-	kanagawa = import ../../modules/gtk_themes/kanagawa.nix {inherit pkgs;};
 in
 {
   imports = [

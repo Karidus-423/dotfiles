@@ -18,6 +18,12 @@
   in
   {
   nixosConfigurations = {
+		pneuma = nixpkgs.lib.nixosSystem {
+			specialArgs = { inherit inputs; };
+			modules = [
+				./hosts/pneuma/configuration.nix
+			];
+		  };
 		ontos = nixpkgs.lib.nixosSystem {
 			specialArgs = { inherit inputs; };
 			modules = [
@@ -28,12 +34,6 @@
 			specialArgs = { inherit inputs; };
 			modules = [
 				./hosts/logos/configuration.nix
-			];
-		  };
-		pneuma = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
-			modules = [
-				./hosts/pneuma/configuration.nix
 			];
 		  };
     };
