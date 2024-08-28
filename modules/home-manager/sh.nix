@@ -35,9 +35,10 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
-
-
+			
+			export DIRENV_LOG_FORMAT=""
 			'';
+		
     };
     programs.bash = {
         enable = true;
@@ -47,6 +48,7 @@ in
 
             bindkey -s '^f' "tmux-sessionizer\n"
             bindkey -s '^c' "bye"
+			export DIRENV_LOG_FORMAT=""
             '';
     };
 

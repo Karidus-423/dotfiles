@@ -13,7 +13,7 @@
 	aseprite
 	audacious
 	blender
-	cura
+	curaengine_stable
 	playerctl
 	xdg-utils
     bat
