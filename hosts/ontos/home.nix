@@ -139,10 +139,8 @@ in
 		gaps_in = 4;
 		allow_tearing = false;
 		layout = "dwindle";
-		col = {
-			active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-			inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-		};
+		col.active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+		col.inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
 	};
 #_____________________________________#
 

@@ -29,7 +29,6 @@ in
 					"shadow_range" = "4";
 					"shadow_render_power" = "3";
 					drop_shadow = false;
-					"blur.enable" = "false";
 					"col.shadow" = "rgba(1a1a1aee)";
 				};
 
@@ -291,7 +290,7 @@ in
 					};
 					col.active_border = mkOption{
 						type = types.str;
-						example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
+						example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
 					};
 					col.inactive_border = mkOption{
 						type = types.str;
