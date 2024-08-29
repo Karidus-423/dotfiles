@@ -289,19 +289,13 @@ in
 						type = types.bool;
 						default = false;
 					};
-					col = mkOption{
-						type = types.submodule{
-							options = {
-							active_border = mkOption{
-								type = types.str;
-								example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
-							};
-							inactive_border = mkOption{
-								type = types.str;
-								example = "rgba(acafadee) rgba(110f0fa5) 90deg ";
-							};
-							};
-						};
+					col.active_border = mkOption{
+						type = types.str;
+						example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
+					};
+					col.inactive_border = mkOption{
+						type = types.str;
+						example = "rgba(acafadee) rgba(110f0fa5) 90deg";
 					};
 				};
 				};
