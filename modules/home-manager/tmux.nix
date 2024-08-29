@@ -27,7 +27,7 @@
         set-option -g status-right-style 'bg=#80652b fg=#cccccc' \n
         set-option -g status-right-length \"80\" \n
 		bind-key -r f run-shell \"tmux neww ~/.nix-profile/bin/tmux-sessionizer\" \n
-		bind-key t run-shell \"tmux neww -n ranger ranger\"
+		bind-key t run-shell \"tmux neww -n lf ${pkgs.lf}/bin/lf\"
         ";
     };
 }

@@ -1,8 +1,12 @@
-{...}:{
-	programs.ranger = {
+{pkgs, ...}:{
+	programs.lf = {
 		enable = true;
-		extraConfig = "
-		set preview_images true
-		";
+		commands = {
+			dragon-out = ''%${pkgs.xdragon}/bin/xdragon -a -x "$fx"'';
+		};
+		settings = {
+			preview = true;
+			hidden = true;
+		};
 	};
 }

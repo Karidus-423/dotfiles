@@ -72,7 +72,7 @@ in
   nixpkgs.config.allowUnfreePredicate = _: true;
   programs.ags = {
 	  enable = true;
-	  configDir = ../../modules/home-manager/ags;
+	  configDir = ../../modules/home-manager/ags_ontos;
 	  extraPackages = with pkgs; [
 		  gtksourceview
 		  webkitgtk
@@ -137,11 +137,13 @@ in
 
   hyprlandGeneral = {
 		gaps_in = 4;
+		border_size = 2;
 		allow_tearing = false;
 		layout = "dwindle";
-		col.active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-		col.inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+		"col.active_border" = "rgba(ccccccff)";
+		"col.inactive_border" = "rgba(00000000)";
 	};
+  hyprlandWallpaper = ../../modules/wallpapers/Regatta.jpg;
 #_____________________________________#
 
 }

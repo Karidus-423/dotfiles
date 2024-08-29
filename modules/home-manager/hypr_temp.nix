@@ -10,7 +10,7 @@ let
 
 	sleep 1
 
-	${pkgs.swww}/bin/swww img ${config.hyprlandWallpaper} &
+	${pkgs.swww}/bin/swww img ${config.hyprlandWallpaper} --transition-type=grow &
 	${pkgs.gammastep}/bin/gammastep &
 	'';
 
@@ -142,7 +142,6 @@ in
 		# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 		# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 		#windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
-        windowrule = pseudo, ^(alacritty)$
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more
@@ -288,13 +287,13 @@ in
 						type = types.bool;
 						default = false;
 					};
-					col.active_border = mkOption{
+					"col.active_border" = mkOption{
 						type = types.str;
-						example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+						default = "rgba(cccccccc)";
 					};
-					col.inactive_border = mkOption{
+					"col.inactive_border" = mkOption{
 						type = types.str;
-						example = "rgba(acafadee) rgba(110f0fa5) 90deg";
+						default = "rgba(64605000)";
 					};
 				};
 				};
@@ -307,6 +306,7 @@ in
 				Wallpaper path for hyprland.
 			'';
 		};
+
 	};
 
 }
