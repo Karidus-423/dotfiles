@@ -16,8 +16,8 @@
           decorations = "None";
           opacity = 0.94;
           padding = {
-              x = 20;
-              y = 30;
+              x = 15;
+              y = 25;
           };
       };
       shell = {
@@ -82,4 +82,5 @@
 
 
       };
+
 }
