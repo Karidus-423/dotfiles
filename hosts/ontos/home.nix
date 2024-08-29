@@ -12,13 +12,22 @@ in
 
 #_____________________________________#
 # Home Manager #
-  home.username = "kapud";
-  home.homeDirectory = "/home/kapud";
+  home = {
+	  username = "kapud";
+	  homeDirectory = "/home/kapud";
+	  stateVersion = "23.11";
+  };
+  home.sessionVariables = {
+	  EDITOR = "nvim";
+	  GDK_BACKEND="wayland";
+  };
   home.pointerCursor = {
-	  home.sessionVariables = {
-		  EDITOR = "nvim";
-		  GDK_BACKEND="wayland";
-	  };
+	  gtk.enable = true;
+      # x11.enable = true;
+	  package = pkgs.bibata-cursors;
+	  name = "Bibata-Modern-Ice";
+	  size = 24;
+  };
 # Let Home Manager install and manage itself.
 	  programs.home-manager.enable = true;
 
@@ -56,11 +65,11 @@ in
 # You should not change this value, even if you update Home Manager. If you do
 # want to update the value, then make sure to first check the Home Manager
 # release notes.
-	  home.stateVersion = "23.11";
 #_____________________________________#
 
 #_____________________________________#
 # Simple Home Manager Options
+  nixpkgs.config.allowUnfreePredicate = _: true;
   programs.ags = {
 	  enable = true;
 	  configDir = ../../modules/home-manager/ags;
@@ -111,12 +120,6 @@ in
 #  path = ./wallpapers/forest.png;
 #  variant = "light";
 #};
-  gtk.enable = true;
-# x11.enable = true;
-  package = pkgs.bibata-cursors;
-  name = "Bibata-Modern-Ice";
-  size = 24;
-  };
   gtk = {
 	  enable = true;
 	  font = {
@@ -131,6 +134,16 @@ in
 		  name = "Chicago95";
 	  };
   };
+
+  hyprlandGeneral = {
+		gaps_in = 4;
+		allow_tearing = false;
+		layout = "dwindle";
+		col = {
+			active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+			inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+		};
+	};
 #_____________________________________#
 
 }

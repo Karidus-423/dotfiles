@@ -122,10 +122,10 @@
   #______________________________________#
   #Home-manager
   home-manager = {
+	extraSpecialArgs = { inherit inputs; };
     users = {
       "kapud" = import ./home.nix;
     };
-	extraSpecialArgs = { inherit inputs; };
   };
   #______________________________________#
 
@@ -209,13 +209,14 @@
   xdg.portal.enable = true;
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nixpkgs.config.allowUnfree = true;
 
   fonts.packages = with pkgs; [
 	  (nerdfonts.override{fonts = ["Gohu"];})
 		  libre-baskerville
   ];
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "23.11";
 
 # Auto-Upgrade
   system.autoUpgrade = {

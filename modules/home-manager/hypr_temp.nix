@@ -18,7 +18,7 @@ let
 in
 {
 	config = {
-		programs.hyprland = {
+		wayland.windowManager.hyprland = {
 			enable = true;
 
 			settings = {
@@ -264,7 +264,7 @@ in
 
 	options = {
 		hyprlandGeneral = mkOption {
-			type = types.listOf (types.submodule {
+			type = types.submodule {
 				options = {
 					gaps_in = mkOption{
 						type = types.int;
@@ -282,28 +282,29 @@ in
 						example = 3;
 					};
 					layout = mkOption{
-						type = types.string;
-						default = "dwindle";
+						type = types.str;
 						example = "master";
 					};
 					allow_tearing = mkOption{
 						type = types.bool;
-						example = "false";
+						default = false;
 					};
-					col = types.submodule{
-						active_border = mkOption{
-							type = types.string;
-							default = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
-							example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
-						};
-						inactive_border = mkOption{
-							type = types.string;
-							default = "rgba(acafadee) rgba(110f0fa5) 90deg";
-							example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+					col = mkOption{
+						type = types.submodule{
+							options = {
+							active_border = mkOption{
+								type = types.str;
+								example = "rgba(b2d498ee) rgba(b3dcdda8) 0deg ";
+							};
+							inactive_border = mkOption{
+								type = types.str;
+								example = "rgba(acafadee) rgba(110f0fa5) 90deg ";
+							};
+							};
 						};
 					};
 				};
-				});
+				};
 		};
 
 		hyprlandWallpaper = lib.mkOption{
