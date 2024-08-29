@@ -1,6 +1,6 @@
 {...}:{
     imports = [
-	../../../modules/home-manager/hypr.nix
+	../../../modules/home-manager/hypr_temp.nix
 	../../../modules/home-manager/tmux.nix
     ../../../modules/home-manager/sh.nix
     ../../../modules/home-manager/alacritty.nix

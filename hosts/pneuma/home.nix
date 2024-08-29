@@ -50,7 +50,7 @@ in
 
   programs.ags = {
       enable = true;
-	  configDir = ../../modules/home-manager/ags;
+	  configDir = ../../modules/home-manager/ags-pneuma;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk
@@ -125,5 +125,17 @@ in
 	  latitude = 38.2;
 	  longitude = -84.87;
   };
+
+  hyprlandGeneral = {
+		gaps_in = 4;
+		allow_tearing = false;
+		layout = "dwindle";
+		col = {
+			active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+			inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+		};
+	};
+	
+	hyprlandWallpaper = ../../modules/wallpapers/daymarket.gif;
 
 }
