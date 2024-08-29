@@ -50,7 +50,7 @@ in
 
   programs.ags = {
       enable = true;
-	  configDir = ../../modules/home-manager/ags-pneuma;
+	  configDir = ../../modules/home-manager/ags-ontos;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk
