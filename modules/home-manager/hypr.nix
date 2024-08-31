@@ -13,7 +13,7 @@
 
 		# Set programs that you use
 		$terminal = alacritty
-		$fileManager = alacritty -e ranger
+		$fileManager = alacritty -e lf
 		$menu = wofi --show drun --term alacritty -n
 		$browser = firefox
 		$note = obsidian

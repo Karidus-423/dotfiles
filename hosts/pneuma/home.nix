@@ -50,7 +50,7 @@ in
 
   programs.ags = {
       enable = true;
-	  configDir = ../../modules/home-manager/ags-ontos;
+	  configDir = ../../modules/home-manager/ags_ontos;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk
@@ -128,12 +128,11 @@ in
 
   hyprlandGeneral = {
 		gaps_in = 4;
+		border_size = 3;
 		allow_tearing = false;
 		layout = "dwindle";
-		col = {
-			active_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-			inactive_border = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-		};
+		"col.active_border" = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
+		"col.inactive_border" = "rgba(acafadee) rgba(110f0fa5) 90deg";
 	};
 	
 	hyprlandWallpaper = ../../modules/wallpapers/daymarket.gif;

@@ -17,7 +17,6 @@
 	playerctl
 	xdg-utils
     bat
-    calibre
     cargo
     cava
     clang-tools #C/C++
@@ -27,6 +26,7 @@
     fd
     fzf
     gimp
+	marksman
     go
     godot_4
     grim
