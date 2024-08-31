@@ -6,8 +6,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.ags.homeManagerModules.default
-    ./packages/packs-conf.nix
-    ./packages/packs-ontos.nix
+    ./packs-conf.nix
   ];
 
 #_____________________________________#

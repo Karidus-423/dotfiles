@@ -1,5 +1,6 @@
 {...}:{
     imports = [
+	# Packages Settings
 	../../../modules/home-manager/hypr_temp.nix
 	../../../modules/home-manager/tmux.nix
     ../../../modules/home-manager/sh.nix
@@ -10,5 +11,12 @@
 	../../../modules/home-manager/lf/lf.nix
 	../../../modules/home-manager/zathura.nix
 	#../../../modules/home-manager/spicetify.nix
+
+	# Packages Groups
+	.../../modules/packages/system-utils.nix
+	.../../modules/packages/tui-apps.nix
+	.../../modules/packages/gui-apps.nix
+	.../../modules/packages/command-line-tools.nix
+	.../../modules/packages/language-servers.nix
      ];
 }
