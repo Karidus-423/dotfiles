@@ -49,7 +49,7 @@ in
 
   programs.ags = {
       enable = true;
-	  configDir = ../../modules/home-manager/ags_ontos;
+	  configDir = ../../modules/home-manager/ags_pneuma;
       extraPackages = with pkgs; [
       gtksourceview
       webkitgtk

@@ -1,0 +1,30 @@
+.empty_ws {
+	transition: 300ms ease-out;
+	background-color: rgba(126, 129, 128, 0.8);
+	color: rgb(255, 255, 255);
+	border: 3px grey;
+	border-radius: 30px;
+}
+
+.filled_ws {
+	transition: 300ms ease-out;
+	background-color: rgba(101, 140, 128, 0.8);
+	border-radius: 20px;
+}
+
+.active_ws {
+	transition: 300ms ease-out;
+	background-color: rgba(101, 159, 160, 0.8);
+	min-height: 25px;
+}
+
+.clock {
+	background-color: rgba(126, 129, 128, 0.8);
+	border: 3px grey;
+	color: rgb(255, 255, 255);
+}
+
+.bar_end {
+	background-color: rgba(126, 129, 128, 0.8);
+	border: 3px grey;
+}
