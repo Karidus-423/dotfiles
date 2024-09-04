@@ -18,5 +18,7 @@
 	../../modules/packages/gui-apps.nix
 	../../modules/packages/command-line-tools.nix
 	../../modules/packages/language-servers.nix
-     ];
+	../../modules/packages/fonts.nix
+
+    ];
 }

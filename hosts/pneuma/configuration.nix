@@ -55,13 +55,16 @@
 	services.gvfs.enable = true;
 	# Enable sound
 	hardware.pulseaudio.enable = false;
+	hardware.pulseaudio.package = pkgs.pulseaudiofull;
 	security.rtkit.enable = true;
 	services.pipewire = {
 		enable = true;
 		alsa.enable = true;
 		alsa.support32Bit = true;
 		# If you want to use JACK applications, uncomment this
-		#jack.enable = true;
+		jack.enable = true;
+		pulse.enable = true;
+		wireplumber.enable = true;
 	};
 
   # Set your time zone.
@@ -108,10 +111,6 @@
     ];
   };
   programs.zsh.enable=true;
-  fonts.packages = with pkgs; [
-  	(nerdfonts.override{fonts = ["Gohu"];})
-	libre-baskerville
-  ];
 
   services.greetd = {
       enable = true;
@@ -132,6 +131,7 @@
 	  MOZ_ENABLE_WAYLAND = "1"; # for firefox to run on wayland
 	  MOZ_WEBRENDER = "1";
 	  GTK_THEME = "Chicago95";
+	  REBUILD_NAME = "pneuma";
   };
   #Home-manager
   home-manager = {

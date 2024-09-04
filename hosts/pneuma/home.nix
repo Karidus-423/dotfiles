@@ -109,6 +109,8 @@ in
   home.sessionVariables = {
     EDITOR = "nvim";
     GDK_BACKEND="wayland";
+	BROWSER = "firefox";
+	TERMINAL = "alacritty";
   };
 
   services.gpg-agent = {

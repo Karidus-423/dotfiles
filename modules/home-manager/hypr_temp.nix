@@ -12,6 +12,7 @@ let
 
 	${pkgs.swww}/bin/swww img ${config.hyprlandWallpaper} --transition-type=grow &
 	${pkgs.gammastep}/bin/gammastep &
+	pipewire-pulse &
 	'';
 
 	inherit (lib) mkOption types;
@@ -39,7 +40,7 @@ in
 		# Set programs that you use
 		$terminal = alacritty
 		$fileManager = alacritty -e lf
-		$menu = wofi --show drun --term alacritty -n
+		$menu = ags -t applauncher -b ags
 		$browser = firefox
 		$note = obsidian
 

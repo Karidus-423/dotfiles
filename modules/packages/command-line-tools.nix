@@ -12,6 +12,7 @@
 	neofetch
 	notify
 	ripgrep
+	pandoc
 	slurp
 	swappy
 	swww

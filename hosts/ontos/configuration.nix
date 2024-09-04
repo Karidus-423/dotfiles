@@ -211,11 +211,6 @@
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
 
-  fonts.packages = with pkgs; [
-	  (nerdfonts.override{fonts = ["Gohu"];})
-		  libre-baskerville
-  ];
-
   system.stateVersion = "23.11";
 
 # Auto-Upgrade

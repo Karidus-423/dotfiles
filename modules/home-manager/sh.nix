@@ -1,6 +1,7 @@
-{ config, pkgs, ...}:
+{ pkgs, ...}:
 
 let
+   hostName = builtins.getEnv "HOSTNAME";
    myAliases = {
        cl = "clear";
        ll = "ls -l";
@@ -54,23 +55,11 @@ in
 
 #Shell scripts
     home.packages = with pkgs;[
-        (writeShellScriptBin "rebuild-ontos" ''
-         sudo nixos-rebuild switch --flake ~/dots/#ontos
+        (writeShellScriptBin "rebuild" ''
+         sudo nixos-rebuild switch --flake ~/dots/#${hostName}
          '')
-		(writeShellScriptBin "testbuild-ontos" ''
-		 sudo nixos-rebuild test --flake ~/dots/#ontos
-		 '')
-        (writeShellScriptBin "rebuild-pneuma" ''
-         sudo nixos-rebuild switch --flake ~/dots/#pneuma
-         '')
-		(writeShellScriptBin "testbuild-pneuma" ''
-		 sudo nixos-rebuild test --flake ~/dots/#pneuma
-		 '')
-        (writeShellScriptBin "rebuild-logos" ''
-         sudo nixos-rebuild switch --flake ~/dots/#logos
-         '')
-		(writeShellScriptBin "testbuild-logos" ''
-		 sudo nixos-rebuild test --flake ~/dots/#logos
+		(writeShellScriptBin "testbuild" ''
+		 sudo nixos-rebuild test --flake ~/dots/#${hostName}
 		 '')
     ];
 }
