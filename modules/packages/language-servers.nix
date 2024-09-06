@@ -3,7 +3,6 @@
   home.packages = with pkgs; [
 	#Language Servers
 	dart-sass
-	marksman
     go
     lua
     lua-language-server

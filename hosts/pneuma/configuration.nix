@@ -86,6 +86,7 @@
   };
 
   services.xserver = {
+	  enable = true;
 	  displayManager.gdm.enable = true;
 	  desktopManager.gnome = {
 		enable = true;
@@ -102,7 +103,6 @@
     extraGroups = [ "networkmanager" "wheel" "sound" "video"];
     shell = pkgs.zsh;
     packages = with pkgs; [
-	neovim
     firefox
     alacritty
     pavucontrol
@@ -110,7 +110,8 @@
 	lazygit
     ];
   };
-  programs.zsh.enable=true;
+  
+  
 
   services.greetd = {
       enable = true;
@@ -133,6 +134,7 @@
 	  GTK_THEME = "Chicago95";
 	  REBUILD_NAME = "pneuma";
   };
+
   #Home-manager
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
@@ -152,6 +154,12 @@
       enable = true;
       xwayland.enable = true;
   };
+  programs.zsh.enable=true;
+  programs.neovim= {
+		enable = true;
+		defaultEditor = true;
+		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+  };
   hardware = {
       opengl = {
 		  enable = true;
@@ -169,13 +177,10 @@
 		  # Currently alpha-quality/buggy, so false is currently the recommended setting.
 		  open = false;
 		  nvidiaSettings = true;
-
 		  # Optionally, you may need to select the appropriate driver version for your specific GPU.
 		  package = config.boot.kernelPackages.nvidiaPackages.stable;
-
 		  prime = {
 			  sync.enable = true;
-
 # Make sure to use the correct Bus ID values for your system!
 			  nvidiaBusId = "PCI:1:0:1";
 			  intelBusId = "PCI:0:2:0";
@@ -184,7 +189,6 @@
   };
   # List services that you want to enable:
   # Enable the OpenSSH daemon.
-   services.flatpak.enable = true;
    services.openssh.enable = true;
    #Syncthing
    services = {

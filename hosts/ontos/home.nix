@@ -136,12 +136,12 @@ in
 
   #Hyprland Options
   hyprlandGeneral = {
-		gaps_in = 4;
-		border_size = 2;
+		gaps_in = 3;
+		border_size = 3;
 		allow_tearing = false;
 		layout = "dwindle";
-		"col.active_border" = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-		"col.inactive_border" = "rgba(acafadee) rgba(110f0fa5) 90deg";
+		"col.active_border" = "rgb(b2d498)";
+		"col.inactive_border" = "rgba(acafadee)";
 	};
   hyprlandWallpaper = ../../modules/wallpapers/Regatta.jpg;
 #_____________________________________#

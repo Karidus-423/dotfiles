@@ -15,9 +15,12 @@
 	libreoffice
 	pcmanfm
 	thunderbird
+	obsidian
 	spotify
 	wofi
+	zoom-us
 	];
+
 }
 
 
