@@ -3,16 +3,12 @@
 let
    hostName = builtins.getEnv "HOSTNAME";
    myAliases = {
-       cl = "clear";
        ll = "ls -l";
        ".." = "cd ..";
        g = "lazygit";
        cat = "bat";
        tx = "tmux attach";
-       mh = "man home-configuration.nix";
-	   pyvenv = "python -m venv .venv";
        dev = "nix develop --command zsh";
-	   venv = "source .venv/bin/activate";
        nvgd = "nvim --listen 127.0.0.1:55432";
    };
 in
@@ -59,7 +55,7 @@ in
          sudo nixos-rebuild switch --flake ~/dots/#${hostName}
          '')
 		(writeShellScriptBin "testbuild" ''
-		 sudo nixos-rebuild test --flake ~/dots/#${hostName}
+		 sudo nixos-rebuild test --flake ~/dots/#${hostName} --option eval-cache false --show-trace
 		 '')
     ];
 }

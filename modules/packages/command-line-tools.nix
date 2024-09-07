@@ -18,8 +18,10 @@
 	swww
 	tmux
 	unzip
+	libclang
 	watchexec
 	wev
 	zoxide
   ];
 }
+
