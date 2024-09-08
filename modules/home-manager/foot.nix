@@ -1,4 +1,9 @@
-{config,pkgs,...}:
+{config,lib,pkgs,...}:
+let
+
+inherit (lib) mkOption types;
+
+in
 {
 	programs.foot = {
 		enable = true;
@@ -7,7 +12,7 @@
 		settings = {
 			main = {
 				term = "xterm-256color";
-				font ="GoMono Nerd Font:size=13";
+				font = config.footFontProps;
 				dpi-aware = "yes";
 				initial-window-size-chars="100x37";
 				pad = "25x15";
@@ -47,6 +52,14 @@
 				# ...
 				#dim7=<not-set>;
 			};
+		};
+	};
+
+	config.options = {
+		footFontProps = mkOption{
+			type = types.str;
+			default = "GoMono Nerd Font:size=16";
+			example = "GoMono Nerd Font:size=15";
 		};
 	};
 }

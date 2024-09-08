@@ -134,7 +134,7 @@ in
 	  };
   };
 
-  #Hyprland Options
+  #Options
   hyprlandGeneral = {
 		gaps_in = 3;
 		border_size = 3;
@@ -144,6 +144,7 @@ in
 		"col.inactive_border" = "rgba(acafadee)";
 	};
   hyprlandWallpaper = ../../modules/wallpapers/Regatta.jpg;
+  footFontProps = "GoMono Nerd Font:size=12";
 #_____________________________________#
 
 }
