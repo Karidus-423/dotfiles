@@ -144,7 +144,8 @@ in
 		"col.inactive_border" = "rgba(acafadee)";
 	};
   hyprlandWallpaper = ../../modules/wallpapers/Regatta.jpg;
-  footFontProps = "GoMono Nerd Font:size=12";
+  footFontProps = "GoMono Nerd Font:size=8.7";
+  footWindowDimensions = "850x790";
 #_____________________________________#
 
 }

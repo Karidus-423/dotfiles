@@ -5,6 +5,7 @@ inherit (lib) mkOption types;
 
 in
 {
+	config = {
 	programs.foot = {
 		enable = true;
 		server.enable = false;
@@ -14,7 +15,7 @@ in
 				term = "xterm-256color";
 				font = config.footFontProps;
 				dpi-aware = "yes";
-				initial-window-size-chars="100x37";
+				initial-window-size-pixels=config.footWindowDimensions;
 				pad = "25x15";
 			};
 
@@ -54,12 +55,18 @@ in
 			};
 		};
 	};
+	};
 
-	config.options = {
+	options = {
 		footFontProps = mkOption{
 			type = types.str;
 			default = "GoMono Nerd Font:size=16";
 			example = "GoMono Nerd Font:size=15";
+		};
+		footWindowDimensions = mkOption{
+			type = types.str;
+			default = "500x500";
+			example = "WxH";
 		};
 	};
 }

@@ -141,6 +141,5 @@ in
 
 	hyprlandWallpaper = ../../modules/wallpapers/daymarket.gif;
 
-
-
+	footWindowDimensions = "850x790";
 }
