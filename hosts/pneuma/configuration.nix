@@ -6,22 +6,25 @@
 	];
 
 #Bootloader
-	boot.loader.systemd-boot.enable = false;
-	boot.loader.grub.enable = true;
-	boot.loader.grub.device = "nodev";
-	boot.loader.grub.useOSProber = true;
-	boot.loader.grub.efiSupport = true;
-	boot.loader.efi.canTouchEfiVariables = true;
-	boot.loader.efi.efiSysMountPoint = "/boot";
-	boot.loader.grub.theme = pkgs.stdenv.mkDerivation {
-          pname = "distro-grub-themes";
-          version = "3.2";
-          src = pkgs.fetchurl {
-            url = "https://github.com/AdisonCavani/distro-grub-themes/releases/download/v3.2/nixos.tar";
-            hash = "sha256-oW5DxujStieO0JsFI0BBl+4Xk9xe+8eNclkq6IGlIBY";
-          };
-          unpackPhase = ''mkdir $out && tar -xvf $src -C $out'';
-        };
+	boot.loader = {
+		systemd-boot.enable = false;
+		efi.canTouchEfiVariables = true;
+		efi.efiSysMountPoint = "/boot";
+		grub.enable = true;
+		grub.device = "nodev";
+		grub.useOSProber = true;
+		grub.efiSupport = true;
+		grub.theme = pkgs.stdenv.mkDerivation {
+			  pname = "distro-grub-themes";
+			  version = "3.2";
+			  src = pkgs.fetchurl {
+				url = "https://github.com/AdisonCavani/distro-grub-themes/releases/download/v3.2/nixos.tar";
+				hash = "sha256-oW5DxujStieO0JsFI0BBl+4Xk9xe+8eNclkq6IGlIBY";
+			  };
+			  unpackPhase = ''mkdir $out && tar -xvf $src -C $out'';
+		};
+	};
+
 	networking.hostName = "pneuma";
 
 # Enable networking
@@ -198,7 +201,11 @@
 		   configDir = "/home/kennettp/.config/syncthing";   # Folder for Syncthing's settings and keys
 	   };
 	   hardware = {
-		openrgb.enable = true;
+		openrgb = {
+			enable = true;
+			package = pkgs.openrgb-with-all-plugins;
+			motherboard = "intel";
+		};
 	   };
    };
   system.stateVersion = "23.11";

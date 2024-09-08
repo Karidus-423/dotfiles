@@ -10,6 +10,7 @@ let
        tx = "tmux attach";
        dev = "nix develop --command zsh";
        nvgd = "nvim --listen 127.0.0.1:55432";
+	   fonts = "fc-list | grep -oP '(?<=: ).*'";
    };
 in
 {

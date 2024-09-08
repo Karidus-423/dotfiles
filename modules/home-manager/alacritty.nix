@@ -18,7 +18,7 @@
           padding = {
               x = 15;
               y = 25;
-          };
+        };
       };
       shell = {
           program = "${pkgs.zsh}/bin/zsh";

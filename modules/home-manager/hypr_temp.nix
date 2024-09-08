@@ -38,8 +38,8 @@ in
 
 			extraConfig = ''
 		# Set programs that you use
-		$terminal = alacritty
-		$fileManager = alacritty -e lf
+		$terminal = foot
+		$fileManager = foot -e lf
 		$menu = ags -t applauncher -b ags
 		$browser = firefox
 		$note = obsidian
