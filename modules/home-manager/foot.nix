@@ -60,7 +60,7 @@ in
 	options = {
 		footFontProps = mkOption{
 			type = types.str;
-			default = "GoMono Nerd Font:size=16";
+			default = "GoMono Nerd Font:size=13";
 			example = "GoMono Nerd Font:size=15";
 		};
 		footWindowDimensions = mkOption{

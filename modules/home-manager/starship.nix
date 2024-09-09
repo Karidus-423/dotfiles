@@ -11,6 +11,7 @@ format = """
 $hostname$directory$git_branch$git_status$php$rust$golang$nix_shell
 $linebreak$character
 """
+command_timeout = 2000
 
 [directory]
 format = "[  ](bold grey)[$path ](#b3dcdd)[$read_only|]($read_only_style #acafad) "
@@ -56,5 +57,5 @@ symbol = ""
 format = '[[ $symbol ($version) ](fg:#6094d3)]($style)'
 [c]
 format = '\[[$symbol($version(-$name))]($style)]'
-		'';
+'';
 }
