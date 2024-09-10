@@ -6,6 +6,7 @@ in
   imports = [
     inputs.nix-colors.homeManagerModules.default
     inputs.ags.homeManagerModules.default
+	inputs.spicetify-nix.homeManagerModules.default
     ./packs-conf.nix
   ];
 

@@ -22,6 +22,11 @@ in
 			mouse = {
 				hide-when-typing = "yes";
 			};
+
+			key-bindings = {
+				clipboard-paste="Control+v XF86Paste";
+				clipboard-copy="Control+c XF86Copy";
+			};
 			
 			colors = with config.colorScheme.palette;{
 				alpha = 0.9;

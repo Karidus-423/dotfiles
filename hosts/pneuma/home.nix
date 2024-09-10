@@ -1,4 +1,4 @@
-{ inputs, pkgs, spicetify-nix, ...}:
+{ inputs, pkgs, ...}:
 let
 chicago95 = import ../../modules/gtk_themes/chicago95.nix {inherit pkgs;};
 in

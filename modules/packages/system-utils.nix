@@ -6,6 +6,7 @@
 		playerctl
 		xdg-utils
 		xwaylandvideobridge
+		wl-clipboard
 	];
 }
 

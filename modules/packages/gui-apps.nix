@@ -16,7 +16,7 @@
 	pcmanfm
 	thunderbird
 	obsidian
-	wofi
+	whatsapp-for-linux
 	zoom-us
 	];
 
