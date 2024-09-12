@@ -98,6 +98,10 @@
      enable = true;
      enableSSHSupport = true;
    };
+  programs.hyprland = {
+      enable = true;
+      xwayland.enable = true;
+  };
   #______________________________________#
 
   #______________________________________#
@@ -174,10 +178,28 @@
     desktopManager.gnome = {
       enable = true;
       extraGSettingsOverridePackages = [
-          pkgs.nautilus-open-any-terminal
       ];
     };
   };
+
+   environment.gnome.excludePackages = with pkgs.gnome; [
+    baobab      # disk usage analyzer
+    cheese      # photo booth
+    eog         # image viewer
+    epiphany    # web browser
+    pkgs.gedit       # text editor
+    simple-scan # document scanner
+    totem       
+    yelp        
+    evince      
+    file-roller
+    geary      
+    seahorse    
+    # these should be self explanatory
+    gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
+    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
+    gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+  ];
 
   services.greetd = {
       enable = true;
