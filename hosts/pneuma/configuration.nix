@@ -97,6 +97,24 @@
 	  videoDrivers = ["nvidia"];
   };
 
+   environment.gnome.excludePackages = with pkgs.gnome; [
+    baobab      # disk usage analyzer
+    cheese      # photo booth
+    eog         # image viewer
+    epiphany    # web browser
+    pkgs.gedit       # text editor
+    simple-scan # document scanner
+    totem       
+    yelp        
+    evince      
+    file-roller
+    geary      
+    seahorse    
+    # these should be self explanatory
+    gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
+    gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
+    gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+  ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;

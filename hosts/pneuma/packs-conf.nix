@@ -12,6 +12,7 @@
 	../../modules/home-manager/lf/lf.nix
 	../../modules/home-manager/zathura.nix
 	../../modules/home-manager/spicetify.nix
+	../../modules/home-manager/cava.nix
 
 	# Packages Groups
 	../../modules/packages/system-utils.nix
