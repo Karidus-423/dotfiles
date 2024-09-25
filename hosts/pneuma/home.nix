@@ -139,7 +139,7 @@ in
 		"col.inactive_border" = "rgba(acafadee) rgba(110f0fa5) 90deg";
 	};
 
-	hyprlandWallpaper = ../../modules/wallpapers/daymarket.gif;
+	hyprlandWallpaper = ../../modules/wallpapers/storm.webp;
 
 	footWindowDimensions = "1220x1430";
 }

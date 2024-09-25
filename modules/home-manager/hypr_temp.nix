@@ -235,7 +235,8 @@ in
 
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
-        workspace = 1, on-created-empty:[pseudo] $terminal
+        workspace = 1, on-created-empty:[pseudotile] $terminal
+		windowrulev2 = float,workspace:1
 
 		#Workspace 2 - Web Browser
         workspace = 2, on-created-empty:[pseudo] $browser
@@ -244,18 +245,17 @@ in
         workspace = 3, on-created-empty:[pseudo]
 
 		#Workspace 4 - Calendar/Email
-
-        workspace = 2, on-created-empty:[pseudo]
+        workspace = 4, on-created-empty:[pseudo]
 
 		#Workspace 5 - Drawing Tool
-
-        workspace = 2, on-created-empty:[pseudo]
+        workspace = 5, on-created-empty:[pseudo]
 
 		#Workspace 6 - Media
         workspace = 6, on-created-empty:[pseudo] spotify
 
 		#Monitors
-        monitor=DP-2,addreserved,0,0,450,500,2560x1440@165,0x0,1
+        #UltraWide ->monitor=DP-2,addreserved,0,0,450,500,2560x1440@165,0x0,1
+		monitor = DP-2, highrr, 0x0, 1
         #monitor=DP-1,2560x1440@165,0x0,1
 			'';
 		};
