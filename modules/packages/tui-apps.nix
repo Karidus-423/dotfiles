@@ -4,6 +4,7 @@
 	#TUI Apps
 	cava
 	lf
+	mods
 	btop
 	];
 }
