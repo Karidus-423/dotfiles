@@ -6,6 +6,7 @@
     nix-colors.url = "github:misterio77/nix-colors";
     ags.url = "github:Aylur/ags";
 	neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+	zen-browser.url = "github:MarceColl/zen-browser-flake";
 	spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
