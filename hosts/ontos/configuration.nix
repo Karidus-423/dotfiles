@@ -3,7 +3,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+		./hardware-configuration.nix
        inputs.home-manager.nixosModules.home-manager
     ];
 
@@ -182,6 +182,7 @@
       ];
     };
   };
+
 
    environment.gnome.excludePackages = with pkgs.gnome; [
     baobab      # disk usage analyzer
