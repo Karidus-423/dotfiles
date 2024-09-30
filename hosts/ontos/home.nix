@@ -78,8 +78,14 @@ in
 		  webkitgtk
 		  accountsservice
 		  gvfs
+		  fzf
+		  inputs.ags.packages.${pkgs.system}.battery
 	  ];
   };
+	home.packages = [
+	inputs.ags.packages.${pkgs.system}.astal
+	inputs.ags.packages.${pkgs.system}.notifd
+	];
 
 
   programs.git = {

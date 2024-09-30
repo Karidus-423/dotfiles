@@ -58,6 +58,10 @@ in
 				gvfs
 		];
 	};
+	home.packages = [
+	inputs.ags.packages.${pkgs.system}.astal
+	inputs.ags.packages.${pkgs.system}.notifd
+	];
 
 	programs.git = {
 		enable = true;
