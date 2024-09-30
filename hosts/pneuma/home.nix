@@ -143,7 +143,7 @@ in
 		"col.inactive_border" = "rgba(acafadee) rgba(110f0fa5) 90deg";
 	};
 
-	hyprlandWallpaper = ../../modules/wallpapers/storm.webp;
+	hyprlandWallpaper = ../../modules/wallpapers/Trandheim.jpg;
 
 	footWindowDimensions = "1220x1430";
 }

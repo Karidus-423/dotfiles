@@ -7,6 +7,7 @@
 	blender
 	figma-linux
 	discord-screenaudio
+	openrgb
 	discord
 	koreader
 	gimp

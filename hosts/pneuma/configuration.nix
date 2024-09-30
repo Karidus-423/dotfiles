@@ -56,6 +56,13 @@
 
 	#Required Services for Aylur's GTK Shell
 	services.gvfs.enable = true;
+
+	#Ollama
+	services.ollama = {
+		enable =true;
+		acceleration = "cuda";
+	};
+
 	# Enable sound
 	hardware.pulseaudio.enable = false;
 	hardware.pulseaudio.package = pkgs.pulseaudiofull;
@@ -222,7 +229,7 @@
 	   hardware = {
 		openrgb = {
 			enable = true;
-			package = pkgs.openrgb-with-all-plugins;
+			package = pkgs.openrgb;
 			motherboard = "intel";
 		};
 	   };
