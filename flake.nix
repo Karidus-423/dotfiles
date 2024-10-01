@@ -4,7 +4,8 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-colors.url = "github:misterio77/nix-colors";
-    ags.url = "github:Aylur/ags/v2";
+    ags.url = "github:Aylur/ags";
+    # astal.url = "github:Aylur/ags/v2";
 	neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 	zen-browser.url = "github:MarceColl/zen-browser-flake";
 	spicetify-nix = {

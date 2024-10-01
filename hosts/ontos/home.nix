@@ -72,7 +72,7 @@ in
   nixpkgs.config.allowUnfreePredicate = _: true;
   programs.ags = {
 	  enable = true;
-	  configDir = ../../modules/home-manager/ags_ontos;
+		configDir = ../../modules/home-manager/ags_ontos;
 	  extraPackages = with pkgs; [
 		  gtksourceview
 		  webkitgtk
@@ -82,10 +82,10 @@ in
 		  inputs.ags.packages.${pkgs.system}.battery
 	  ];
   };
-	home.packages = [
-	inputs.ags.packages.${pkgs.system}.astal
-	inputs.ags.packages.${pkgs.system}.notifd
-	];
+	# home.packages = [
+	# inputs.ags.packages.${pkgs.system}.astal
+	# inputs.ags.packages.${pkgs.system}.notifd
+	# ];
 
 
   programs.git = {
