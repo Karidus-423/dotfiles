@@ -21,6 +21,7 @@
 	libclang
 	watchexec
 	wev
+	unzip
 	zoxide
   ];
 }
