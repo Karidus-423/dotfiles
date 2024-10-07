@@ -6,6 +6,7 @@
     go
     lua
     lua-language-server
+	zls
 	python3
 	pyright
 	libgcc

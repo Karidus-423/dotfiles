@@ -99,12 +99,15 @@
 	  enable = true;
 	  displayManager.gdm.enable = true;
 	  desktopManager.gnome = {
-		enable = true;
+		enable = false;
 	  };
 	  videoDrivers = ["nvidia"];
+	  excludePackages = with pkgs;[
+		xterm
+	  ];
   };
 
-   environment.gnome.excludePackages = with pkgs.gnome; [
+   environment.gnome.excludePackages = with pkgs; [
     baobab      # disk usage analyzer
     cheese      # photo booth
     eog         # image viewer
@@ -120,7 +123,7 @@
     # these should be self explanatory
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
     gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
-    gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+    gnome-system-monitor gnome-weather gnome-disk-utility gnome-connections
   ];
   # Define a user account. Don't forget to set a password with ‘passwd’.
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -132,7 +135,7 @@
     shell = pkgs.zsh;
     packages = with pkgs; [
     firefox
-    alacritty
+    foot
     pavucontrol
     wireplumber
 	lazygit
@@ -190,10 +193,8 @@
 		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
   hardware = {
-      opengl = {
+	  graphics = {
 		  enable = true;
-		  driSupport = true;
-		  driSupport32Bit = true;
 	  };
 	  nvidia = {
 		  modesetting.enable=true;

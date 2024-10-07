@@ -15,9 +15,9 @@
           tmuxPlugins.yank
         ];
         extraConfig = "
+		set -ga terminal-overrides '*:Ss=\\E\[%p1%d q:Se=\\E\[ q'
         set -g status-justify left \n
         bind c new-window -c \"#{pane_current_path}\" \n
-		set -as terminal-overrides \",alacritty*:Tc\" \n
         set-option -g renumber-windows on \n
         set -g window-status-separator \"\" \n
 		set -g status-style 'bg=#cccccc fg=#80652b' \n
@@ -28,6 +28,7 @@
         set-option -g status-right-length \"80\" \n
 		bind-key -r f run-shell \"tmux neww ~/.nix-profile/bin/tmux-sessionizer\" \n
 		bind-key t run-shell \"tmux neww -n lf ${pkgs.lf}/bin/lf\"
+		bind-key -r u run-shell \"tmux neww ~/.nix-profile/bin/tmux-sessionizer ~/notes\" \n
         ";
     };
 }

@@ -34,7 +34,7 @@
 	
 	#Standard Interface for Applications to interact with
 	xdg.portal= {
-		enable = true;
+		enable = false;
 	};
 
 
@@ -73,9 +73,6 @@
 
   services.xserver = {
 	  displayManager.gdm.enable = true;
-	  desktopManager.gnome = {
-		enable = true;
-	  };
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -123,7 +120,7 @@
    };
   programs.hyprland = {
       enable = true;
-      xwayland.enable = true;
+      xwayland.enable = false;
   };
   hardware = {
       opengl.enable = true;

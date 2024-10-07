@@ -117,7 +117,7 @@ in
 		EDITOR = "nvim";
 		GDK_BACKEND="wayland";
 		BROWSER = "firefox";
-		TERMINAL = "alacritty";
+		TERMINAL = "foot";
 	};
 
 	services.gpg-agent = {

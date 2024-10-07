@@ -12,7 +12,7 @@ in
 		package = pkgs.foot;
 		settings = {
 			main = {
-				term = "xterm-256color";
+				term = "screen-256color";
 				font = config.footFontProps;
 				dpi-aware = "yes";
 				initial-window-size-pixels=config.footWindowDimensions;
@@ -30,18 +30,18 @@ in
 			
 			colors = with config.colorScheme.palette;{
 				alpha = 0.9;
-				background = "0x${base01}";
+				background = "${base01}";
 				foreground = "cccccc";
 
 				## Normal/regular colors (color palette 0-7)
-				regular0="0x${base00}"; #black
-				regular1="0x${base08}"; #red
-				regular2="0x${base0B}"; #green
-				regular3="0x${base0A}"; #yellow
-				regular4="0x${base0D}"; #blue
-				regular5="0x${base0E}"; #magenta
-				regular6="0x${base0C}"; #cyan
-				regular7="0x${base07}"; #white
+				regular0="${base00}"; #black
+				regular1="${base08}"; #red
+				regular2="${base0B}"; #green
+				regular3="${base0A}"; #yellow
+				regular4="${base0D}"; #blue
+				regular5="${base0E}"; #magenta
+				regular6="${base0C}"; #cyan
+				regular7="${base07}"; #white
 
 				## Bright colors (color palette 8-15)
 				bright0="616161";   # bright black

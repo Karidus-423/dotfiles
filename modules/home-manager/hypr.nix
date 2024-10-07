@@ -5,16 +5,16 @@
 		exec-once = pipewire-pulse
 		exec-once = ags
 		exec-once = swww-daemon
-		exec-once = alacritty -e swww img ~/dots/modules/wallpapers/rivermarket.gif --transition-type=grow
+		exec-once = foot -e swww img ~/dots/modules/wallpapers/rivermarket.gif --transition-type=grow
 		exec-once = gammastep
 
 		# Source a file (multi-file configs)
 		# source = ~/.config/hypr/myColors.conf
 
 		# Set programs that you use
-		$terminal = alacritty
-		$fileManager = alacritty -e lf
-		$menu = wofi --show drun --term alacritty -n
+		$terminal = foot
+		$fileManager = foot -e lf
+		$menu = wofi --show drun --term foot -n
 		$browser = firefox
 		$note = obsidian
 
@@ -132,7 +132,7 @@
 		# windowrulev2 = float,class:^(kitty)$,title:^(kitty)$
 		# See https://wiki.hyprland.org/Configuring/Window-Rules/ for more
 		#windowrulev2 = nomaximizerequest, class:.* # You'll probably like this.
-        windowrule = pseudo, ^(alacritty)$
+        windowrule = pseudo, ^(foot)$
 
 
 		# See https://wiki.hyprland.org/Configuring/Keywords/ for more

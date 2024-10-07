@@ -2,8 +2,6 @@
 {
   home.packages = with pkgs; [
 	#GUI Apps
-	aseprite
-	audacious
 	audacious
 	blender
 	figma-linux

@@ -21,7 +21,6 @@ in
         oh-my-zsh = {
             enable = true;
             plugins = [
-                "ripgrep"
 				"fzf"
             ];
         };
