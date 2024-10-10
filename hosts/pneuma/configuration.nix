@@ -176,21 +176,21 @@
 
 
   # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-   programs.mtr.enable = true;
-   programs.gnupg.agent = {
-     enable = true;
-     enableSSHSupport = true;
-   };
+# started in user sessions.
+  programs.mtr.enable = true;
+  programs.gnupg.agent = {
+	  enable = true;
+	  enableSSHSupport = true;
+  };
   programs.hyprland = {
-      enable = true;
-      xwayland.enable = true;
+	  enable = true;
+	  xwayland.enable = true;
   };
   programs.zsh.enable=true;
   programs.neovim= {
-		enable = true;
-		defaultEditor = true;
-		package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
+	  enable = true;
+	  defaultEditor = true;
+	  package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
   hardware = {
 	  graphics = {
@@ -198,16 +198,16 @@
 	  };
 	  nvidia = {
 		  modesetting.enable=true;
-		  # Use the NVidia open source kernel module (not to be confused with the
-		  # independent third-party "nouveau" open source driver).
-		  # Support is limited to the Turing and later architectures. Full list of 
-		  # supported GPUs is at: 
-		  # https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-		  # Only available from driver 515.43.04+
-		  # Currently alpha-quality/buggy, so false is currently the recommended setting.
+# Use the NVidia open source kernel module (not to be confused with the
+# independent third-party "nouveau" open source driver).
+# Support is limited to the Turing and later architectures. Full list of 
+# supported GPUs is at: 
+# https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
+# Only available from driver 515.43.04+
+# Currently alpha-quality/buggy, so false is currently the recommended setting.
 		  open = false;
 		  nvidiaSettings = true;
-		  # Optionally, you may need to select the appropriate driver version for your specific GPU.
+# Optionally, you may need to select the appropriate driver version for your specific GPU.
 		  package = config.boot.kernelPackages.nvidiaPackages.stable;
 		  prime = {
 			  sync.enable = true;
@@ -217,36 +217,52 @@
 		  };
 	  };
   };
-  # List services that you want to enable:
-  # Enable the OpenSSH daemon.
-   services.openssh.enable = true;
-   #Syncthing
-   services = {
-	   syncthing = {
-		   enable = true;
-		   user = "kennettp";
-		   configDir = "/home/kennettp/.config/syncthing";   # Folder for Syncthing's settings and keys
-	   };
-	   hardware = {
-		openrgb = {
-			enable = true;
-			package = pkgs.openrgb-with-all-plugins; 
-			motherboard = "intel";
-		};
-	   };
-   };
+  # OBS
+  programs.obs-studio = {
+    enable = true;
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+    ];
+  };
+   boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback
+  ];
+  boot.extraModprobeConfig = ''
+    options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  security.polkit.enable = true;
+# List services that you want to enable:
+# Enable the OpenSSH daemon.
+  services.openssh.enable = true;
+#Syncthing
+  services = {
+	  syncthing = {
+		  enable = true;
+		  user = "kennettp";
+		  configDir = "/home/kennettp/.config/syncthing";   # Folder for Syncthing's settings and keys
+	  };
+	  hardware = {
+		  openrgb = {
+			  enable = true;
+			  package = pkgs.openrgb-with-all-plugins; 
+			  motherboard = "intel";
+		  };
+	  };
+  };
   system.stateVersion = "23.11";
 
 # Auto-Upgrade
-system.autoUpgrade = {
-    enable = true;
-    flake = inputs.self.outPath;
-    flags = [
-        "--update-input"
-        "nixpkgs"
-        "-L"
-    ];
-    dates = "09:00";
-    randomizedDelaySec = "45min";
-};
+  system.autoUpgrade = {
+	  enable = true;
+	  flake = inputs.self.outPath;
+	  flags = [
+		  "--update-input"
+			  "nixpkgs"
+			  "-L"
+	  ];
+	  dates = "09:00";
+	  randomizedDelaySec = "45min";
+  };
 }

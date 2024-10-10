@@ -13,6 +13,8 @@ let
 	${pkgs.swww}/bin/swww img ${config.hyprlandWallpaper} --transition-type=grow &
 	${pkgs.gammastep}/bin/gammastep &
 	pipewire-pulse &
+
+	${pkgs.openrgb}/bin/openrgb -c 9F1C02
 	'';
 
 	inherit (lib) mkOption types;
@@ -155,7 +157,7 @@ in
 		bind = $mainMod, P, pseudo, # dwindle
 		bind = $mainMod, D, togglesplit, # dwindle
 		bind = , Menu, exec, pavucontrol
-        bind = , Print,exec,grim -g "$(slurp -w 0)" - | swappy -f -
+        bind = , Print,exec,grim -g "$(slurp -w 0 -b cccccc7a)" - | swappy -f -
 
 
         #Status Bar Refresh
@@ -231,7 +233,7 @@ in
 
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
-        workspace = 1, on-created-empty:[pseudotile] $terminal
+        workspace = 1, on-created-empty:[float] $terminal
 		windowrulev2 = float,workspace:1
 
 		#Workspace 2 - Web Browser
