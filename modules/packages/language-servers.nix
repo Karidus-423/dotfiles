@@ -4,13 +4,13 @@
 	#Language Servers
 	dart-sass
     go
+	gopls
     lua
     lua-language-server
+	zig
 	zls
-	python3
-	pyright
-	libgcc
     nil #Nix Language Server
+	libgcc
     nodePackages.bash-language-server
     nodePackages_latest.typescript-language-server
 	nodejs

@@ -44,7 +44,7 @@ in
 		$fileManager = foot -e lf
 		$menu = ags -t applauncher -b ags
 		$browser = firefox
-		$note = obsidian
+		$notebook = obsidian
 
 		# Some default env vars.
         env = GDK_SCALE,1
@@ -239,8 +239,8 @@ in
 		#Workspace 2 - Web Browser
         workspace = 2, on-created-empty:[pseudo] $browser
 
-		#Workspace 3 - Directory/Manuals
-        workspace = 3, on-created-empty:[pseudo]
+		#Workspace 3 - Notes
+        workspace = 3, on-created-empty:[pseudo] $notebook
 
 		#Workspace 4 - Calendar/Email
         workspace = 4, on-created-empty:[pseudo]
@@ -251,8 +251,12 @@ in
 		#Workspace 6 - Media
         workspace = 6, on-created-empty:[pseudo] spotify
 
+		#Workspace 7 - Misc
+        workspace = 7, on-created-empty:[pseudo]
+
 		#Monitors
-        #UltraWide ->monitor=DP-2,addreserved,0,0,450,500,2560x1440@165,0x0,1
+        #UltraWide ->
+		monitor=DP-2,addreserved,0,0,512,512,2560x1440@165,0x0,1
 		monitor = DP-2, highrr, 0x0, 1
         #monitor=DP-1,2560x1440@165,0x0,1
 			'';

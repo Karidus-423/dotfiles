@@ -10,6 +10,7 @@
 	discord
 	koreader
 	gimp
+	vlc
 	godot_4
 	krita
 	libreoffice
