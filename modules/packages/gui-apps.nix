@@ -9,8 +9,10 @@
 	openrgb
 	discord
 	koreader
+	kiwix
 	gimp
 	vlc
+	ventoy-full
 	godot_4
 	krita
 	libreoffice

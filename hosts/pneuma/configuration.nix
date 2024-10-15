@@ -165,6 +165,8 @@
 	  GTK_THEME = "Chicago95";
 	  REBUILD_NAME = "pneuma";
   };
+  environment.systemPackages = with pkgs; [
+  ];
 
   #Home-manager
   home-manager = {
@@ -190,6 +192,8 @@
   programs.neovim= {
 	  enable = true;
 	  defaultEditor = true;
+	  viAlias = true;
+	  vimAlias = true;
 	  package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
   hardware = {

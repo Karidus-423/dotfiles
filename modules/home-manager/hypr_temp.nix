@@ -36,6 +36,8 @@ in
 				};
 
 				general = config.hyprlandGeneral;
+
+				monitor = config.hyprlandMonitors;
 			};
 
 			extraConfig = ''
@@ -254,11 +256,6 @@ in
 		#Workspace 7 - Misc
         workspace = 7, on-created-empty:[pseudo]
 
-		#Monitors
-        #UltraWide ->
-		monitor=DP-2,addreserved,0,0,512,512,2560x1440@165,0x0,1
-		monitor = DP-2, highrr, 0x0, 1
-        #monitor=DP-1,2560x1440@165,0x0,1
 			'';
 		};
 	};
@@ -307,6 +304,14 @@ in
 			type = lib.types.path;
 			description = ''
 				Wallpaper path for hyprland.
+			'';
+		};
+
+		hyprlandMonitors = lib.mkOption{
+			default = "DP-2, highrr, 0x0, 1";
+			type = lib.types.str;
+			description = ''
+				Monitor rules for hyprland.
 			'';
 		};
 

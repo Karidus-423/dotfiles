@@ -16,7 +16,8 @@
         ];
         extraConfig = "
 		set -ga terminal-overrides '*:Ss=\\E\[%p1%d q:Se=\\E\[ q'
-        set -g status-justify left \n
+		set-option -a terminal-features 'XXX:RGB'
+		set -g status-justify left \n
         bind c new-window -c \"#{pane_current_path}\" \n
         set-option -g renumber-windows on \n
         set -g window-status-separator \"\" \n

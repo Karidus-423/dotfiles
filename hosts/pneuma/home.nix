@@ -73,6 +73,7 @@ in
 		};
 	};
 
+
 	programs.direnv = {
 		enable = true;
 		enableZshIntegration = true; # see note on other shells below
@@ -144,6 +145,9 @@ in
 	};
 
 	hyprlandWallpaper = ../../modules/wallpapers/Trandheim.jpg;
+
+	hyprlandMonitors = "DP-2,addreserved,0,0,512,512,2560x1440@165,0x0,1";
+
 
 	footWindowDimensions = "1220x1430";
 }
