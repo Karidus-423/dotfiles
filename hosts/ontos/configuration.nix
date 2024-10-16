@@ -177,19 +177,19 @@
    services.xserver = {
     displayManager.gdm.enable = true;
     desktopManager.gnome = {
-      enable = true;
+      enable = false;
       extraGSettingsOverridePackages = [
       ];
     };
   };
 
 
-   environment.gnome.excludePackages = with pkgs.gnome; [
+   environment.gnome.excludePackages = with pkgs; [
     baobab      # disk usage analyzer
     cheese      # photo booth
     eog         # image viewer
     epiphany    # web browser
-    pkgs.gedit       # text editor
+    gedit       # text editor
     simple-scan # document scanner
     totem       
     yelp        
@@ -200,7 +200,7 @@
     # these should be self explanatory
     gnome-calculator gnome-calendar gnome-characters gnome-clocks gnome-contacts
     gnome-font-viewer gnome-logs gnome-maps gnome-music gnome-screenshot
-    gnome-system-monitor gnome-weather gnome-disk-utility pkgs.gnome-connections
+    gnome-system-monitor gnome-weather gnome-disk-utility gnome-connections
   ];
 
   services.greetd = {

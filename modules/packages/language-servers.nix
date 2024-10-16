@@ -11,7 +11,7 @@
 	zig
 	zls
     nil #Nix Language Server
-	libgcc
+	clang-tools
     nodePackages.bash-language-server
     nodePackages_latest.typescript-language-server
 	nodejs

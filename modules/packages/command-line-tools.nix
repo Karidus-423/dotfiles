@@ -18,7 +18,6 @@
 	swww
 	tmux
 	unzip
-	libclang
 	watchexec
 	wev
 	unzip

@@ -79,7 +79,6 @@ in
 		  accountsservice
 		  gvfs
 		  fzf
-		  inputs.ags.packages.${pkgs.system}.battery
 	  ];
   };
 	# home.packages = [
@@ -151,7 +150,11 @@ in
 		"col.active_border" = "rgb(b2d498)";
 		"col.inactive_border" = "rgba(acafadee)";
 	};
+
   hyprlandWallpaper = ../../modules/wallpapers/Regatta.jpg;
+
+  hyprlandMonitors = "DP-2,highrr,0x0,1.5";
+
   footFontProps = "GoMono Nerd Font:size=8.7";
   footWindowDimensions = "850x790";
 #_____________________________________#
