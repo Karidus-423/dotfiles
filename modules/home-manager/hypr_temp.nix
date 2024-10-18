@@ -17,6 +17,8 @@ let
 	${pkgs.openrgb}/bin/openrgb -c 9F1C02
 	'';
 
+
+
 	inherit (lib) mkOption types;
 in
 {
@@ -256,6 +258,9 @@ in
 		#Workspace 7 - Misc
         workspace = 7, on-created-empty:[pseudo]
 
+		#TEMPORARY RULES
+		windowrule = move 2300 0, title:^(Bedroom)(.*)$
+
 			'';
 		};
 	};
@@ -316,5 +321,7 @@ in
 		};
 
 	};
+
+
 
 }

@@ -146,7 +146,7 @@ in
 
 	hyprlandWallpaper = ../../modules/wallpapers/Trandheim.jpg;
 
-	hyprlandMonitors = "DP-2,addreserved,0,0,512,512,2560x1440@165,0x0,1";
+	hyprlandMonitors = "DP-2,addreserved,0,0,512,512,3440x1440@165.00Hz,0x0,1";
 
 
 	footWindowDimensions = "1220x1430";

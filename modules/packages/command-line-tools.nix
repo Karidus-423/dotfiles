@@ -15,6 +15,7 @@
 	pandoc
 	slurp
 	swappy
+	jq
 	swww
 	tmux
 	unzip
