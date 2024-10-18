@@ -166,6 +166,7 @@
 	  REBUILD_NAME = "pneuma";
   };
   environment.systemPackages = with pkgs; [
+	wlr-randr
   ];
 
   #Home-manager
