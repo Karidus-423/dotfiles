@@ -29,7 +29,7 @@
          if [[ $# -eq 1 ]]; then
          selected=$1
          else
-         selected=$(find ~/ ~/.config ~/work ~/personal ~/personal/shaders -mindepth 1 -maxdepth 1 -type d | fzf --border-label=Sessionizer)
+         selected=$(find ~/ ~/.config ~/work ~/personal ~/personal/shaders ~/personal/advent -mindepth 1 -maxdepth 1 -type d | fzf --border-label=Sessionizer)
          fi
 
          if [[ -z $selected ]]; then

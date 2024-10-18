@@ -140,7 +140,7 @@
   #______________________________________#
   #Graphics
   hardware = {
-      opengl.enable = true;
+      graphics.enable = true;
   };
   #______________________________________#
 
