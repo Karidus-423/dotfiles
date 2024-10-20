@@ -25,10 +25,11 @@
 		};
 	};
 
-	networking.hostName = "pneuma";
 
 # Enable networking
+	networking.hostName = "pneuma";
 	networking.networkmanager.enable = true;
+	networking.firewall.allowedTCPPorts = [22];
 
 # Enable bluetooth
 	hardware.bluetooth.powerOnBoot = true;
@@ -197,31 +198,18 @@
 	  vimAlias = true;
 	  package = inputs.neovim-nightly-overlay.packages.${pkgs.system}.default;
   };
-  hardware = {
-	  graphics = {
-		  enable = true;
-	  };
-	  nvidia = {
-		  modesetting.enable=true;
-# Use the NVidia open source kernel module (not to be confused with the
-# independent third-party "nouveau" open source driver).
-# Support is limited to the Turing and later architectures. Full list of 
-# supported GPUs is at: 
-# https://github.com/NVIDIA/open-gpu-kernel-modules#compatible-gpus 
-# Only available from driver 515.43.04+
-# Currently alpha-quality/buggy, so false is currently the recommended setting.
-		  open = false;
-		  nvidiaSettings = true;
-# Optionally, you may need to select the appropriate driver version for your specific GPU.
-		  package = config.boot.kernelPackages.nvidiaPackages.stable;
-		  prime = {
-			  sync.enable = true;
-# Make sure to use the correct Bus ID values for your system!
-			  nvidiaBusId = "PCI:1:0:1";
-			  intelBusId = "PCI:0:2:0";
-		  };
-	  };
+  # Enable graphics driver in NixOS unstable/NixOS 24.11
+  hardware.graphics.enable = true;
+
+  hardware.nvidia = {
+    modesetting.enable = true;
+    powerManagement.enable = false;
+    powerManagement.finegrained = false;
+    open = false;
+    nvidiaSettings = true;
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+
   # OBS
   programs.obs-studio = {
     enable = true;
@@ -235,14 +223,30 @@
    boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-  boot.kernelModules = ["v4l2loopback"];
+	#  boot.kernelPackages = [
+	# pkgs.linuxPackages_latest
+	#  ];
+  boot.kernelModules = ["v4l2loopback" "nvidia-uvm"];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1
+  '';
+  services.udev.extraRules =
+	  ''
+	  KERNEL=="nvidia_uvm", RUN+="${pkgs.stdenv.shell} -c 'mknod -m 666 /dev/nvidia-uvm c $(grep nvidia-uvm /proc/devices | cut -d \  -f 1) 0'"
   '';
   security.polkit.enable = true;
 # List services that you want to enable:
 # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+	  enable = true;
+# require public key authentication for better security
+	  settings.PasswordAuthentication = false;
+	  settings.KbdInteractiveAuthentication = false;
+	  ports = [22];
+  };
+  users.users."kennettp".openssh.authorizedKeys.keys = [
+  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINIGSab3NDsabO8qQCoPp6LOXbpB/uaF0w34GmN1LPbc kapud"
+  ];
 #Syncthing
   services = {
 	  syncthing = {

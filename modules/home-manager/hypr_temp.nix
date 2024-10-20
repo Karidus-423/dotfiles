@@ -60,6 +60,10 @@ in
 		env = GBM_BACKEND,nvidia-drm
 		env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
+		cursor {
+			no_hardware_cursors = true
+		}
+
         xwayland {
             force_zero_scaling = true
         }
@@ -259,7 +263,7 @@ in
         workspace = 7, on-created-empty:[pseudo]
 
 		#TEMPORARY RULES
-		windowrule = move 2300 0, title:^(Bedroom)(.*)$
+		windowrule = move 2500 300, title:^(Bedroom)(.*)$
 
 			'';
 		};
