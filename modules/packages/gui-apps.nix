@@ -7,6 +7,7 @@
 	figma-linux
 	discord-screenaudio
 	openrgb
+	phoronix-test-suite
 	discord
 	koreader
 	kiwix

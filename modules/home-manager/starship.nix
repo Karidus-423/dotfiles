@@ -24,7 +24,7 @@ error_symbol = "[󰇂 ](red)"
 vicmd_symbol = "[« ](green)"
 
 [git_branch]
-symbol = " "
+symbol = " "
 format = "[$symbol$branch ](#c3a1ce)"
 # ~/.config/starship.toml
 

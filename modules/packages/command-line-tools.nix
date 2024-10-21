@@ -16,9 +16,11 @@
 	slurp
 	swappy
 	jq
+	glslviewer
 	swww
 	tmux
 	unzip
+	unrar
 	watchexec
 	wev
 	unzip

@@ -60,6 +60,10 @@ in
 		env = GBM_BACKEND,nvidia-drm
 		env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
+		cursor {
+			no_hardware_cursors = true
+		}
+
         xwayland {
             force_zero_scaling = true
         }

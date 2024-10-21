@@ -9,6 +9,7 @@
     lua
     lua-language-server
 	zig
+	glslls
 	zls
     nil #Nix Language Server
 	clang-tools
