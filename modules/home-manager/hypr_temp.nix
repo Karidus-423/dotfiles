@@ -259,7 +259,7 @@ in
         workspace = 7, on-created-empty:[pseudo]
 
 		#TEMPORARY RULES
-		windowrule = move 2300 0, title:^(Bedroom)(.*)$
+		# windowrule = move 2300 0, title:^(Bedroom)(.*)$
 
 			'';
 		};
