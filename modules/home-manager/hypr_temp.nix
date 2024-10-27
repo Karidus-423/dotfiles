@@ -242,7 +242,7 @@ in
 		#----------Custom Workspaces---------------------#
 		#Workspace 1 - Terminal/Work
         workspace = 1, on-created-empty:[float] $terminal
-		windowrulev2 = float,workspace:1
+		windowrulev2 = float,noinitialfocus,workspace:1
 
 		#Workspace 2 - Web Browser
         workspace = 2, on-created-empty:[pseudo] $browser

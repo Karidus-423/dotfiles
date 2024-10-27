@@ -58,11 +58,6 @@
 	#Required Services for Aylur's GTK Shell
 	services.gvfs.enable = true;
 
-	#Ollama
-	services.ollama = {
-		enable =true;
-		acceleration = "cuda";
-	};
 
 	# Enable sound
 	hardware.pulseaudio.enable = false;
@@ -266,14 +261,14 @@
 
 # Auto-Upgrade
   system.autoUpgrade = {
-	  enable = true;
-	  flake = inputs.self.outPath;
-	  flags = [
-		  "--update-input"
-			  "nixpkgs"
-			  "-L"
-	  ];
-	  dates = "09:00";
-	  randomizedDelaySec = "45min";
+   enable = true;
+   flake = inputs.self.outPath;
+   flags = [
+    "--update-input"
+  	  "nixpkgs"
+  	  "-L"
+   ];
+   dates = "09:00";
+   randomizedDelaySec = "45min";
   };
 }
