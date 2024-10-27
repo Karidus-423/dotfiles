@@ -16,7 +16,6 @@
 	ventoy-full
 	godot_4
 	krita
-	libreoffice
 	pcmanfm
 	thunderbird
 	obsidian
