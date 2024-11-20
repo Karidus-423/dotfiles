@@ -12,6 +12,8 @@
 	glslls
 	zls
 	clang-tools
+	ocaml
+	ocamlPackages.ocaml-lsp
     nil #Nix Language Server
     nodePackages.bash-language-server
     nodePackages_latest.typescript-language-server

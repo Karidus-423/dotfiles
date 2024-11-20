@@ -8,7 +8,6 @@ let
        g = "lazygit";
        cat = "bat";
        tx = "tmux attach";
-       dev = "nix develop --command zsh";
        nvgd = "nvim --listen 127.0.0.1:55432";
 	   fonts = "fc-list | grep -oP '(?<=: ).*'";
    };
@@ -31,7 +30,6 @@ in
             eval "$(zoxide init zsh)"
 
             bindkey -s '^f' "tmux-sessionizer\n"
-            bindkey -s '^c' "bye"
 			
 			export DIRENV_LOG_FORMAT=""
 			'';
@@ -44,7 +42,6 @@ in
             eval "$(zoxide init bash)"
 
             bindkey -s '^f' "tmux-sessionizer\n"
-            bindkey -s '^c' "bye"
 			export DIRENV_LOG_FORMAT=""
             '';
     };

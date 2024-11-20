@@ -59,10 +59,6 @@ in
 				gvfs
 		];
 	};
-	# home.packages = [
-	# inputs.astal.packages.${pkgs.system}.astal
-	# inputs.astal.packages.${pkgs.system}.notifd
-	# ];
 
 	programs.git = {
 		enable = true;
@@ -147,7 +143,8 @@ in
 
 	hyprlandWallpaper = ../../modules/wallpapers/Trandheim.jpg;
 
-	hyprlandMonitors = "DP-2,addreserved,0,0,512,512,3440x1440@165.00Hz,0x0,1";
+	hyprlandMonitors = "DP-2,addreserved,0,0,512,512,3440x1440@165.00,0x0,1";
+	# hyprlandMonitors = "DP-2,3440x1440@165.00,0x0,1";
 
 
 	footWindowDimensions = "1220x1430";

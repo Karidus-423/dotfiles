@@ -2,8 +2,10 @@
 {
   home.packages = with pkgs; [
 	#Command Line Tools
+	android-tools
 	bat
 	cargo
+	gdb
 	fzf
 	fd	
 	grim
@@ -19,12 +21,15 @@
 	glslviewer
 	swww
 	tmux
+	zip
+	gowall
 	unzip
 	unrar
 	watchexec
 	wev
 	unzip
 	zoxide
+	pcsx2
   ];
 }
 

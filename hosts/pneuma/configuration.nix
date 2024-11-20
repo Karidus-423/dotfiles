@@ -1,4 +1,4 @@
-{config, pkgs, inputs, ...}:
+{config, pkgs, inputs,...}:
 {
 	imports = [
 		./hardware-configuration.nix
@@ -29,7 +29,9 @@
 # Enable networking
 	networking.hostName = "pneuma";
 	networking.networkmanager.enable = true;
-	networking.firewall.allowedTCPPorts = [22];
+	networking.firewall.enable = false;
+	networking.firewall.allowedTCPPorts = [22 111];
+    networking.firewall.allowedUDPPorts = [111];
 
 # Enable bluetooth
 	hardware.bluetooth.powerOnBoot = true;
@@ -48,6 +50,7 @@
 		};
 	};
 	services.blueman.enable = true;
+	services.rpcbind.enable = true;
 
 	#Standard Interface for Applications to interact with
 	xdg.portal= {
@@ -102,6 +105,10 @@
 		xterm
 	  ];
   };
+
+	systemd.services.rpcbind.environment = {
+	  RPCBIND_OPTIONS = "-w";
+	};
 
    environment.gnome.excludePackages = with pkgs; [
     baobab      # disk usage analyzer
@@ -181,6 +188,7 @@
 	  enable = true;
 	  enableSSHSupport = true;
   };
+
   programs.hyprland = {
 	  enable = true;
 	  xwayland.enable = true;
@@ -218,9 +226,7 @@
    boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback
   ];
-	#  boot.kernelPackages = [
-	# pkgs.linuxPackages_latest
-	#  ];
+
   boot.kernelModules = ["v4l2loopback" "nvidia-uvm"];
   boot.extraModprobeConfig = ''
     options v4l2loopback devices=1 video_nr=1 card_label="OBS Cam" exclusive_caps=1

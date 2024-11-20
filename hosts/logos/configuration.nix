@@ -128,8 +128,8 @@
   system.stateVersion = "23.11";
 
 # Auto-Upgrade
-system.autoUpgrade = {
-    enable = true;
+  system.autoUpgrade = {
+    enable = false;
     flake = inputs.self.outPath;
     flags = [
         "--update-input"

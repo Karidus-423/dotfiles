@@ -14,7 +14,11 @@ let
 	${pkgs.gammastep}/bin/gammastep &
 	pipewire-pulse &
 
+	sleep 1
 	${pkgs.openrgb}/bin/openrgb -c 9F1C02
+
+	sleep 1
+	${pkgs.wlr-randr}/bin/wlr-randr --output DP-2 --custom-mode 3440x1440@165.00
 	'';
 
 
@@ -31,10 +35,6 @@ in
 
 				decoration = {
 					rounding = "5";
-					"shadow_range" = "4";
-					"shadow_render_power" = "3";
-					drop_shadow = false;
-					"col.shadow" = "rgba(1a1a1aee)";
 				};
 
 				general = config.hyprlandGeneral;
@@ -93,10 +93,7 @@ in
 			enabled = false
 		    }
 
-		    drop_shadow = false
-		    shadow_range = 4
-		    shadow_render_power = 3
-		    col.shadow = rgba(1a1a1aee)
+			
 		}
 
 		animations {
@@ -263,7 +260,8 @@ in
         workspace = 7, on-created-empty:[pseudo]
 
 		#TEMPORARY RULES
-		# windowrule = move 2300 0, title:^(Bedroom)(.*)$
+		windowrule = move 2400 300, title:^(Bedroom)(.*)$
+		windowrule = move 2400 500, title:^(Laputa)(.*)$
 
 			'';
 		};
