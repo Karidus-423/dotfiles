@@ -155,8 +155,8 @@ in
 
   hyprlandMonitors = "DP-2,highrr,0x0,1.5";
 
-  footFontProps = "GoMono Nerd Font:size=8.7";
-  footWindowDimensions = "850x790";
+  footFontProps = "GoMono Nerd Font:size=10.7";
+  footWindowDimensions = "950x780";
 #_____________________________________#
 
 }

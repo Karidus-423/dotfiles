@@ -30,6 +30,7 @@
 	networking.hostName = "pneuma";
 	networking.networkmanager.enable = true;
 	networking.firewall.allowedTCPPorts = [22];
+    networking.firewall.allowedUDPPorts = [ 111 ];
 
 # Enable bluetooth
 	hardware.bluetooth.powerOnBoot = true;
