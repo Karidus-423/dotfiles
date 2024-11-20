@@ -55,10 +55,7 @@ in
 		env = XCURSOR_SIZE,24
 		env = QT_QPA_PLATFORMTHEME,qt5ct # change to qt6ct if you have that
 		env = QT_AUTO_SCREEN_SCALE_FACTOR,1
-		env = LIBVA_DRIVER_NAME,nvidia
 		env = XDG_SESSION_TYPE,wayland
-		env = GBM_BACKEND,nvidia-drm
-		env = __GLX_VENDOR_LIBRARY_NAME,nvidia
 
 		cursor {
 			no_hardware_cursors = true
@@ -260,9 +257,9 @@ in
         workspace = 7, on-created-empty:[pseudo]
 
 		#TEMPORARY RULES
-		windowrule = move 2400 300, title:^(Bedroom)(.*)$
 		windowrule = move 2400 500, title:^(Laputa)(.*)$
 
+		windowrule = move 800 0, title:^(Bedroom)(.*)$
 			'';
 		};
 	};

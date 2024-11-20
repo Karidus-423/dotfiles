@@ -30,7 +30,7 @@ in
             eval "$(zoxide init zsh)"
 
             bindkey -s '^f' "tmux-sessionizer\n"
-			
+            bindkey -s '^l' "clear\n"
 			export DIRENV_LOG_FORMAT=""
 			'';
 		
@@ -42,6 +42,7 @@ in
             eval "$(zoxide init bash)"
 
             bindkey -s '^f' "tmux-sessionizer\n"
+            bindkey -s '^l' "clear\n"
 			export DIRENV_LOG_FORMAT=""
             '';
     };

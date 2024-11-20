@@ -38,8 +38,9 @@
 
 
   # Open ports in the firewall.
-   networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+   networking.firewall.enable = false;
+   networking.firewall.allowedTCPPorts = [ 22 111 ];
+   networking.firewall.allowedUDPPorts = [ 111 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
   #______________________________________#
@@ -165,6 +166,7 @@
 		};
    };
 
+   services.rpcbind.enable = true;
    services.blueman.enable = true;
    services.gvfs.enable = true;
    services.upower.enable = true;
@@ -188,6 +190,9 @@
     };
   };
 
+   systemd.services.rpcbind.environment = {
+		   RPCBIND_OPTIONS = "-w";
+   };
 
    environment.gnome.excludePackages = with pkgs; [
     baobab      # disk usage analyzer
