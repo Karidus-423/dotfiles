@@ -31,7 +31,7 @@
 	wev
 	unzip
 	zoxide
-	pcsx2
+	qemu_kvm
   ];
 }
 
