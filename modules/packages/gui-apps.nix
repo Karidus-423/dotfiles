@@ -20,6 +20,9 @@
 	thunderbird
 	obsidian
 	whatsapp-for-linux
+	pcsx2
+	networkmanagerapplet
+	virt-manager
 	zoom-us
 	];
 

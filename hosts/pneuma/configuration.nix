@@ -6,6 +6,7 @@
 	];
 
 #Bootloader
+	time.hardwareClockInLocalTime = true;
 	boot.loader = {
 		systemd-boot.enable = false;
 		efi.canTouchEfiVariables = true;
@@ -28,7 +29,18 @@
 
 # Enable networking
 	networking.hostName = "pneuma";
-	networking.networkmanager.enable = true;
+	networking.networkmanager= {
+		enable = true;
+		plugins = with pkgs;[
+		  networkmanager-fortisslvpn
+          networkmanager-iodine
+          networkmanager-l2tp
+          networkmanager-openconnect
+          networkmanager-openvpn
+          networkmanager-vpnc
+          networkmanager-sstp
+		];
+	};
 	networking.firewall.enable = false;
 	networking.firewall.allowedTCPPorts = [22 111];
     networking.firewall.allowedUDPPorts = [111];
@@ -50,6 +62,7 @@
 		};
 	};
 	services.blueman.enable = true;
+	boot.supportedFilesystems = [ "nfs" ];
 	services.rpcbind.enable = true;
 
 	#Standard Interface for Applications to interact with
@@ -134,7 +147,7 @@
   users.users.kennettp= {
     isNormalUser = true;
     description = "kennettp";
-    extraGroups = [ "networkmanager" "wheel" "sound" "video"];
+    extraGroups = [ "networkmanager" "wheel" "sound" "video" "libvirtd"];
     shell = pkgs.zsh;
     packages = with pkgs; [
     firefox
@@ -184,6 +197,7 @@
   # Some programs need SUID wrappers, can be configured further or are
 # started in user sessions.
   programs.mtr.enable = true;
+  programs.nix-ld.enable = true;
   programs.gnupg.agent = {
 	  enable = true;
 	  enableSSHSupport = true;
@@ -277,4 +291,22 @@
    dates = "09:00";
    randomizedDelaySec = "45min";
   };
+
+  # Virtualization
+  virtualisation.libvirtd = {
+  enable = true;
+  qemu = {
+    package = pkgs.qemu_kvm;
+    runAsRoot = true;
+    swtpm.enable = true;
+    ovmf = {
+      enable = true;
+      packages = [(pkgs.OVMF.override {
+        secureBoot = true;
+        tpmSupport = true;
+      }).fd];
+    };
+  };
+};
+
 }

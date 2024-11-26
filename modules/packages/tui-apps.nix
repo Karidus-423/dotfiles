@@ -4,7 +4,7 @@
 	#TUI Apps
 	cava
 	lf
-	mods
 	btop
+	gp-saml-gui
 	];
 }
