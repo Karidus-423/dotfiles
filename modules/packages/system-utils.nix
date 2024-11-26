@@ -7,6 +7,7 @@
 		xdg-utils
 		xwaylandvideobridge
 		wl-clipboard
+		man-pages
 	];
 }
 

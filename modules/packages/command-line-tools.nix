@@ -4,6 +4,7 @@
 	#Command Line Tools
 	android-tools
 	bat
+	tlrc
 	cargo
 	gdb
 	fzf
@@ -15,6 +16,7 @@
 	notify
 	ripgrep
 	pandoc
+	gpclient
 	slurp
 	swappy
 	jq
