@@ -20,6 +20,9 @@
 		set -g status-justify left \n
 		set -as terminal-overrides \",screen-256color*:Tc\" \n
         bind c new-window -c \"#{pane_current_path}\" \n
+		set -g allow-passthrough all \n
+		set -ga update-environment TERM \n
+		set -ga update-environment TERM_PROGRAM \n
         set-option -g renumber-windows on \n
         set -g window-status-separator \"\" \n
 		set -g status-style 'bg=#cccccc fg=#80652b' \n
@@ -29,7 +32,7 @@
         set-option -g status-right-style 'bg=#80652b fg=#cccccc' \n
         set-option -g status-right-length \"80\" \n
 		bind-key -r f run-shell \"tmux neww ~/.nix-profile/bin/tmux-sessionizer\" \n
-		bind-key t run-shell \"tmux neww -n lf ${pkgs.lf}/bin/lf\"
+		bind-key t run-shell \"tmux neww -n yazi ${pkgs.yazi}/bin/yazi\"
 		bind-key -r u run-shell \"tmux neww ~/.nix-profile/bin/tmux-sessionizer ~/notes\" \n
         ";
     };

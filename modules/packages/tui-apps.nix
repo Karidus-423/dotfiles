@@ -3,7 +3,7 @@
   home.packages = with pkgs; [
 	#TUI Apps
 	cava
-	lf
+	yazi
 	btop
 	gp-saml-gui
 	];

@@ -3,6 +3,7 @@
   home.packages = with pkgs; [
 	#Command Line Tools
 	android-tools
+	tree
 	bat
 	tlrc
 	cargo
