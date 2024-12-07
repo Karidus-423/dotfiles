@@ -180,6 +180,7 @@
 	  MOZ_WEBRENDER = "1";
 	  GTK_THEME = "Chicago95";
 	  REBUILD_NAME = "pneuma";
+	  MANPAGER = "nvim +Man!";
   };
   environment.systemPackages = with pkgs; [
 	wlr-randr

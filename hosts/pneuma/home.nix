@@ -79,7 +79,6 @@ in
 	};
 
 
-
 # Home Manager is pretty good at managing dotfiles. The primary way to manage
 # plain files is through 'home.file'.
 # # Building this configuration will create a copy of 'dotfiles/screenrc' in
@@ -133,12 +132,18 @@ in
 	};
 
 	hyprlandGeneral = {
+#302D1F
+#474648
+#716F6F
+#90908F
+#A1A5AC
+#C3C6C7
 		gaps_in = 4;
 		border_size = 3;
 		allow_tearing = false;
 		layout = "dwindle";
-		"col.active_border" = "rgba(b2d498ee) rgba(b3dcdda8) 0deg";
-		"col.inactive_border" = "rgba(acafadee) rgba(110f0fa5) 90deg";
+		"col.active_border" = " rgba(A1A5ACee)";
+		"col.inactive_border" = "rgba(90908F55e";
 	};
 
 	hyprlandWallpaper = ../../modules/wallpapers/Trandheim.jpg;
@@ -147,5 +152,6 @@ in
 	# hyprlandMonitors = "DP-2,3440x1440@165.00,0x0,1";
 
 
+	footFontProps = "GoMono Nerd Font:size=20";
 	footWindowDimensions = "1220x1430";
 }

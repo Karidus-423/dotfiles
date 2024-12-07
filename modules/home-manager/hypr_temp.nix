@@ -89,8 +89,10 @@ in
 		    blur {
 			enabled = false
 		    }
-
 			
+			shadow{
+			enabled = false
+			}
 		}
 
 		animations {
