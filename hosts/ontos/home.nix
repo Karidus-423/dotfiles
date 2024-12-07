@@ -120,8 +120,7 @@ in
 
 #_____________________________________#
 # Theming #
-  colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
-	  (builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
+  colorScheme = inputs.nix-colors.colorSchemes.kanagawa;
 #colorScheme = nix-colors-lib.colorSchemeFromPicture {
 #  path = ./wallpapers/forest.png;
 #  variant = "light";

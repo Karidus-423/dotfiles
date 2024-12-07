@@ -51,12 +51,6 @@
 				./hosts/ontos/configuration.nix
 			];
 		  };
-		logos = nixpkgs.lib.nixosSystem {
-			specialArgs = { inherit inputs; };
-			modules = [
-				./hosts/logos/configuration.nix
-			];
-		  };
     };
   };
 }
