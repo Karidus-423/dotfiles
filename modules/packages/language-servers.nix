@@ -15,8 +15,8 @@
 	ocaml
 	ocamlPackages.ocaml-lsp
     nil #Nix Language Server
-    nodePackages.bash-language-server
-    nodePackages_latest.typescript-language-server
+    bash-language-server
+	typescript-language-server
 	nodejs
     shellcheck#Bash LSP
 	vscode-langservers-extracted #CSS/HTML/LESS

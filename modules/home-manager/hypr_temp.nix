@@ -45,10 +45,11 @@ in
 			extraConfig = ''
 		# Set programs that you use
 		$terminal = foot
-		$fileManager = foot -e lf
+		$fileManager = foot -e yazi
 		$menu = ags -t applauncher -b ags
 		$browser = firefox
 		$notebook = obsidian
+
 
 		# Some default env vars.
         env = GDK_SCALE,1
@@ -259,9 +260,11 @@ in
         workspace = 7, on-created-empty:[pseudo]
 
 		#TEMPORARY RULES
-		windowrule = move 2400 500, title:^(Laputa)(.*)$
+		# windowrule = move 2400 000, title:^(Raytracer)(.*)$
+		# windowrule = move 1275 000, title:^(Pichoo)(.*)$
 
-		windowrule = move 800 0, title:^(Bedroom)(.*)$
+
+		# windowrule = move 800 0, title:^(Bedroom)(.*)$
 			'';
 		};
 	};
