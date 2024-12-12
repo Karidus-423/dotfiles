@@ -20,6 +20,7 @@ in
   home.sessionVariables = {
 	  EDITOR = "nvim";
 	  GDK_BACKEND="wayland";
+	  TERM="foot";
   };
   home.pointerCursor = {
 	  gtk.enable = true;

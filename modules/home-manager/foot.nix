@@ -12,7 +12,6 @@ in
 		package = pkgs.foot;
 		settings = {
 			main = {
-				term = "screen-256color";
 				font = config.footFontProps;
 				dpi-aware = "yes";
 				initial-window-size-pixels=config.footWindowDimensions;

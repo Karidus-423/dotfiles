@@ -19,13 +19,13 @@ truncation_length = 2
 home_symbol = " 󱄫 "
 
 [character]
-success_symbol = "[󰇂 ](green)"
+success_symbol = "[󰇂 ](#76946A)"
 error_symbol = "[󰇂 ](red)"
 vicmd_symbol = "[« ](green)"
 
 [git_branch]
 symbol = " "
-format = "[$symbol$branch ](#717C7C)"
+format = "[$symbol$branch ](pink)"
 # ~/.config/starship.toml
 
 [git_status]
@@ -39,7 +39,7 @@ renamed = ' 󰮆 '
 ahead = '⇡ $count '
 diverged = ' ⇕⇡ $ahead_count -⇣ $behind_count '
 behind = ' ⇣ $count'
-style = 'bold #e8eda2'
+style = 'bold #C0A36E'
 
 [nix_shell]
 symbol = "  "
