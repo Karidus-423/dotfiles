@@ -75,7 +75,7 @@ in
 		configDir = ../../modules/home-manager/ags_ontos;
 	  extraPackages = with pkgs; [
 		  gtksourceview
-		  webkitgtk
+		  # webkitgtk
 		  accountsservice
 		  gvfs
 		  fzf
@@ -120,7 +120,8 @@ in
 
 #_____________________________________#
 # Theming #
-  colorScheme = inputs.nix-colors.colorSchemes.kanagawa;
+	colorScheme = inputs.nix-colors.lib.schemeFromYAML "kanagawa" 
+		(builtins.readFile ../../modules/home-manager/custom_base16/kanagawa.yaml);
 #colorScheme = nix-colors-lib.colorSchemeFromPicture {
 #  path = ./wallpapers/forest.png;
 #  variant = "light";

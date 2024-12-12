@@ -25,7 +25,7 @@ vicmd_symbol = "[« ](green)"
 
 [git_branch]
 symbol = " "
-format = "[$symbol$branch ](#c3a1ce)"
+format = "[$symbol$branch ](#717C7C)"
 # ~/.config/starship.toml
 
 [git_status]
@@ -43,9 +43,6 @@ style = 'bold #e8eda2'
 
 [nix_shell]
 symbol = "  "
-[python]
-symbol = '👾 '
-pyenv_version_name = false
 [php]
 symbol = ""
 format = '[[ $symbol ($version) ](fg:#af9ff0)]($style)'
@@ -53,9 +50,13 @@ format = '[[ $symbol ($version) ](fg:#af9ff0)]($style)'
 symbol = ""
 format = '[[ $symbol ($version) ](fg:#c37937)]($style)'
 [golang]
-symbol = ""
+symbol = ""
 format = '[[ $symbol ($version) ](fg:#6094d3)]($style)'
 [c]
-format = '\[[$symbol($version(-$name))]($style)]'
+symbol = ""
+format = '[[ $symbol ($version) ](fg:#938056)]($style)'
+[zig]
+symbol = ""
+format = '[[ $symbol ($version) ](fg:#DCA561)]($style)'
 '';
 }

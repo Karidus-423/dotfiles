@@ -117,16 +117,18 @@
 	  kitty
 	  vim 
 	  git
-	  lazygit
 	  obsidian
 	  inputs.zen-browser.packages."x86_64-linux".default
   ];
 
   environment.sessionVariables = {
       WLR_NO_HARDWARE_CURSORS = "1";
+	  WLR_RENDERER = "vulkan";
       NIXOS_OZONE_WL = "1";
       GTK_THEME = "Chicago95";
 	  MANPAGER = "nvim +Man!";
+      LIBVA_DRIVER_NAME = "iHD"; 
+	  LIBGL_ALWAYS_SOFTWARE="1";
   };
   #______________________________________#
 
@@ -144,7 +146,14 @@
   #______________________________________#
   #Graphics
   hardware = {
-      graphics.enable = true;
+      graphics= {
+		  enable = true;
+		  extraPackages = with pkgs;[ 
+				mesa.drivers 
+				vpl-gpu-rt
+				intel-media-driver
+		  ];
+	  };
   };
   #______________________________________#
 
@@ -275,6 +284,7 @@ ssnfs       31110023 nfsprog
       extraGSettingsOverridePackages = [
       ];
     };
+	videoDrivers = [ "modesetting" ];
   };
 
    systemd.services.rpcbind.environment = {
