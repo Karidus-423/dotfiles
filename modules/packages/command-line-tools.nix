@@ -16,6 +16,7 @@
 	neofetch
 	notify
 	ripgrep
+	gnumake
 	pandoc
 	gpclient
 	slurp

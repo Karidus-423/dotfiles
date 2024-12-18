@@ -21,8 +21,8 @@ in
 
 # Let Home Manager install and manage itself.
 	programs.home-manager.enable = true;
-	colorScheme = inputs.nix-colors.lib.schemeFromYAML "sainte-adresse" 
-		(builtins.readFile ../../modules/home-manager/custom_base16/sainte-adresse.yaml);
+	colorScheme = inputs.nix-colors.lib.schemeFromYAML "kanagawa" 
+		(builtins.readFile ../../modules/home-manager/custom_base16/kanagawa.yaml);
 #colorScheme = nix-colors-lib.colorSchemeFromPicture {
 #  path = ./wallpapers/forest.png;
 #  variant = "light";

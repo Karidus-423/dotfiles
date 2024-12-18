@@ -13,6 +13,7 @@
 	kiwix
 	gimp
 	vlc
+	reaper
 	ventoy-full
 	godot_4
 	krita
