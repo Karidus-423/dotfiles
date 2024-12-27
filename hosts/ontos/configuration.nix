@@ -118,7 +118,7 @@
 	  vim 
 	  git
 	  obsidian
-	  inputs.zen-browser.packages."x86_64-linux".default
+	  inputs.ghostty.packages.x86_64-linux.default
   ];
 
   environment.sessionVariables = {

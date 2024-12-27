@@ -9,6 +9,9 @@
 		url = "github:aylur/astal";
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
+	ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
 	neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
 	zen-browser.url = "github:MarceColl/zen-browser-flake";
 	spicetify-nix = {
