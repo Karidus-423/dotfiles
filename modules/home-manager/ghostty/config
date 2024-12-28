@@ -1,0 +1,21 @@
+font-family = "Monaspace Xenon"
+font-size = 20
+theme = "Kanagawa Dragon"
+cursor-style = block
+background-opacity = 0.9
+window-decoration = false
+window-padding-y = 2
+window-padding-x = 4,4
+shell-integration = "zsh"
+auto-update = off
+auto-update-channel = tip
+gtk-single-instance = false
+quit-after-last-window-closed=true
+
+background = 4f4f4f
+palette = 13=#C0A36E
+
+keybind = ctrl+v=paste_from_clipboard
+
+window-width = 88
+window-height = 40

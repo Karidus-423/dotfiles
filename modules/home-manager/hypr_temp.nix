@@ -44,8 +44,8 @@ in
 
 			extraConfig = ''
 		# Set programs that you use
-		$terminal = foot
-		$fileManager = foot -e yazi
+		$terminal = ghostty
+		$fileManager = ghostty -e yazi
 		$menu = ags -t applauncher -b ags
 		$browser = firefox
 		$notebook = obsidian
@@ -156,7 +156,7 @@ in
 		bind = $mainMod, Q, killactive, 
 		bind = $mainMod_SHIFT, Q, exit, 
 		bind = $mainMod, S, exec, $menu
-		bind = $mainMod, E, exec, $filemanager
+		bind = $mainMod, E, exec, $fileManager
 		bind = $mainMod, F, exec, $browser
 		bind = $mainMod, V, togglefloating, 
 		bind = $mainMod, P, pseudo, # dwindle

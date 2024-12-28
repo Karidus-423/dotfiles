@@ -183,6 +183,7 @@
 	  MANPAGER = "nvim +Man!";
   };
   environment.systemPackages = with pkgs; [
+  	  inputs.ghostty.packages.x86_64-linux.default
 	wlr-randr
   ];
 

@@ -93,6 +93,7 @@ in
 # '';
 	home.file = {
 		".config/swappy/config".source = ../../modules/home-manager/swappy/config;
+	   ".config/ghostty/config".source = ../../modules/home-manager/ghostty/config;
 	};
 
 # Home Manager can also manage your environment variables through
