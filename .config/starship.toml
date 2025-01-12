@@ -11,9 +11,9 @@ truncation_length = 2
 home_symbol = " 󱄫 "
 
 [character]
-success_symbol = "[󰇂 ](#76946A)"
-error_symbol = "[󰇂 ](red)"
-vicmd_symbol = "[« ](green)"
+success_symbol = "[󰔷 ](#76946A)"
+error_symbol = "[󰔶 ](red)"
+vicmd_symbol = "[ ](green)"
 
 [git_branch]
 symbol = " "
@@ -42,11 +42,15 @@ format = '[[ $symbol ($version) ](fg:#af9ff0)]($style)'
 symbol = ""
 format = '[[ $symbol ($version) ](fg:#c37937)]($style)'
 [golang]
-symbol = ""
+symbol = ""
 format = '[[ $symbol ($version) ](fg:#6094d3)]($style)'
 [c]
-symbol = ""
 format = '[[ $symbol ($version) ](fg:#938056)]($style)'
+symbol = ""
+detect_file = ['Makefile']
+commands = [ [ 'cc', '--version' ], [ 'gcc', '--version' ], [ 'clang', '--version' ], ['zig','cc','--version'] ]
+disabled = false
 [zig]
 symbol = ""
+detect_file = ['build.zig.zon']
 format = '[[ $symbol ($version) ](fg:#DCA561)]($style)'
