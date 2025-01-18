@@ -14,7 +14,7 @@ _comp_options+=(globdots) # Include .files
 # End of lines added by compinstall
 #
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/.local/scripts
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.cargo/bin
 export DIRENV_LOG_FORMAT=""
 export FZF_DEFAULT_OPTS="
 --height 50% --reverse --border=sharp --margin 5% --color=label:#cccccc"
