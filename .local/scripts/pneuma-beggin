@@ -7,7 +7,7 @@
 swww-daemon &
 sleep 1 
 
-swww img $HOME/Pictures/wallpapers/Trandheim.jpg --transition-type=grow &
+swww img $HOME/Pictures/wallpapers/lumber-hut.jpg --transition-type=grow &
 sleep 1
 
 

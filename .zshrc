@@ -39,6 +39,10 @@ bindkey -v '^?' backward-delete-char
 
 bindkey -s '^f' "tmux-sessionizer\n"
 
+# Removing Keys
+bindkey -r '^[[KP_Add'
+
+
 
 alias g=lazygit
 alias fonts="fc-list | grep -oP '(?<=: ).*'";

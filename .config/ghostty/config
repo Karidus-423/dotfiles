@@ -1,6 +1,9 @@
 font-family = "Monaspace Xenon"
-font-size = 20
+font-size = 17.5
+
 theme = "Kanagawa Dragon"
+window-theme = ghostty
+
 cursor-style = block
 background-opacity = 0.9
 window-decoration = false
@@ -9,13 +12,19 @@ window-padding-x = 4,4
 shell-integration = "zsh"
 auto-update = off
 auto-update-channel = tip
+
+gtk-adwaita = true
 gtk-single-instance = false
+gtk-wide-tabs = false
+gtk-tabs-location = top
+
 quit-after-last-window-closed=true
+window-width = 88
+window-height = 29
 
 background = 4f4f4f
 palette = 13=#C0A36E
 
-keybind = ctrl+v=paste_from_clipboard
 
-window-width = 88
-window-height = 40
+
+config-file = ./key-binds.conf
