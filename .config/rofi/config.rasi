@@ -12,8 +12,3 @@ configuration {
 entry {
     placeholder: "Search Apps";
 }
-
-message {
-    background-color: red;
-    border: 0px solid;
-}
