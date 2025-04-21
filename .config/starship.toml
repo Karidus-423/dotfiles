@@ -6,12 +6,12 @@ $linebreak$character
 command_timeout = 2000
 
 [directory]
-format = "[  ](bold grey)[$path ](#b3dcdd)[$read_only|]($read_only_style #acafad) "
+format = "[  ](bold grey)[$path ](blue)[$read_only|]($read_only_style silver) "
 truncation_length = 2
 home_symbol = " 󱄫 "
 
 [character]
-success_symbol = "[󰔷 ](#76946A)"
+success_symbol = "[󰔷 ](green)"
 error_symbol = "[󰔶 ](red)"
 vicmd_symbol = "[ ](green)"
 
@@ -31,21 +31,21 @@ renamed = ' 󰮆 '
 ahead = '⇡ $count '
 diverged = ' ⇕⇡ $ahead_count -⇣ $behind_count '
 behind = ' ⇣ $count'
-style = 'bold #C0A36E'
+style = 'bold yellow'
 
 [nix_shell]
 symbol = "  "
 [php]
 symbol = ""
-format = '[[ $symbol ($version) ](fg:#af9ff0)]($style)'
+format = '[[ $symbol ($version) ](fg:purple)]($style)'
 [rust]
 symbol = ""
-format = '[[ $symbol ($version) ](fg:#c37937)]($style)'
+format = '[[ $symbol ($version) ](fg:olive)]($style)'
 [golang]
 symbol = ""
-format = '[[ $symbol ($version) ](fg:#6094d3)]($style)'
+format = '[[ $symbol ($version) ](fg:blue)]($style)'
 [c]
-format = '[[ $symbol ($version) ](fg:#938056)]($style)'
+format = '[[ $symbol ($version) ](fg:olive)]($style)'
 symbol = ""
 detect_file = ['Makefile']
 commands = [ [ 'cc', '--version' ], [ 'gcc', '--version' ], [ 'clang', '--version' ], ['zig','cc','--version'] ]
@@ -53,4 +53,4 @@ disabled = false
 [zig]
 symbol = ""
 detect_file = ['build.zig.zon']
-format = '[[ $symbol ($version) ](fg:#DCA561)]($style)'
+format = '[[ $symbol ($version) ](fg:yellow)]($style)'
