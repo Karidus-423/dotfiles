@@ -17,7 +17,7 @@ _comp_options+=(globdots) # Include .files
 export PATH=$PATH:$HOME/.local/bin:$HOME/.local/scripts:$HOME/.cargo/bin
 export DIRENV_LOG_FORMAT=""
 export FZF_DEFAULT_OPTS="
---height 50% --reverse --border=sharp --margin 5% --color=label:#cccccc"
+--height 50% --reverse --border=sharp --margin 5% --color=label:white"
 export MANPAGER="nvim +Man!"
 export EDITOR="nvim"
 # Set up fzf key bindings and fuzzy completion
