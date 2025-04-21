@@ -21,7 +21,7 @@ gtk-tabs-location = top
 
 quit-after-last-window-closed=true
 window-width = 88
-window-height = 29
+window-height = 40
 
 background = #404A41
 palette = 13=#C0A36E
