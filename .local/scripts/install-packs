@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+PACKAGES_FILE=$(find ~/dotfiles -name packages.txt)
+
+pacman -S - < "$PACKAGES_FILE"

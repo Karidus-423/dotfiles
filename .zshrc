@@ -26,7 +26,6 @@ source <(fzf --zsh)
 
 eval "$(starship init zsh)"
 eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
 
 #Vim Mode
 bindkey -v
