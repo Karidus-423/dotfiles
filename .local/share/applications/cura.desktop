@@ -1,0 +1,6 @@
+[Desktop Entry]
+Type=Application
+Name=Cura
+Comment=Slicer
+Exec=/home/karidus/Desktop/UltiMaker-Cura-5.10.0-linux-X64.AppImage
+Terminal=false

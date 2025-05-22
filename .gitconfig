@@ -2,3 +2,7 @@
 	username = Karidus-423
 	email = kapuerto23@gmail.com
 	name = Karidus-423
+[init]
+	defaultBranch = main
+[fetch]
+	prune = true
