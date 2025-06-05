@@ -2,3 +2,8 @@
 	username = Karidus-423
 	email = kapuerto23@gmail.com
 	name = Karidus-423
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process

@@ -1,0 +1,5 @@
+[general]
+framerate = 120
+
+[output]
+method = sdl

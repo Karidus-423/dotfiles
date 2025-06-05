@@ -22,7 +22,7 @@
 	spacing: 0;
 	background-color: transparent;
 
-    font: "Monaspace Xenon 18";
+    font: "Monaspace Xenon 20";
 }
 
 configuration {
