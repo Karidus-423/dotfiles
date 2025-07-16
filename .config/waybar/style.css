@@ -12,6 +12,7 @@
 	margin: 0px;
 	padding: 0px;
 	border-radius: 0px;
+	font-family: IosevkaTermSlab Nerd Font;
 }
 
 window#waybar{
@@ -22,12 +23,12 @@ window#waybar{
 	background-color: #303e37;
 }
 
-#workspaces button.persistent.empty {
-	background-color: #727358;
+#workspaces button.empty {
+	background-color: #4e5f63;
 }
 
 #workspaces button.active {
-	background-color: #4e5f63;
+	background-color: #727358;
 }
 
 #battery.good{
