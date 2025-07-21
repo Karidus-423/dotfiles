@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+FILE_NAME=$1
+MODE=$2
+
+# Rename and move
+FILE_FN="${FILE_NAME}_fn.json"
+FILE_SMT="${FILE_NAME}.smt2"
+FILE_JSON="${FILE_NAME}.json"
+
+time ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON $MODE
+
