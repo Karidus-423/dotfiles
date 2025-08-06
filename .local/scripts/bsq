@@ -1,12 +1,34 @@
 #!/usr/bin/env bash
 
-FILE_NAME=$1
-MODE=$2
+FILE_NAME="$1"
+MODE="$2"
 
 # Rename and move
 FILE_FN="${FILE_NAME}_fn.json"
 FILE_SMT="${FILE_NAME}.smt2"
 FILE_JSON="${FILE_NAME}.json"
 
-time ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON $MODE
+
+if [ "${MODE}" == "--meta" ]; then
+	echo "Generating Bosque Metadata..."
+	FILE_PATH=$(pwd)/$FILE_NAME.bsq
+	# # Get SMT
+	/usr/bin/node /home/kennett/work/BosqueCore/bin/src/cmd/analyze.js $FILE_PATH
+	# Get BSQON
+	/usr/bin/node /home/kennett/work/BosqueCore/bin/src/cmd/bosque.js --function main $FILE_PATH
+
+
+	# Rename and move
+	FILE_FN=$1_fn
+	mv $(pwd)/jsout/typeinfo.json $(pwd)/$FILE_NAME.json
+	mv $(pwd)/jsout/targettype.json $(pwd)/$FILE_FN.json
+	mv $(pwd)/smtout/formula.smt2 $(pwd)/$FILE_NAME.smt2
+
+	#
+	rm -r $(pwd)/jsout/
+	rm -r $(pwd)/smtout/
+else
+	time ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON $MODE
+fi
+
 
