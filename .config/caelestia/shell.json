@@ -24,9 +24,9 @@
             "activeLabel": "󰮯 ",
             "activeTrail": false,
             "label": "  ",
-            "occupiedBg": false,
-            "occupiedLabel": "󰮯 ",
-            "rounded": false,
+            "occupiedBg": true,
+            "occupiedLabel": " ",
+            "rounded": true,
             "showWindows": false,
             "shown": 7
         }
@@ -62,7 +62,7 @@
         "clearThreshold": 0.3,
         "defaultExpireTimeout": 5000,
         "expandThreshold": 20,
-        "expire": false
+        "expire": true,
     },
     "osd": {
         "hideDelay": 2000
