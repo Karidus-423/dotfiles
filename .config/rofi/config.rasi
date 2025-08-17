@@ -33,3 +33,7 @@ configuration {
 entry {
     placeholder: "Search Apps";
 }
+
+window{
+	width: 80%;
+}

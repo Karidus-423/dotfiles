@@ -1,26 +1,25 @@
 [Default Applications]
 application/pdf=org.pwmt.zathura.desktop
 application/epub=org.pwmt.zathura.desktop
-x-scheme-handler/http=zen-browser.desktop
-x-scheme-handler/https=zen-browser.desktop
-x-scheme-handler/chrome=zen-browser.desktop
-text/html=zen-browser.desktop
-application/x-extension-htm=zen-browser.desktop
-application/x-extension-html=zen-browser.desktop
-application/x-extension-shtml=zen-browser.desktop
-application/xhtml+xml=zen-browser.desktop
-application/x-extension-xhtml=zen-browser.desktop
-application/x-extension-xht=zen-browser.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/chrome=firefox.desktop
+text/html=firefox.desktop
+application/x-extension-htm=firefox.desktop
+application/x-extension-html=firefox.desktop
+application/x-extension-shtml=firefox.desktop
+application/xhtml+xml=firefox.desktop
+application/x-extension-xhtml=firefox.desktop
+application/x-extension-xht=firefox.desktop
 
 [Added Associations]
-x-scheme-handler/http=zen-browser.desktop;
-x-scheme-handler/https=zen-browser.desktop;
-x-scheme-handler/chrome=zen-browser.desktop;
-text/html=zen-browser.desktop;
-application/x-extension-htm=zen-browser.desktop;
-application/x-extension-html=zen-browser.desktop;
-application/x-extension-shtml=zen-browser.desktop;
-application/xhtml+xml=zen-browser.desktop;
-application/x-extension-xhtml=zen-browser.desktop;
-application/x-extension-xht=zen-browser.desktop;
-
+x-scheme-handler/http=firefox.desktop;zen-browser.desktop;
+x-scheme-handler/https=firefox.desktop;zen-browser.desktop;
+x-scheme-handler/chrome=firefox.desktop;zen-browser.desktop;
+text/html=zen-browser.desktop;firefox.desktop;
+application/x-extension-htm=zen-browser.desktop;firefox.desktop;
+application/x-extension-html=zen-browser.desktop;firefox.desktop;
+application/x-extension-shtml=zen-browser.desktop;firefox.desktop;
+application/xhtml+xml=zen-browser.desktop;firefox.desktop;
+application/x-extension-xhtml=zen-browser.desktop;firefox.desktop;
+application/x-extension-xht=zen-browser.desktop;firefox.desktop;
