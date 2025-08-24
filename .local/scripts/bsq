@@ -39,8 +39,18 @@ if [ "${MODE}" == "--meta" ]; then
 	#
 	rm -r $(pwd)/jsout/
 	rm -r $(pwd)/smtout/
+elif [ "${MODE}" == "--run" ] || [ "${MODE}" == "-r" ]; then
+	time ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON -m
+elif [ "${MODE}" == "--debug" ] || [ "${MODE}" == "-d" ]; then
+	lldb ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON -- -m
 else
-	time ./output/smtextract $FILE_SMT $FILE_FN $FILE_JSON $MODE
+	echo "bsq <BASE_FILE_NAME> <MODE> [CHK]" 
+	echo "MODE:" 
+	echo "--run: run smt extractor" 
+	echo "--debug : run debugger for smtextractor" 
+	echo "--meta: generate meta files for extractor" 
+	echo "Only if --meta flag on:" 
+	echo "--test <function_name>: generate the target function json signature" 
 fi
 
 
