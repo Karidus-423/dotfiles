@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-openrgb -c 9F1C02
-sleep 1
-
-syncthing --no-browser &

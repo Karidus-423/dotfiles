@@ -2,10 +2,11 @@
 {
     // "layer": "top", // Waybar at top layer
     "position": "left", // Waybar position (top|bottom|left|right)
-    "height": 1000, // Waybar height (to be removed for auto height)
+    // "height": , // Waybar height (to be removed for auto height)
     "width": 36, // Waybar width
-    "spacing": 2, // Gaps between modules (4px)
+    "spacing": 10, // Gaps between modules (4px)
     // Choose the order of the modules
+	"reload_style_on_change": true,
     "modules-left": [
         "clock",
         "network",
@@ -17,16 +18,32 @@
     "modules-right": [
 		"mpris",
         "pulseaudio",
-        // "backlight",
-		// "power-profiles-daemon",
+        "backlight",
+		"power-profiles-daemon",
 		"battery",
     ],
     // Modules configuration
     "hyprland/workspaces": {
+		"active-only": false,
         "disable-scroll": true,
-        "all-outputs": true,
+        "all-outputs": false,
         "warp-on-scroll": false,
-        "format": "",
+        "format": "{icon}",
+		"format-icons": {
+			"active": "󰮯",
+			"persistent": "",
+			"empty": "",
+			"default": "",
+		},
+		"persistent-workspaces" : {
+			"1": [],
+			"2": [],
+			"3": [],
+			"4": [],
+			"5": [],
+			"6": [],
+			"7": [],
+		},
     },
 	"mpris":{
 		"format": "{player_icon}",
@@ -42,7 +59,7 @@
     "clock": {
         // "timezone": "America/New_York",
 		"format" : "{:%H\n%M}",
-        "format-alt": "{:%Y-%m-%d}"
+        "format-alt": "{:%Y\n%m\n%d}"
     },
     "temperature": {
         // "thermal-zone": 2,

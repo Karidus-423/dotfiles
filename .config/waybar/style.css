@@ -1,91 +1,13 @@
-/* :root{ */
-/* --red: #634e4e; */
-/* --green:#4e635a; */
-/* --yellow: #727358; */
-/* --blue: #4e5f63; */
-/* --orange: #615f3b; */
-/* --light-green: #717F71; */
-/* --gray: #737f7f; */
-/* } */
-
 *{
+	font-family: Monaspace Xenon;
+	font-size: 18px;
 	margin: 0px;
 	padding: 0px;
 	border-radius: 0px;
+	color: #737f7f;
 }
 
 window#waybar{
-	background: #737f7f;
+	background: #293234;
 }
 
-#workspaces button.persistent {
-	background-color: #303e37;
-}
-
-#workspaces button.persistent.empty {
-	background-color: #727358;
-}
-
-#workspaces button.active {
-	background-color: #4e5f63;
-}
-
-#battery.good{
-	background-color: green;
-}
-
-#battery.warning{
-	background-color: #727358;
-}
-
-#battery.good{
-	background-color: #717F71;
-}
-
-#power-profiles-daemon.performance{
-	background-color: #727358;
-}
-
-#power-profiles-daemon.balanced{
-	background-color: grey;
-}
-
-#power-profiles-daemon.power-saver{
-	background-color: #717F71;
-}
-
-#temperature{
-	background-color: #4e5f63;
-}
-
-#temperature.critial{
-	background-color: #634e4e;
-}
-
-#network.wifi{
-	background-color: #4e5f63;
-}
-
-#network.disconnected{
-	background-color: #634e4e;
-}
-
-#network.disabled{
-	background-color: brown;
-}
-
-#backlight{
-	background-color: #869193;
-}
-
-#pulseaudio{
-	background-color: #4e5f63;
-}
-
-#pulseaudio.bluetooth{
-	background-color:#4e5f63;
-}
-
-#pulseaudio.muted{
-	background-color: #615f3b;
-}
