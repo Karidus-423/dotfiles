@@ -56,12 +56,14 @@
 			"paused": "⏸"
 		},
 	},
-    "clock": {
-        // "timezone": "America/New_York",
-		"format" : "{:%H\n%M}",
-        "format-alt": "{:%Y\n%m\n%d}"
-    },
-    "temperature": {
+	"clock": {
+		"timezone": "America/Kentucky/Louisville",
+		"interval": 60,
+		"tooltip": true,
+		"format": "{:%H\n%M}",
+		"tooltip-format": "{:%Y-%m-%d}",
+	},
+	"temperature": {
         // "thermal-zone": 2,
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
