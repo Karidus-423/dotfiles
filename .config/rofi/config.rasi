@@ -1,38 +1,5 @@
-@theme "/usr/share/rofi/themes/material.rasi"
-
-* {
-	base00: #7fffff;
-	base01: #2EFC43;
-	base02: #FF4549;
-	base04: #B2CCD6;
-	base05: #000000;
-	base06: #000000;
-	base08: #F07178;
-	base09: #F78C6C;
-	base0A: #FFCB6B;
-	base0B: #C3E88D;
-	base0C: #89DDFF;
-	base0E: #C792EA;
-	base0F: #FF5370;
-	base03: #4E635A;
-	base07: #737F7F;
-	base0D: #4E635A;
-
-	spacing: 0;
-
-    font: "Monaspace Xenon 16";
-}
-
 configuration {
-    modi: "drun";
-    show-icons: true;
+	modes: [drun];
 }
 
-entry {
-    placeholder: "Search Apps";
-}
-
-window{
-	width: 40%;
-	height: 40%;
-}
+@theme "low-tide"
